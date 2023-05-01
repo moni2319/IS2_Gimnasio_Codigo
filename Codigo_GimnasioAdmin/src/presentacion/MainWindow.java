@@ -50,14 +50,16 @@ public class MainWindow extends JFrame {
 		monitorButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Abrir la ventana de monitores
-				// MonitorWindow monitorWindow = new MonitorWindow();
-				// monitorWindow.setVisible(true);
+				 MonitorWindow monitorWindow = new MonitorWindow();
+				 monitorWindow.setVisible(true);
 			}
 		});
 
 		entrenamientoButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Abrir la ventana de entrenamiento
+				//ActividadWindow actividadWindow = new ActividadWindow();
+				//actividadWindow.setVisible(true);
 
 			}
 		});

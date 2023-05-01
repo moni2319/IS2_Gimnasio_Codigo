@@ -16,7 +16,7 @@ public class MonitorWindow extends JFrame{
 	}
 
 	private void initComponents() {
-		setTitle("Clientes");
+		setTitle("Monitores");
 
 		// Panel principal
 		JPanel panel = new JPanel(new GridLayout(3, 1, 10, 10));
