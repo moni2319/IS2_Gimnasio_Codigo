@@ -21,21 +21,21 @@ public class ControladorImp extends Controlador {
 	public void Accion(int event, Object trans) {
 		switch (event) {
 		case Eventos.ALTA_ACTIVIDAD: {
-			
+
 			TransActividad tActividad = (TransActividad) trans;
 
 			// Modelo
 			SAActividad actividad = factoria.getInstanciaSAActividad();
-			
-			
+
 			// HAY q crear las instanicas
-			int resultado = actividad.AltaActividad(tActividad);
-			
-			if (resultado > 0) // pasarle la ventana
-				ActividadWindow.obtenerInstancia().Actualizar(Eventos.RES_ALTA_ACTIVIDAD_OK, resultado);
-			else
-				ActividadWindow.obtenerInstancia().Actualizar(Eventos.RES_ALTA_ACTIVIDAD_KO, resultado);
-			
+			try {
+				int resultado = actividad.AltaActividad(tActividad);
+				
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+
+
 			break;
 		}
 		// case Evento.BAJA_USUARIO: { …… }
