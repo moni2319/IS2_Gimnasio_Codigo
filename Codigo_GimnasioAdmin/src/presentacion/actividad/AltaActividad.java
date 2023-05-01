@@ -86,7 +86,7 @@ public class AltaActividad extends JFrame {
 					int p = Integer.parseInt(txtPrecioActividad.getText());
 
 					TransActividad tActividad = new TransActividad(id, idM, p, a, nombreActividad);
-					Controlador.obtenerInstancia().Accion(Eventos.ALTA_ACTIVIDAD,tActividad);
+					Controlador.obtenerInstancia().Accion(Eventos.ALTA_ACTIVIDAD, tActividad);
 
 					if (exito) {
 						JOptionPane.showMessageDialog(null, "La actividad se dio de alta correctamente.");

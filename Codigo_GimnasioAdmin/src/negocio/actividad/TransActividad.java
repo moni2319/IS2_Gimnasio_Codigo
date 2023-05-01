@@ -8,7 +8,7 @@ public class TransActividad {
 	private int idMonitor;
 	// meter despues
 
-	public TransActividad(int i,int idM, int p, int a , String n) {
+	public TransActividad(int i, int idM, int p, int a, String n) {
 		id = i;
 		precio = p;
 		aforo = a;
@@ -19,6 +19,7 @@ public class TransActividad {
 	public int getId() {
 		return id;
 	}
+
 	public int getIdM() {
 		return idMonitor;
 	}
@@ -38,6 +39,7 @@ public class TransActividad {
 	public void setId(int i) {
 		id = i;
 	}
+
 	public void setIdM(int iM) {
 		idMonitor = iM;
 	}

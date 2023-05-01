@@ -10,10 +10,8 @@ public interface SAActividad {
 
 	public ArrayList<TransActividad> ListarActividad();
 
-	public int Modificar (TransActividad tActividad);
+	public int Modificar(TransActividad tActividad);
 
 	public int BajaActividad(int id);
-	
-	
 
 }

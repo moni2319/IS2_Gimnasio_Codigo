@@ -82,15 +82,15 @@ public class ActividadWindowImp extends ActividadWindow {
 	}
 
 	public void Actualizar(int evento, Object data) {
-		//CREAR GUIERROR 
+		// CREAR GUIERROR
 		switch (evento) {
 		case Eventos.RES_ALTA_ACTIVIDAD_OK: {
-			//POP UP SE ha creado correctamente
+			// POP UP SE ha creado correctamente
 			JOptionPane.showMessageDialog(ActividadWindowImp.this, "Se ha creado correctamente");
 			break;
 		}
 		case Eventos.RES_ALTA_ACTIVIDAD_KO: {
-			//POP UP SE ha dado error
+			// POP UP SE ha dado error
 			JOptionPane.showMessageDialog(ActividadWindowImp.this, "Ha habido un error");
 			break;
 		}
