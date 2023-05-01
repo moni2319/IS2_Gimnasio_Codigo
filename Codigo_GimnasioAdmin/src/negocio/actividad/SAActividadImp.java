@@ -31,13 +31,25 @@ public class SAActividadImp implements SAActividad {
 	public int AltaActividad(TransActividad tActividad) {
 
 		if (daoActividad.buscar(tActividad.getId()) != null) {
-			throw new IllegalArgumentException("Ya existe una actividad id " + tActividad.getId());
+			throw new IllegalArgumentException("Ya existe una actividad con id " + tActividad.getId());
 		}
 		boolean exito = daoActividad.altaActividad(tActividad);
 		if (!exito) {
-			throw new IllegalArgumentException("No se pudo guarda en la base de datos el servicio");
+			throw new IllegalArgumentException("No se pudo guarda en la base de datos la actividad");
 		}
 
+		return 0;
+	}
+	
+	@Override
+	public int BajaActividad(int id) {
+		if (daoActividad.buscar(id) == null) {
+			throw new IllegalArgumentException("No existe una actividad con id " + id);
+		}
+		boolean exito = daoActividad.bajaActividad(id);
+		if (!exito) {
+			throw new IllegalArgumentException("No se pudo quitar en la base de datos la actividad");
+		}
 		return 0;
 	}
 
@@ -59,10 +71,6 @@ public class SAActividadImp implements SAActividad {
 		return 0;
 	}
 
-	@Override
-	public int BajaActividad(int id) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	
 
 }
