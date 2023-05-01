@@ -13,7 +13,8 @@ public class FacturaWindow extends JFrame {
 
 	private void initComponents() {
 		setTitle("Facturas");
-
+		setPreferredSize(new Dimension(800, 650));
+		setLocation(500, 300);
 		// Panel principal
 		JPanel panel = new JPanel(new GridLayout(3, 1, 10, 10));
 		panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -72,4 +73,3 @@ public class FacturaWindow extends JFrame {
 		pack();
 	}
 }
-

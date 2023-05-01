@@ -1,5 +1,6 @@
 package presentacion;
 
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,7 +18,8 @@ public class MonitorWindow extends JFrame {
 
 	private void initComponents() {
 		setTitle("Monitores");
-
+		setPreferredSize(new Dimension(800, 650));
+		setLocation(500, 300);
 		// Panel principal
 		JPanel panel = new JPanel(new GridLayout(3, 1, 10, 10));
 		panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));

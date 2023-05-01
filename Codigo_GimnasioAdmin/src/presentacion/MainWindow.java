@@ -16,6 +16,9 @@ public class MainWindow extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Gimnasio");
 
+		setPreferredSize(new Dimension(800, 650));
+		setLocation(500, 300);
+
 		// panel
 		JPanel panel = new JPanel(new GridLayout(3, 1, 10, 10));
 		panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));

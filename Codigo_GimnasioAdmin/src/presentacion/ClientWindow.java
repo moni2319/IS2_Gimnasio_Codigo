@@ -13,6 +13,8 @@ public class ClientWindow extends JFrame {
 
 	private void initComponents() {
 		setTitle("Clientes");
+		setPreferredSize(new Dimension(800, 650));
+		setLocation(500, 300);
 
 		// Panel principal
 		JPanel panel = new JPanel(new GridLayout(3, 1, 10, 10));
