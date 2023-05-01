@@ -91,7 +91,7 @@ public class ActividadWindowImp extends ActividadWindow {
 		}
 		case Eventos.RES_ALTA_ACTIVIDAD_KO: {
 			// POP UP SE ha dado error
-			JOptionPane.showMessageDialog(ActividadWindowImp.this, "Ha habido un error");
+			JOptionPane.showMessageDialog(ActividadWindowImp.this, "Error al dar de alta la actividad: " );
 			break;
 		}
 		}

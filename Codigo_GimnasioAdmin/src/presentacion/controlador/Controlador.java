@@ -1,5 +1,7 @@
 package presentacion.controlador;
 
+import javax.swing.JFrame;
+
 public abstract class Controlador {
 	private static Controlador instancia;
 

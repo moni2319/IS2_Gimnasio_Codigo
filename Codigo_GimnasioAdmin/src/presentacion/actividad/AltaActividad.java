@@ -22,7 +22,7 @@ public class AltaActividad extends JFrame {
 
 	private void initComponents() {
 		setTitle("Alta Actividad");
-		setSize(300, 200);
+		setSize(300, 400);
 		setLocationRelativeTo(null);
 
 		JLabel labelId = new JLabel("Id de la actividad:");
@@ -65,33 +65,37 @@ public class AltaActividad extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// Obtener los datos de entrada
 
-				String nombreActividad = txtNombreActividad.getText();
-				String codigoMonitor = txtCodigoMonitor.getText();
+				
 
 				// Comprobar que este relleno
-				if (nombreActividad.isEmpty() || codigoMonitor.isEmpty() || txtIdActividad.getText().isEmpty()
+				if (txtNombreActividad.getText().isEmpty() || txtCodigoMonitor.getText().isEmpty() || txtIdActividad.getText().isEmpty()
 						|| txtPrecioActividad.getText().isEmpty() || txtAforoActividad.getText().isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Por favor, ingrese todos los datos.");
 				} else {
 					// Realizar la lógica de alta de la actividad en la base de
 					// datos
-					// boolean exito = altaActividad(nombreActividad,
-					// codigoMonitor);
-					boolean exito = true;
+					
+					
+					
 					setVisible(false);
 					// hacer try y catch de numeros y strings
-					int id = Integer.parseInt(txtIdActividad.getText());
-					int idM = Integer.parseInt(txtCodigoMonitor.getText());
-					int a = Integer.parseInt(txtAforoActividad.getText());
-					int p = Integer.parseInt(txtPrecioActividad.getText());
+					try {
+					    int id = Integer.parseInt(txtIdActividad.getText());
+					    int idM = Integer.parseInt(txtCodigoMonitor.getText());
+					    int a = Integer.parseInt(txtAforoActividad.getText());
+					    int p = Integer.parseInt(txtPrecioActividad.getText());
+					    String nombreActividad = txtNombreActividad.getText();
 
-					TransActividad tActividad = new TransActividad(id, idM, p, a, nombreActividad);
-					Controlador.obtenerInstancia().Accion(Eventos.ALTA_ACTIVIDAD, tActividad);
+					    TransActividad tActividad = new TransActividad(id, idM, p, a, nombreActividad);
 
-					if (exito) {
-						JOptionPane.showMessageDialog(null, "La actividad se dio de alta correctamente.");
-					} else {
-						JOptionPane.showMessageDialog(null, "Error al dar de alta la actividad.");
+					    Controlador.obtenerInstancia().Accion(Eventos.ALTA_ACTIVIDAD, tActividad);
+
+					   
+					    setVisible(false);
+					} catch (NumberFormatException error) {
+					    JOptionPane.showMessageDialog(null, "Error al ingresar los datos. Asegúrate de que todos los campos numéricos sean válidos.");
+					} catch (Exception error) {
+					    JOptionPane.showMessageDialog(null, "Error al dar de alta la actividad: " + error.getMessage());
 					}
 					setVisible(false);
 				}
