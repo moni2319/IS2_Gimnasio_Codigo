@@ -37,7 +37,7 @@ public class ControladorImp extends Controlador {
 
 			break;
 		}
-		// case Evento.BAJA_USUARIO: { …… }
+		// case Evento.BAJA_ACTIVIDAD: { …… }
 
 		}
 	}
