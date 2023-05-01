@@ -41,7 +41,9 @@ public class ActividadWindow extends JFrame {
 		altaActividadButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Lógica para alta de actividad
-				JOptionPane.showMessageDialog(ActividadWindow.this, "Funcionalidad de Alta Actividad");
+				AltaActividad altaActividad = new AltaActividad();
+				altaActividad.setVisible(true);
+				
 			}
 		});
 
