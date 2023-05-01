@@ -65,37 +65,34 @@ public class AltaActividad extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// Obtener los datos de entrada
 
-				
-
 				// Comprobar que este relleno
-				if (txtNombreActividad.getText().isEmpty() || txtCodigoMonitor.getText().isEmpty() || txtIdActividad.getText().isEmpty()
-						|| txtPrecioActividad.getText().isEmpty() || txtAforoActividad.getText().isEmpty()) {
+				if (txtNombreActividad.getText().isEmpty() || txtCodigoMonitor.getText().isEmpty()
+						|| txtIdActividad.getText().isEmpty() || txtPrecioActividad.getText().isEmpty()
+						|| txtAforoActividad.getText().isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Por favor, ingrese todos los datos.");
 				} else {
 					// Realizar la lógica de alta de la actividad en la base de
 					// datos
-					
-					
-					
+
 					setVisible(false);
 					// hacer try y catch de numeros y strings
 					try {
-					    int id = Integer.parseInt(txtIdActividad.getText());
-					    int idM = Integer.parseInt(txtCodigoMonitor.getText());
-					    int a = Integer.parseInt(txtAforoActividad.getText());
-					    int p = Integer.parseInt(txtPrecioActividad.getText());
-					    String nombreActividad = txtNombreActividad.getText();
+						int id = Integer.parseInt(txtIdActividad.getText());
+						int idM = Integer.parseInt(txtCodigoMonitor.getText());
+						int a = Integer.parseInt(txtAforoActividad.getText());
+						int p = Integer.parseInt(txtPrecioActividad.getText());
+						String nombreActividad = txtNombreActividad.getText();
 
-					    TransActividad tActividad = new TransActividad(id, idM, p, a, nombreActividad);
+						TransActividad tActividad = new TransActividad(id, idM, p, a, nombreActividad);
 
-					    Controlador.obtenerInstancia().Accion(Eventos.ALTA_ACTIVIDAD, tActividad);
+						Controlador.obtenerInstancia().Accion(Eventos.ALTA_ACTIVIDAD, tActividad);
 
-					   
-					    setVisible(false);
+						setVisible(false);
 					} catch (NumberFormatException error) {
-					    JOptionPane.showMessageDialog(null, "Error al ingresar los datos. Asegúrate de que todos los campos numéricos sean válidos.");
+						JOptionPane.showMessageDialog(null,
+								"Error al ingresar los datos. Asegúrate de que todos los campos numéricos sean válidos.");
 					} catch (Exception error) {
-					    JOptionPane.showMessageDialog(null, "Error al dar de alta la actividad: " + error.getMessage());
+						JOptionPane.showMessageDialog(null, "Error al dar de alta la actividad: " + error.getMessage());
 					}
 					setVisible(false);
 				}

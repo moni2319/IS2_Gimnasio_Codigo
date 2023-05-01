@@ -13,21 +13,6 @@ public class SAActividadImp implements SAActividad {
 		daoActividad = new FactoriaDAOImp().getDAOActividad();
 	}
 
-	// comprobar que son validos los datos de tActividad, si no lo son,
-	// devolvemos
-	// -1 o numero que indique error
-
-	// Ver si ya existe, si existe igual devolver -1
-	// crear funcion que lea las actividades de la base de datos para ver si
-	// esta
-
-	// Si cumple con ambas llamo al DAO de AltaActividad (el dao es igual q
-	// el SA)
-	// DAO comprueba con BBDD
-	// Crear factoria para DAOS
-	// De ahi hacen cadena de resultados para saber ssi se ha hecho o no
-
-	@Override
 	public int AltaActividad(TransActividad tActividad) {
 
 		if (daoActividad.buscar(tActividad.getId()) != null) {
@@ -35,13 +20,12 @@ public class SAActividadImp implements SAActividad {
 		}
 		boolean exito = daoActividad.altaActividad(tActividad);
 		if (!exito) {
-			throw new IllegalArgumentException("No se pudo guarda en la base de datos la actividad");
+			throw new IllegalArgumentException("No se pudo guardar en la base de datos la actividad");
 		}
 
 		return 0;
 	}
-	
-	@Override
+
 	public int BajaActividad(int id) {
 		if (daoActividad.buscar(id) == null) {
 			throw new IllegalArgumentException("No existe una actividad con id " + id);
@@ -50,27 +34,29 @@ public class SAActividadImp implements SAActividad {
 		if (!exito) {
 			throw new IllegalArgumentException("No se pudo quitar en la base de datos la actividad");
 		}
-		return 0;
+		return 0; // cambiar
 	}
 
-	@Override
 	public TransActividad MostrarActividad(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		if (daoActividad.buscar(id) == null) {
+			throw new IllegalArgumentException("No existe una actividad con id " + id);
+		}
+		return daoActividad.buscar(id);
 	}
 
-	@Override
 	public ArrayList<TransActividad> ListarActividad() {
-		// TODO Auto-generated method stub
-		return null;
+		return daoActividad.listaActividades();
 	}
 
-	@Override
 	public int Modificar(TransActividad tActividad) {
-		// TODO Auto-generated method stub
+		if (daoActividad.buscar(tActividad.getId()) == null) {
+			throw new IllegalArgumentException("No existe una actividad con id " + tActividad.getId());
+		}
+		boolean exito = daoActividad.modificarActividad(tActividad);
+		if (!exito) {
+			throw new IllegalArgumentException("No se pudo modificar en la base de datos la actividad");
+		}
 		return 0;
 	}
-
-	
 
 }

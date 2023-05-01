@@ -30,11 +30,10 @@ public class ControladorImp extends Controlador {
 			// HAY q crear las instanicas
 			try {
 				int resultado = actividad.AltaActividad(tActividad);
-				
+
 			} catch (IllegalArgumentException e) {
 				JOptionPane.showMessageDialog(null, e.getMessage());
 			}
-
 
 			break;
 		}

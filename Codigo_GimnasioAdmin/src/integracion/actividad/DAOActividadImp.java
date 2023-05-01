@@ -69,7 +69,8 @@ public class DAOActividadImp implements DAOActividad {
 		}
 	}
 
-	public TransActividad getNextActividad(ResultSet rs) { //tomar la actividad de la BBDD
+	public TransActividad getNextActividad(ResultSet rs) { // tomar la actividad
+															// de la BBDD
 		TransActividad actividad = null;
 		try {
 			if (rs.next()) {
@@ -102,26 +103,26 @@ public class DAOActividadImp implements DAOActividad {
 			return false;
 		}
 	}
-	
-	public List<TransActividad> listaActividades() {
-	    List<TransActividad> actividades = new ArrayList<>();
-	    String query = "SELECT * FROM actividad";
-	    try (PreparedStatement st = connection.prepareStatement(query)) {
-	        ResultSet rs = st.executeQuery();
-	        while (rs.next()) {
-	            int id = rs.getInt("id");
-	            int idM = rs.getInt("idMonitor");
-	            String nombre = rs.getString("nombre");
-	            int p = rs.getInt("precio");
-	            int a = rs.getInt("aforo");
-	            TransActividad actividad = new TransActividad(id, idM, p, a, nombre);
-	            actividades.add(actividad);
-	        }
-	    } catch (SQLException e) {
-	        System.err.print(e.getMessage());
-	        e.printStackTrace();
-	    }
-	    return actividades;
+
+	public ArrayList<TransActividad> listaActividades() {
+		ArrayList<TransActividad> actividades = new ArrayList<>();
+		String query = "SELECT * FROM actividad";
+		try (PreparedStatement st = connection.prepareStatement(query)) {
+			ResultSet rs = st.executeQuery();
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				int idM = rs.getInt("idMonitor");
+				String nombre = rs.getString("nombre");
+				int p = rs.getInt("precio");
+				int a = rs.getInt("aforo");
+				TransActividad actividad = new TransActividad(id, idM, p, a, nombre);
+				actividades.add(actividad);
+			}
+		} catch (SQLException e) {
+			System.err.print(e.getMessage());
+			e.printStackTrace();
+		}
+		return actividades;
 	}
 
 }
