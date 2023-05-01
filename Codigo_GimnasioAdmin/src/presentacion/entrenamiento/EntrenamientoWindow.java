@@ -1,4 +1,4 @@
-package presentacion;
+package presentacion.entrenamiento;
 
 import javax.swing.*;
 import java.awt.*;

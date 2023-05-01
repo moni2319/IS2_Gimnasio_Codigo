@@ -1,13 +1,18 @@
-package presentacion;
+package presentacion.actividad;
 
 import javax.swing.*;
+
+import negocio.actividad.SAActividad;
+import negocio.actividad.TransActividad;
+import presentacion.controlador.Eventos;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ActividadWindow extends JFrame {
+public class ActividadWindowImp extends ActividadWindow {
 
-	public ActividadWindow() {
+	public ActividadWindowImp() {
 		initComponents();
 	}
 
@@ -43,36 +48,52 @@ public class ActividadWindow extends JFrame {
 				// Lógica para alta de actividad
 				AltaActividad altaActividad = new AltaActividad();
 				altaActividad.setVisible(true);
-				
+
 			}
 		});
 
 		bajaActividadButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Lógica para baja de actividad
-				JOptionPane.showMessageDialog(ActividadWindow.this, "Funcionalidad de Baja Actividad");
+				JOptionPane.showMessageDialog(ActividadWindowImp.this, "Funcionalidad de Baja Actividad");
 			}
 		});
 
 		modificarActividadButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Lógica para modificar actividad
-				JOptionPane.showMessageDialog(ActividadWindow.this, "Funcionalidad de Modificar Actividad");
+				JOptionPane.showMessageDialog(ActividadWindowImp.this, "Funcionalidad de Modificar Actividad");
 			}
 		});
 		mostrarActividadButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Lógica para modificar actividad
-				JOptionPane.showMessageDialog(ActividadWindow.this, "Funcionalidad de Mostrar Actividad");
+				JOptionPane.showMessageDialog(ActividadWindowImp.this, "Funcionalidad de Mostrar Actividad");
 			}
 		});
 		listaActividadButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Lógica para modificar actividad
-				JOptionPane.showMessageDialog(ActividadWindow.this, "Funcionalidad de Listar Actividad");
+				JOptionPane.showMessageDialog(ActividadWindowImp.this, "Funcionalidad de Listar Actividad");
 			}
 		});
 
 		pack();
+	}
+
+	public void Actualizar(int evento, Object data) {
+		//CREAR GUIERROR 
+		switch (evento) {
+		case Eventos.RES_ALTA_ACTIVIDAD_OK: {
+			//POP UP SE ha creado correctamente
+			JOptionPane.showMessageDialog(ActividadWindowImp.this, "Se ha creado correctamente");
+			break;
+		}
+		case Eventos.RES_ALTA_ACTIVIDAD_KO: {
+			//POP UP SE ha dado error
+			JOptionPane.showMessageDialog(ActividadWindowImp.this, "Ha habido un error");
+			break;
+		}
+		}
 	}
 }

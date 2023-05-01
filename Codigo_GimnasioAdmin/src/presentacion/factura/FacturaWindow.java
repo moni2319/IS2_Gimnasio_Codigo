@@ -1,4 +1,4 @@
-package presentacion;
+package presentacion.factura;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,4 +1,4 @@
-package presentacion;
+package presentacion.monitor;
 
 import java.awt.Dimension;
 import java.awt.GridLayout;

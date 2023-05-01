@@ -1,6 +1,13 @@
-package presentacion;
+package presentacion.main;
 
 import javax.swing.*;
+
+import presentacion.Cliente.ClientWindow;
+import presentacion.actividad.ActividadWindowImp;
+import presentacion.entrenamiento.EntrenamientoWindow;
+import presentacion.factura.FacturaWindow;
+import presentacion.material.MaterialWindow;
+import presentacion.monitor.MonitorWindow;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -70,7 +77,7 @@ public class MainWindow extends JFrame {
 		actividadButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Abrir la ventana de actividades
-				ActividadWindow actividadWindow = new ActividadWindow();
+				ActividadWindowImp actividadWindow = new ActividadWindowImp();
 				actividadWindow.setVisible(true);
 			}
 		});
