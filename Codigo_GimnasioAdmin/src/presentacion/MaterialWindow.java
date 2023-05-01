@@ -12,7 +12,7 @@ public class MaterialWindow extends JFrame {
 	}
 
 	private void initComponents() {
-		setTitle("Clientes");
+		setTitle("Materiales");
 
 		// Panel principal
 		JPanel panel = new JPanel(new GridLayout(3, 1, 10, 10));

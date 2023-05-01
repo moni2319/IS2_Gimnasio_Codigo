@@ -83,6 +83,8 @@ public class MainWindow extends JFrame {
 		facturaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Abrir la ventana de facturas
+				FacturaWindow facturaWindow = new FacturaWindow();
+				facturaWindow.setVisible(true);
 
 			}
 		});
