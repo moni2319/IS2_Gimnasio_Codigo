@@ -16,11 +16,11 @@ public class MainWindow extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Gimnasio");
 
-		//panel
+		// panel
 		JPanel panel = new JPanel(new GridLayout(3, 1, 10, 10));
 		panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-		//botones principales
+		// botones principales
 		JButton clienteButton = new JButton("Clientes");
 		JButton monitorButton = new JButton("Monitores");
 		JButton entrenamientoButton = new JButton("Entrenamientos");
@@ -28,17 +28,17 @@ public class MainWindow extends JFrame {
 		JButton materialButton = new JButton("Materiales");
 		JButton facturaButton = new JButton("Facturas");
 
-		//añadir botones
+		// añadir botones
 		panel.add(clienteButton);
 		panel.add(monitorButton);
 		panel.add(entrenamientoButton);
 		panel.add(actividadButton);
 		panel.add(materialButton);
 		panel.add(facturaButton);
-		//añadir el panel
+		// añadir el panel
 		getContentPane().add(panel);
 
-		//Acciones de los botones
+		// Acciones de los botones
 		clienteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Abrir la ventana de clientes
@@ -50,15 +50,16 @@ public class MainWindow extends JFrame {
 		monitorButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Abrir la ventana de monitores
-				 MonitorWindow monitorWindow = new MonitorWindow();
-				 monitorWindow.setVisible(true);
+				MonitorWindow monitorWindow = new MonitorWindow();
+				monitorWindow.setVisible(true);
 			}
 		});
 
 		entrenamientoButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Abrir la ventana de entrenamiento
-				
+				EntrenamientoWindow entrenamientoWindow = new EntrenamientoWindow();
+				entrenamientoWindow.setVisible(true);
 
 			}
 		});

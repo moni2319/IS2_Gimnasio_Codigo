@@ -5,8 +5,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ActividadWindow extends JFrame{
-	
+public class ActividadWindow extends JFrame {
+
 	public ActividadWindow() {
 		initComponents();
 	}

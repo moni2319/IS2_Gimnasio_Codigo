@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class MonitorWindow extends JFrame{
+public class MonitorWindow extends JFrame {
 	public MonitorWindow() {
 		initComponents();
 	}
