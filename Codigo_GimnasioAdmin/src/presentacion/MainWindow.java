@@ -75,6 +75,8 @@ public class MainWindow extends JFrame {
 		materialButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Abrir la ventana de materiales
+				MaterialWindow materialWindow = new MaterialWindow();
+				materialWindow.setVisible(true);
 
 			}
 		});
