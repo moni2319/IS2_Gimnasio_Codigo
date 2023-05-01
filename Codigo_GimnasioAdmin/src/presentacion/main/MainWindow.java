@@ -2,8 +2,8 @@ package presentacion.main;
 
 import javax.swing.*;
 
-import presentacion.Cliente.ClientWindow;
 import presentacion.actividad.ActividadWindowImp;
+import presentacion.cliente.ClientWindow;
 import presentacion.entrenamiento.EntrenamientoWindow;
 import presentacion.factura.FacturaWindow;
 import presentacion.material.MaterialWindow;
