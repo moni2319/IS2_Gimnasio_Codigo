@@ -58,8 +58,7 @@ public class MainWindow extends JFrame {
 		entrenamientoButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Abrir la ventana de entrenamiento
-				ActividadWindow actividadWindow = new ActividadWindow();
-				actividadWindow.setVisible(true);
+				
 
 			}
 		});
@@ -67,8 +66,8 @@ public class MainWindow extends JFrame {
 		actividadButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Abrir la ventana de actividades
-				// ActivityWindow activityWindow = new ActivityWindow();
-				// activityWindow.setVisible(true);
+				ActividadWindow actividadWindow = new ActividadWindow();
+				actividadWindow.setVisible(true);
 			}
 		});
 
