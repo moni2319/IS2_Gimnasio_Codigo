@@ -23,11 +23,16 @@ public class MainWindow extends JFrame {
         JButton monitorButton = new JButton("Monitores");
         JButton entrenamientoButton = new JButton("Entrenamientos");
         JButton actividadButton = new JButton("Actividades");
+        JButton materialButton = new JButton("Materiales");
+        JButton facturaButton = new JButton("Facturas");
 
         // Agregar botones principales al panel
         panel.add(clienteButton);
         panel.add(monitorButton);
         panel.add(entrenamientoButton);
+        panel.add(actividadButton);
+        panel.add(materialButton);
+        panel.add(facturaButton);
 
         getContentPane().add(panel);
 
@@ -35,8 +40,8 @@ public class MainWindow extends JFrame {
         clienteButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // Abrir la ventana de clientes
-                //ClientWindow clientWindow = new ClientWindow();
-                //clientWindow.setVisible(true);
+                ClientWindow clientWindow = new ClientWindow();
+                clientWindow.setVisible(true);
             }
         });
 
@@ -47,6 +52,12 @@ public class MainWindow extends JFrame {
                 //monitorWindow.setVisible(true);
             }
         });
+        
+        entrenamientoButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                
+            }
+        });
 
         actividadButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -55,6 +66,19 @@ public class MainWindow extends JFrame {
                 //activityWindow.setVisible(true);
             }
         });
+        
+        materialButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                
+            }
+        });
+        facturaButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                
+            }
+        });
+        
+        
 
         pack();
     }
