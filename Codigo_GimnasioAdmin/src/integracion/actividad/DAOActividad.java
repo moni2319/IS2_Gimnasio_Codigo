@@ -10,7 +10,7 @@ public interface DAOActividad {
 
 	public boolean bajaActividad(int id);
 
-	public TransActividad buscar(int id); // es el mostar realmente
+	public TransActividad buscar(int id); // es el mostrar realmente
 
 	public boolean modificarActividad(TransActividad tActividad);
 

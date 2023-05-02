@@ -7,6 +7,8 @@ import integracion.actividad.DAOActividad;
 import integracion.actividad.DAOActividadImp;
 import integracion.cliente.DAOCliente;
 import integracion.cliente.DAOClienteImp;
+import integracion.entrenamiento.DAOEntrenamiento;
+import integracion.entrenamiento.DAOEntrenamientoImp;
 import integracion.factura.DAOFactura;
 import integracion.factura.DAOFacturaImp;
 import integracion.material.DAOMaterial;
@@ -26,12 +28,10 @@ public class FactoriaDAOImp implements FactoriaDAO {
 		return new DAOActividadImp(connection);
 	}
 
+	public DAOEntrenamiento getDAOEntrenamiento() {
+		return new DAOEntrenamientoImp(connection);
+	}
 
-
-	// public DAOEntrenamiento getDAOEntrenamiento() {
-	// return new DAOEntrenamientoImp(connection);
-	// }
-	//
 	public DAOCliente getDAOCliente() {
 		return new DAOClienteImp(connection);
 	}
