@@ -54,8 +54,8 @@ public class EntrenamientoWindowImp extends EntrenamientoWindow {
 
 		bajaEntrenamientoButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Lógica para baja de entrenamiento
-				JOptionPane.showMessageDialog(EntrenamientoWindowImp.this, "Funcionalidad de Baja Cliente");
+				BajaEntrenamiento bajaEntrenamiento = new BajaEntrenamiento();
+				bajaEntrenamiento.setVisible(true);
 			}
 		});
 
