@@ -6,16 +6,16 @@ import java.sql.SQLException;
 
 public class DataBaseConnection {
 	/** Parametros de conexion **/
-	private static String bd = "gimnasio";
-	private static String login = "root";
-	private static String password = "Gimnasio1234";
-	private static String url = "jdbc:mysql://localhost:3306/" + bd;
+	private static String baseDatos = "gimnasio";
+	private static String usuario = "root";
+	private static String contraseña = "Gimnasio1234";
+	private static String url = "jdbc:mysql://localhost:3306/" + baseDatos;
 	private Connection connection = null;
 
 	public DataBaseConnection() {
 		try {
 			// String url = " jdbc : mysql :// hostname / database - name ";
-			connection = DriverManager.getConnection(url, login, password);
+			connection = DriverManager.getConnection(url, usuario, contraseña);
 		} catch (SQLException ex) {
 			connection = null;
 			ex.printStackTrace();
