@@ -72,6 +72,7 @@ public class ControladorImp extends Controlador {
 			int id = (int) info;
 			SAActividad actividad = factoria.getInstanciaSAActividad();
 			try {
+				
 				TransActividad tActividad = actividad.MostrarActividad(id);
 				if (tActividad != null){
 					ActividadWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_ACTIVIDAD_BIEN, tActividad);
@@ -79,6 +80,7 @@ public class ControladorImp extends Controlador {
 
 			} catch (IllegalArgumentException e) {
 				JOptionPane.showMessageDialog(null, e.getMessage());
+				
 			}
 
 			break;

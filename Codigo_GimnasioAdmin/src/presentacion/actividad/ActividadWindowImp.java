@@ -107,6 +107,7 @@ public class ActividadWindowImp extends ActividadWindow {
 			TransActividad actividad = (TransActividad) data;
 			ArrayList<TransActividad> lista = new ArrayList<TransActividad>();
 			lista.add(actividad);
+		
 			MostrarActividadWindow mostrarWindow = new MostrarActividadWindow(lista);
 			mostrarWindow.setVisible(true);
 

@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import negocio.actividad.TransActividad;
 
 public class DAOActividadImp implements DAOActividad {
@@ -57,6 +59,7 @@ public class DAOActividadImp implements DAOActividad {
 	public TransActividad buscar(int id) {
 		String query = "SELECT * FROM actividad WHERE id = ?";
 		try (PreparedStatement st = connection.prepareStatement(query)) {
+			
 			// Dar valores a parametro de busqueda
 			st.setInt(1, id);
 			// Ejecuta la query
@@ -79,11 +82,14 @@ public class DAOActividadImp implements DAOActividad {
 				String nombre = rs.getString("nombre");
 				int p = rs.getInt("precio");
 				int a = rs.getInt("aforo");
+				
 				actividad = new TransActividad(id, idM, p, a, nombre);
+				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
 		return actividad;
 	}
 

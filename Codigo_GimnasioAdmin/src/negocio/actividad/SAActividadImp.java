@@ -38,10 +38,11 @@ public class SAActividadImp implements SAActividad {
 	}
 
 	public TransActividad MostrarActividad(int id) {
-		if (daoActividad.buscar(id) == null) {
+		TransActividad actividad = daoActividad.buscar(id);
+		if (actividad == null) {
 			throw new IllegalArgumentException("No existe una actividad con id " + id);
 		}
-		return daoActividad.buscar(id);
+		return actividad;
 	}
 
 	public ArrayList<TransActividad> ListarActividad() {
