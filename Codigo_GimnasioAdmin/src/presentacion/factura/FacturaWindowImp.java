@@ -62,8 +62,8 @@ public class FacturaWindowImp extends FacturaWindow {
 
 		modificarFacturaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Lógica para modificar factura
-				JOptionPane.showMessageDialog(FacturaWindowImp.this, "Funcionalidad de Modificar Cliente");
+				ModificarFactura modificarFactura = new ModificarFactura();
+				modificarFactura.setVisible(true);
 			}
 		});
 		mostrarFacturaButton.addActionListener(new ActionListener() {
@@ -91,14 +91,26 @@ public class FacturaWindowImp extends FacturaWindow {
 	public void Actualizar(int evento, Object data) {
 		switch (evento) {
 		case Eventos.ABRIR_FACTURA_BIEN: {
-			// POP UP SE ha creado correctamente
 			TransFactura tFactura = (TransFactura) data;
 			int cod = tFactura.getCod();
 			JOptionPane.showMessageDialog(FacturaWindowImp.this, "Factura " + cod + " abierta correctamente");
-			
+
 			break;
 		}
-		
+		case Eventos.CERRAR_FACTURA_BIEN: {
+
+			int cod = (int) data;
+			JOptionPane.showMessageDialog(FacturaWindowImp.this, "Factura " + cod + " cerrada correctamente");
+
+			break;
+		}
+		case Eventos.MODIFICAR_FACTURA_BIEN: {
+			TransFactura tFactura = (TransFactura) data;
+			int cod = tFactura.getCod();
+			JOptionPane.showMessageDialog(FacturaWindowImp.this, "Factura " + cod + " modificada correctamente");
+
+			break;
+		}
 
 		}
 	}

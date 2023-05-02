@@ -22,26 +22,26 @@ public class CerrarFactura extends JFrame {
 	}
 
 	private void initComponents() {
-		setTitle("Alta Actividad");
+		setTitle("Cerrar Factura");
 		setSize(300, 200);
 		setLocationRelativeTo(null);
 
 		JLabel labelId = new JLabel("Codigo de la factura:");
 		txtCodFactura = new JTextField(20);
 
-		JButton abrirButton = new JButton("Cerrar Factura");
+		JButton cerrarButton = new JButton("Cerrar Factura");
 
 		// Crear el panel y agregar los componentes
 		JPanel panel = new JPanel();
 		panel.add(labelId);
 		panel.add(txtCodFactura);
-		panel.add(abrirButton);
+		panel.add(cerrarButton);
 
 		// Agregar panel a la ventana
 		setContentPane(panel);
 
 		// Botón de abrirFactura
-		abrirButton.addActionListener(new ActionListener() {
+		cerrarButton.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
 				// Obtener los datos de entrada

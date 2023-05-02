@@ -31,7 +31,7 @@ public class ControladorImp extends Controlador {
 			SAActividad actividad = factoria.getInstanciaSAActividad();
 			try {
 				int resultado = actividad.AltaActividad(tActividad);
-				if (resultado > 0){
+				if (resultado > 0) {
 					ActividadWindow.obtenerInstancia().Actualizar(Eventos.ALTA_ACTIVIDAD_BIEN, tActividad);
 				}
 
@@ -46,7 +46,7 @@ public class ControladorImp extends Controlador {
 			SAActividad actividad = factoria.getInstanciaSAActividad();
 			try {
 				int resultado = actividad.BajaActividad(id);
-				if (resultado > 0){
+				if (resultado > 0) {
 					ActividadWindow.obtenerInstancia().Actualizar(Eventos.BAJA_ACTIVIDAD_BIEN, id);
 				}
 
@@ -60,7 +60,7 @@ public class ControladorImp extends Controlador {
 			SAActividad actividad = factoria.getInstanciaSAActividad();
 			try {
 				int resultado = actividad.ModificarActividad(tActividad);
-				if (resultado > 0){
+				if (resultado > 0) {
 					ActividadWindow.obtenerInstancia().Actualizar(Eventos.MODIFICAR_ACTIVIDAD_BIEN, tActividad);
 				}
 
@@ -74,32 +74,32 @@ public class ControladorImp extends Controlador {
 			int id = (int) info;
 			SAActividad actividad = factoria.getInstanciaSAActividad();
 			try {
-				
+
 				TransActividad tActividad = actividad.MostrarActividad(id);
-				if (tActividad != null){
+				if (tActividad != null) {
 					ActividadWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_ACTIVIDAD_BIEN, tActividad);
 				}
 
 			} catch (IllegalArgumentException e) {
 				JOptionPane.showMessageDialog(null, e.getMessage());
-				
+
 			}
 
 			break;
 		}
 		case Eventos.MOSTRAR_LISTA_ACTIVIDAD: {
-			
+
 			SAActividad actividad = factoria.getInstanciaSAActividad();
 			try {
-				
+
 				ArrayList<TransActividad> lista = actividad.ListarActividad();
-				if (lista != null){
+				if (lista != null) {
 					ActividadWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_LISTA_ACTIVIDAD_BIEN, lista);
 				}
 
 			} catch (IllegalArgumentException e) {
 				JOptionPane.showMessageDialog(null, e.getMessage());
-				
+
 			}
 
 			break;
@@ -107,10 +107,10 @@ public class ControladorImp extends Controlador {
 		// FACTURA
 		case Eventos.ABRIR_FACTURA: {
 			TransFactura tFactura = (TransFactura) info;
-			SAFactura actividad = factoria.getInstanciaSAFactura();
+			SAFactura factura = factoria.getInstanciaSAFactura();
 			try {
-				int resultado = actividad.AbrirFactura(tFactura);
-				if (resultado > 0){
+				int resultado = factura.AbrirFactura(tFactura);
+				if (resultado > 0) {
 					FacturaWindow.obtenerInstancia().Actualizar(Eventos.ABRIR_FACTURA_BIEN, tFactura);
 				}
 			} catch (IllegalArgumentException e) {
@@ -121,11 +121,40 @@ public class ControladorImp extends Controlador {
 		}
 		case Eventos.CERRAR_FACTURA: {
 			int cod = (int) info;
-			SAFactura actividad = factoria.getInstanciaSAFactura();
+			SAFactura factura = factoria.getInstanciaSAFactura();
 			try {
-				int resultado = actividad.CerrarFactura(cod);
-				if (resultado > 0){
+				int resultado = factura.CerrarFactura(cod);
+				if (resultado > 0) {
 					FacturaWindow.obtenerInstancia().Actualizar(Eventos.CERRAR_FACTURA_BIEN, cod);
+				}
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+			break;
+		}
+		case Eventos.MODIFICAR_FACTURA: {
+			TransFactura tFactura = (TransFactura) info;
+			SAFactura factura = factoria.getInstanciaSAFactura();
+			try {
+				int resultado = factura.ModificarFactura(tFactura);
+				if (resultado > 0) {
+					FacturaWindow.obtenerInstancia().Actualizar(Eventos.MODIFICAR_FACTURA_BIEN, tFactura);
+				}
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+
+			break;
+		}
+		case Eventos.MOSTRAR_FACTURA: {
+			int cod = (int) info;
+			SAFactura factura = factoria.getInstanciaSAFactura();
+			try {
+				int resultado = factura.CerrarFactura(cod);
+				if (resultado > 0) {
+					FacturaWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_FACTURA_BIEN, cod);
 				}
 
 			} catch (IllegalArgumentException e) {
