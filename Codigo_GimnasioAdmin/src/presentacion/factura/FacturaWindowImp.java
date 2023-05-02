@@ -23,7 +23,7 @@ public class FacturaWindowImp extends FacturaWindow {
 
 		// Botones de factura
 		JButton abrirFacturaButton = new JButton("Abrir Factura");
-		JButton bajaFacturaButton = new JButton("Cerrar Factura");
+		JButton cerrarFacturaButton = new JButton("Cerrar Factura");
 		JButton modificarFacturaButton = new JButton("Modificar Factura");
 		JButton mostrarFacturaButton = new JButton("Mostrar Factura");
 		JButton mostrarFacturaClienteButton = new JButton("Mostrar Facturas de Cliente");
@@ -31,7 +31,7 @@ public class FacturaWindowImp extends FacturaWindow {
 
 		// Agregar botones al panel
 		panel.add(abrirFacturaButton);
-		panel.add(bajaFacturaButton);
+		panel.add(cerrarFacturaButton);
 		panel.add(modificarFacturaButton);
 		panel.add(mostrarFacturaButton);
 		panel.add(mostrarFacturaClienteButton);
@@ -49,7 +49,7 @@ public class FacturaWindowImp extends FacturaWindow {
 			}
 		});
 
-		bajaFacturaButton.addActionListener(new ActionListener() {
+		cerrarFacturaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Lógica para baja de factura
 				JOptionPane.showMessageDialog(FacturaWindowImp.this, "Funcionalidad de Baja Cliente");

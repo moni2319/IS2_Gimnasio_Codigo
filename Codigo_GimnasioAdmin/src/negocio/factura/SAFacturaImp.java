@@ -56,7 +56,7 @@ public class SAFacturaImp implements SAFactura{
 	}
 
 	
-	public int CerrarActividad(int cod) {
+	public int CerrarFactura(int cod) {
 		if (daoFactura.buscarFactura(cod) == null) {
 			throw new IllegalArgumentException("No existe una factura con codigo " + cod);
 		}

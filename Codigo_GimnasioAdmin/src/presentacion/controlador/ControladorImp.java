@@ -70,6 +70,17 @@ public class ControladorImp extends Controlador {
 
 			break;
 		}
+		case Eventos.CERRAR_FACTURA: {
+			int cod = (int) info;
+			SAFactura actividad = factoria.getInstanciaSAFactura();
+			try {
+				int resultado = actividad.CerrarFactura(cod);
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+			break;
+		}
 		}
 	}
 

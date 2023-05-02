@@ -13,5 +13,5 @@ public interface SAFactura {
 
 	public int ModificarFactura(TransFactura tFactura);
 
-	public int CerrarActividad(int cod);
+	public int CerrarFactura(int cod);
 }

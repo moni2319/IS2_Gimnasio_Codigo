@@ -10,44 +10,31 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-
 import negocio.factura.TransFactura;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
-public class AbrirFactura extends JFrame {
+public class CerrarFactura extends JFrame {
 	private JTextField txtCodFactura;
-	private JTextField txtIdCliente;
-	private JTextField txtImporteFactura;
 
-	public AbrirFactura() {
+	public CerrarFactura() {
 		initComponents();
 	}
 
 	private void initComponents() {
-		setTitle("Abrir Factura");
+		setTitle("Alta Actividad");
 		setSize(300, 400);
 		setLocationRelativeTo(null);
 
 		JLabel labelId = new JLabel("Codigo de la factura:");
 		txtCodFactura = new JTextField(20);
 
-		JLabel labelCodMonitor = new JLabel("Id del Cliente:");
-		txtIdCliente = new JTextField(20);
-
-		JLabel labelPrecio = new JLabel("Importe de la factura:");
-		txtImporteFactura = new JTextField(20);
-
-		JButton abrirButton = new JButton("Abrir Factura");
+		JButton abrirButton = new JButton("Cerrar Factura");
 
 		// Crear el panel y agregar los componentes
 		JPanel panel = new JPanel();
 		panel.add(labelId);
 		panel.add(txtCodFactura);
-		panel.add(labelCodMonitor);
-		panel.add(txtIdCliente);
-		panel.add(labelPrecio);
-		panel.add(txtImporteFactura);
 		panel.add(abrirButton);
 
 		// Agregar panel a la ventana
@@ -60,27 +47,22 @@ public class AbrirFactura extends JFrame {
 				// Obtener los datos de entrada
 
 				// Comprobar que este relleno
-				if (txtIdCliente.getText().isEmpty() || txtCodFactura.getText().isEmpty()
-						|| txtImporteFactura.getText().isEmpty()) {
-					JOptionPane.showMessageDialog(null, "Por favor, ingrese todos los datos.");
+				if (txtCodFactura.getText().isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Por favor, ingrese el codigo de la factura.");
 				} else {
 					setVisible(false);
 					// hacer try y catch de numeros
 					try {
 						int cod = Integer.parseInt(txtCodFactura.getText());
-						int idC = Integer.parseInt(txtIdCliente.getText());
-						int imp = Integer.parseInt(txtImporteFactura.getText());
-
-						TransFactura tFactura = new TransFactura(cod, idC, imp);
-
-						Controlador.obtenerInstancia().Accion(Eventos.ABRIR_FACTURA, tFactura);
+						
+						Controlador.obtenerInstancia().Accion(Eventos.CERRAR_FACTURA, cod);
 
 						setVisible(false);
 					} catch (NumberFormatException error) {
 						JOptionPane.showMessageDialog(null,
-								"Error al ingresar los datos. Asegúrate de que todos los campos numéricos sean válidos.");
+								"Error al ingresar los datos. Asegúrate de que el codigo sea un número válido.");
 					} catch (Exception error) {
-						JOptionPane.showMessageDialog(null, "Error al abrir la factura: " + error.getMessage());
+						JOptionPane.showMessageDialog(null, "Error al cerrar la factura: " + error.getMessage());
 					}
 					setVisible(false);
 				}
