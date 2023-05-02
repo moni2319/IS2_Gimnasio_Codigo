@@ -1,9 +1,17 @@
 package presentacion.cliente;
 
 import javax.swing.*;
+
+import negocio.cliente.TransCliente;
+import negocio.monitor.TransMonitor;
+import presentacion.controlador.Eventos;
+import presentacion.monitor.MonitorWindowImp;
+import presentacion.monitor.MostrarMonitorWindow;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class ClienteWindowImp extends ClienteWindow{
 
@@ -75,7 +83,45 @@ public class ClienteWindowImp extends ClienteWindow{
 	}
 	
 	public void Actualizar(int evento, Object data) {
-		// TODO Auto-generated method stub
+		switch (evento) {
+		case Eventos.ALTA_CLIENTE_BIEN: {
+			TransCliente cliente = (TransCliente) data;
+			int id = cliente.getId();
+			JOptionPane.showMessageDialog(ClienteWindowImp.this, "Cliente: " + id + " dado de alta correctamente");
+			break;
+		}
+		case Eventos.BAJA_CLIENTE_BIEN: {
+			int id = (int) data;
+			JOptionPane.showMessageDialog(ClienteWindowImp.this, "Cliente: " + id + " dado de baja correctamente");
+			break;
+		}
+		case Eventos.MODIFICAR_CLIENTE_BIEN: {
+			TransCliente cliente = (TransCliente) data;
+			int id = cliente.getId();
+			JOptionPane.showMessageDialog(ClienteWindowImp.this, "Cliente: " + id + " modificado correctamente");
+			break;
+		}
+		case Eventos.MOSTRAR_CLIENTE_BIEN: {
+			TransCliente cliente = (TransCliente) data;
+			ArrayList<TransCliente> lista = new ArrayList<TransCliente>();
+			lista.add(cliente);
+
+//			MostrarClienteWindow mostrarWindow = new MostrarClienteWindow(lista);
+//			mostrarWindow.setVisible(true);
+
+			break;
+		}
+		case Eventos.MOSTRAR_LISTA_CLIENTE_BIEN: {
+
+			ArrayList<TransCliente> lista = (ArrayList<TransCliente>) data;
+
+//			MostrarClienteWindow mostrarWindow = new MostrarClienteWindow(lista);
+//			mostrarWindow.setVisible(true);
+
+			break;
+		}
+
+		}
 
 	}
 }
