@@ -51,15 +51,15 @@ public class MonitorWindowImp extends MonitorWindow {
 		// Configurar acciones de los botones de monitor
 		altaMonitorButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Lógica para alta de monitor
-				JOptionPane.showMessageDialog(MonitorWindowImp.this, "Funcionalidad de Alta Monitor");
+				AltaMonitor altaMonitor = new AltaMonitor();
+				altaMonitor.setVisible(true);
 			}
 		});
 
 		bajaMonitorButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Lógica para baja de monitor
-				JOptionPane.showMessageDialog(MonitorWindowImp.this, "Funcionalidad de Baja Monitor");
+				BajaMonitor bajaMonitor = new BajaMonitor();
+				bajaMonitor.setVisible(true);
 			}
 		});
 
