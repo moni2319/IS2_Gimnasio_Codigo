@@ -1,9 +1,17 @@
 package presentacion.material;
 
 import javax.swing.*;
+
+import negocio.actividad.TransActividad;
+import negocio.material.TransMaterial;
+import presentacion.actividad.ActividadWindowImp;
+import presentacion.actividad.MostrarActividadWindow;
+import presentacion.controlador.Eventos;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class MaterialWindowImp extends MaterialWindow {
 
@@ -74,7 +82,45 @@ public class MaterialWindowImp extends MaterialWindow {
 		pack();
 	}
 	public void Actualizar(int evento, Object data) {
-		// TODO Auto-generated method stub
+		switch (evento) {
+		case Eventos.ALTA_MATERIAL_BIEN: {
+			TransMaterial material = (TransMaterial) data;
+			int id = material.getId();
+			JOptionPane.showMessageDialog(MaterialWindowImp.this, "Material: " + id + " dado de alta correctamente");
+			break;
+		}
+		case Eventos.BAJA_MATERIAL_BIEN: {
+			int id = (int) data;
+			JOptionPane.showMessageDialog(MaterialWindowImp.this, "Material: " + id + " dado de baja correctamente");
+			break;
+		}
+		case Eventos.MODIFICAR_MATERIAL_BIEN: {
+			TransMaterial material = (TransMaterial) data;
+			int id = material.getId();
+			JOptionPane.showMessageDialog(MaterialWindowImp.this, "Material: " + id + " modificado correctamente");
+			break;
+		}
+		case Eventos.MOSTRAR_MATERIAL_BIEN: {
+			TransMaterial material = (TransMaterial) data;
+			ArrayList<TransMaterial> lista = new ArrayList<TransMaterial>();
+			lista.add(material);
+		
+			//MostrarMaterialWindow mostrarWindow = new MostrarMaterialWindow(lista);
+			//mostrarWindow.setVisible(true);
+
+			break;
+		}
+		case Eventos.MOSTRAR_LISTA_MATERIAL_BIEN: {
+			
+			ArrayList<TransMaterial> lista = (ArrayList<TransMaterial>) data;
+			
+			//MostrarMaterialWindow mostrarWindow = new MostrarMaterialWindow(lista);
+		//	mostrarWindow.setVisible(true);
+
+			break;
+		}
+
+		}
 
 	}
 	
