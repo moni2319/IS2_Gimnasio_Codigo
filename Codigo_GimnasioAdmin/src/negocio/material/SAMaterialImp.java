@@ -2,8 +2,10 @@ package negocio.material;
 
 import java.util.ArrayList;
 
-public class SAMaterialImp implements SAMaterial{
+import integracion.material.DAOMaterial;
 
+public class SAMaterialImp implements SAMaterial{
+	private DAOMaterial daoMaterial;
 	@Override
 	public int AltaMaterial(TransMaterial tMaterial) {
 		// TODO Auto-generated method stub
