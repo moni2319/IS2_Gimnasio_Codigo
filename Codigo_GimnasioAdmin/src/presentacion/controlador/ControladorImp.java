@@ -28,7 +28,6 @@ public class ControladorImp extends Controlador {
 
 	public ControladorImp() {
 
-		// negocios en negocio
 		factoria = new FactoriaSAImp();
 	}
 
