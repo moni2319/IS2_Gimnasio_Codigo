@@ -1,6 +1,8 @@
 package presentacion.factura;
 
 import javax.swing.*;
+
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,14 +22,15 @@ public class FacturaWindowImp extends FacturaWindow {
 		panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
 		// Botones de factura
-		JButton altaFacturaButton = new JButton("Alta Factura");
-		JButton bajaFacturaButton = new JButton("Baja Factura");
+		JButton abrirFacturaButton = new JButton("Abrir Factura");
+		JButton bajaFacturaButton = new JButton("Cerrar Factura");
 		JButton modificarFacturaButton = new JButton("Modificar Factura");
 		JButton mostrarFacturaButton = new JButton("Mostrar Factura");
+		//MOSTRAR FACTURA CLIENTE
 		JButton listaFacturaButton = new JButton("Lista de Facturas");
 
 		// Agregar botones al panel
-		panel.add(altaFacturaButton);
+		panel.add(abrirFacturaButton);
 		panel.add(bajaFacturaButton);
 		panel.add(modificarFacturaButton);
 		panel.add(mostrarFacturaButton);
@@ -37,10 +40,11 @@ public class FacturaWindowImp extends FacturaWindow {
 		getContentPane().add(panel);
 
 		// Configurar acciones de los botones de factura
-		altaFacturaButton.addActionListener(new ActionListener() {
+		abrirFacturaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Lógica para alta de factura
-				JOptionPane.showMessageDialog(FacturaWindowImp.this, "Funcionalidad de Alta Cliente");
+				AbrirFactura abrirFactura = new AbrirFactura();
+				abrirFactura.setVisible(true);
 			}
 		});
 
