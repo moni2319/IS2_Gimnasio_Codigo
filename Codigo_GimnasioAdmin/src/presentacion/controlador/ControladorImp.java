@@ -7,6 +7,8 @@ import negocio.actividad.SAActividad;
 import negocio.actividad.TransActividad;
 import negocio.factorias.FactoriaSA;
 import negocio.factorias.FactoriaSAImp;
+import negocio.factura.SAFactura;
+import negocio.factura.TransFactura;
 import presentacion.actividad.ActividadWindow;
 
 public class ControladorImp extends Controlador {
@@ -20,7 +22,7 @@ public class ControladorImp extends Controlador {
 
 	public void Accion(int event, Object info) {
 		switch (event) {
-		//ACTIVIDAD
+		// ACTIVIDAD
 		case Eventos.ALTA_ACTIVIDAD: {
 			TransActividad tActividad = (TransActividad) info;
 			SAActividad actividad = factoria.getInstanciaSAActividad();
@@ -50,6 +52,18 @@ public class ControladorImp extends Controlador {
 			try {
 				int resultado = actividad.ModificarActividad(tActividad);
 
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+
+			break;
+		}
+		// FACTURA
+		case Eventos.ABRIR_FACTURA: {
+			TransFactura tFactura = (TransFactura) info;
+			SAFactura actividad = factoria.getInstanciaSAFactura();
+			try {
+				int resultado = actividad.AbrirFactura(tFactura);
 			} catch (IllegalArgumentException e) {
 				JOptionPane.showMessageDialog(null, e.getMessage());
 			}

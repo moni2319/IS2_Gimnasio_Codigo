@@ -2,6 +2,8 @@ package negocio.factorias;
 
 import negocio.actividad.SAActividad;
 import negocio.actividad.SAActividadImp;
+import negocio.factura.SAFactura;
+import negocio.factura.SAFacturaImp;
 
 public class FactoriaSAImp implements FactoriaSA {
 
@@ -21,10 +23,10 @@ public class FactoriaSAImp implements FactoriaSA {
 	// return new SAClienteImp();
 	// }
 	//
-	// @Override
-	// public SAFactura getInstanciaSAFactura() {
-	// return new SAFacturaImp();
-	// }
+
+	public SAFactura getInstanciaSAFactura() {
+		return new SAFacturaImp();
+	}
 	//
 	// @Override
 	// public SAMaterial getInstanciaSaServicio() {

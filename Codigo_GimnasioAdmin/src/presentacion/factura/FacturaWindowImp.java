@@ -26,7 +26,6 @@ public class FacturaWindowImp extends FacturaWindow {
 		JButton bajaFacturaButton = new JButton("Cerrar Factura");
 		JButton modificarFacturaButton = new JButton("Modificar Factura");
 		JButton mostrarFacturaButton = new JButton("Mostrar Factura");
-		//MOSTRAR FACTURA CLIENTE
 		JButton mostrarFacturaClienteButton = new JButton("Mostrar Facturas de Cliente");
 		JButton listaFacturaButton = new JButton("Lista de Facturas");
 
