@@ -20,6 +20,7 @@ public class ControladorImp extends Controlador {
 
 	public void Accion(int event, Object info) {
 		switch (event) {
+		//ACTIVIDAD
 		case Eventos.ALTA_ACTIVIDAD: {
 			TransActividad tActividad = (TransActividad) info;
 			SAActividad actividad = factoria.getInstanciaSAActividad();
