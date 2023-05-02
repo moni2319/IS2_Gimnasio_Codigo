@@ -10,26 +10,25 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import negocio.actividad.TransActividad;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
-public class BajaActividad extends JFrame {
+public class MostrarActividad extends JFrame {
 	private JTextField txtIdActividad;
 
-	public BajaActividad() {
+	public MostrarActividad() {
 		initComponents();
 	}
 
 	private void initComponents() {
-		setTitle("Baja Actividad");
+		setTitle("Mostrar Actividad");
 		setSize(300, 200);
 		setLocationRelativeTo(null);
 
 		JLabel labelId = new JLabel("Id de la actividad:");
 		txtIdActividad = new JTextField(20);
 
-		JButton bajaButton = new JButton("Dar de baja");
+		JButton bajaButton = new JButton("Mostrar Actividad");
 
 		// Crear el panel y agregar los componentes
 		JPanel panel = new JPanel();
@@ -48,21 +47,21 @@ public class BajaActividad extends JFrame {
 
 				// Comprobar que este relleno
 				if (txtIdActividad.getText().isEmpty()) {
-					JOptionPane.showMessageDialog(null, "Por favor, ingrese el id a dar de baja.");
+					JOptionPane.showMessageDialog(null, "Por favor, ingrese el id de la actividad.");
 				} else {
 
 					setVisible(false);
 					// hacer try y catch de numeros
 					try {
 						int id = Integer.parseInt(txtIdActividad.getText());
-						Controlador.obtenerInstancia().Accion(Eventos.BAJA_ACTIVIDAD, id);
+						Controlador.obtenerInstancia().Accion(Eventos.MOSTRAR_ACTIVIDAD, id);
 
 						setVisible(false);
 					} catch (NumberFormatException error) {
 						JOptionPane.showMessageDialog(null,
-								"Error al ingresar los datos. Asegúrate de que el id sean válido.");
+								"Error al ingresar los datos. Asegúrate de que el id sea válido.");
 					} catch (Exception error) {
-						JOptionPane.showMessageDialog(null, "Error al dar de baja la actividad: " + error.getMessage());
+						JOptionPane.showMessageDialog(null, "Error al mostrar la actividad: " + error.getMessage());
 					}
 					setVisible(false);
 				}

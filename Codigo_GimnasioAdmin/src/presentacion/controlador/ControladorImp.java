@@ -68,6 +68,21 @@ public class ControladorImp extends Controlador {
 
 			break;
 		}
+		case Eventos.MOSTRAR_ACTIVIDAD: {
+			int id = (int) info;
+			SAActividad actividad = factoria.getInstanciaSAActividad();
+			try {
+				TransActividad tActividad = actividad.MostrarActividad(id);
+				if (tActividad != null){
+					ActividadWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_ACTIVIDAD_BIEN, tActividad);
+				}
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+
+			break;
+		}
 		// FACTURA
 		case Eventos.ABRIR_FACTURA: {
 			TransFactura tFactura = (TransFactura) info;

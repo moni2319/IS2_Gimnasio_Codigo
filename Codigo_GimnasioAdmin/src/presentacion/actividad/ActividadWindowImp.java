@@ -9,6 +9,7 @@ import presentacion.controlador.Eventos;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class ActividadWindowImp extends ActividadWindow {
 
@@ -69,8 +70,8 @@ public class ActividadWindowImp extends ActividadWindow {
 		});
 		mostrarActividadButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Lógica para modificar actividad
-				JOptionPane.showMessageDialog(ActividadWindowImp.this, "Funcionalidad de Mostrar Actividad");
+				MostrarActividad mostrarActividad =new MostrarActividad();
+				mostrarActividad.setVisible(true);
 			}
 		});
 		listaActividadButton.addActionListener(new ActionListener() {
@@ -84,30 +85,34 @@ public class ActividadWindowImp extends ActividadWindow {
 	}
 
 	public void Actualizar(int evento, Object data) {
-		// CREAR GUIERROR
 		switch (evento) {
 		case Eventos.ALTA_ACTIVIDAD_BIEN: {
-			// POP UP SE ha creado correctamente
 			TransActividad actividad = (TransActividad) data;
 			int id = actividad.getId();
 			JOptionPane.showMessageDialog(ActividadWindowImp.this, "Actividad: " + id + " dada de alta correctamente");
 			break;
 		}
 		case Eventos.BAJA_ACTIVIDAD_BIEN: {
-			// POP UP SE ha creado correctamente
-			int id = (int)data;
+			int id = (int) data;
 			JOptionPane.showMessageDialog(ActividadWindowImp.this, "Actividad: " + id + " dada de baja correctamente");
 			break;
 		}
 		case Eventos.MODIFICAR_ACTIVIDAD_BIEN: {
-			// POP UP SE ha creado correctamente
 			TransActividad actividad = (TransActividad) data;
 			int id = actividad.getId();
 			JOptionPane.showMessageDialog(ActividadWindowImp.this, "Actividad: " + id + " modificada correctamente");
 			break;
 		}
-		
-		
+		case Eventos.MOSTRAR_ACTIVIDAD_BIEN: {
+			TransActividad actividad = (TransActividad) data;
+			ArrayList<TransActividad> lista = new ArrayList<TransActividad>();
+			lista.add(actividad);
+			MostrarActividadWindow mostrarWindow = new MostrarActividadWindow(lista);
+			mostrarWindow.setVisible(true);
+
+			break;
+		}
+
 		}
 	}
 }
