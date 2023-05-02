@@ -2,6 +2,9 @@ package presentacion.factura;
 
 import javax.swing.*;
 
+import negocio.factura.TransFactura;
+import presentacion.actividad.ActividadWindowImp;
+import presentacion.controlador.Eventos;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -84,8 +87,23 @@ public class FacturaWindowImp extends FacturaWindow {
 
 		pack();
 	}
-	public void Actualizar(int evento, Object data) {
-		// TODO Auto-generated method stub
 
+	public void Actualizar(int evento, Object data) {
+		switch (evento) {
+		case Eventos.ABRIR_FACTURA_BIEN: {
+			// POP UP SE ha creado correctamente
+			TransFactura tFactura = (TransFactura) data;
+			int cod = tFactura.getCod();
+			JOptionPane.showMessageDialog(FacturaWindowImp.this, "Factura " + cod + " abierta correctamente");
+			
+			break;
+		}
+		case Eventos.RES_ALTA_ACTIVIDAD_KO: {
+			// POP UP SE ha dado error
+			JOptionPane.showMessageDialog(FacturaWindowImp.this, "Error al abrir la factura");
+			break;
+		}
+
+		}
 	}
 }

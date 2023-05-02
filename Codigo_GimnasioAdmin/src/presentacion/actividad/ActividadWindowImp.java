@@ -86,9 +86,9 @@ public class ActividadWindowImp extends ActividadWindow {
 	public void Actualizar(int evento, Object data) {
 		// CREAR GUIERROR
 		switch (evento) {
-		case Eventos.RES_ALTA_ACTIVIDAD_OK: {
+		case Eventos.ALTA_ACTIVIDAD_BIEN: {
 			// POP UP SE ha creado correctamente
-			JOptionPane.showMessageDialog(ActividadWindowImp.this, "Se ha creado correctamente");
+			JOptionPane.showMessageDialog(ActividadWindowImp.this, "Se ha creado correctamente la actividad");
 			break;
 		}
 		case Eventos.RES_ALTA_ACTIVIDAD_KO: {

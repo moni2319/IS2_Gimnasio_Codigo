@@ -10,6 +10,7 @@ import negocio.factorias.FactoriaSAImp;
 import negocio.factura.SAFactura;
 import negocio.factura.TransFactura;
 import presentacion.actividad.ActividadWindow;
+import presentacion.factura.FacturaWindow;
 
 public class ControladorImp extends Controlador {
 	FactoriaSA factoria;
@@ -64,6 +65,9 @@ public class ControladorImp extends Controlador {
 			SAFactura actividad = factoria.getInstanciaSAFactura();
 			try {
 				int resultado = actividad.AbrirFactura(tFactura);
+				if (resultado > 0){
+					FacturaWindow.obtenerInstancia().Actualizar(Eventos.ABRIR_FACTURA_BIEN, tFactura);
+				}
 			} catch (IllegalArgumentException e) {
 				JOptionPane.showMessageDialog(null, e.getMessage());
 			}

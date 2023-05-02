@@ -22,7 +22,7 @@ public class SAFacturaImp implements SAFactura{
 		if (!exito) {
 			throw new IllegalArgumentException("No se pudo guardar en la base de datos la factura");
 		}
-		return 0;
+		return 1;
 	}
 
 	public TransFactura MostrarFactura(int cod) {
@@ -52,7 +52,7 @@ public class SAFacturaImp implements SAFactura{
 		if (!exito) {
 			throw new IllegalArgumentException("No se pudo modificar en la base de datos la factura");
 		}
-		return 0;
+		return 1;
 	}
 
 	

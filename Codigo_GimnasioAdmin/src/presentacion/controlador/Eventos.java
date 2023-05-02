@@ -17,6 +17,9 @@ public class Eventos {
 	public static final int MODIFICAR_FACTURA = 111;
 
 	// ACTIVIDAD
-	public static final int RES_ALTA_ACTIVIDAD_OK = 401; // NS SI LO USARE
-	public static final int RES_ALTA_ACTIVIDAD_KO = 402;
+	public static final int ALTA_ACTIVIDAD_BIEN = 501; // NS SI LO USARE
+	public static final int RES_ALTA_ACTIVIDAD_KO = 502;
+	
+	//FACTURA
+	public static final int ABRIR_FACTURA_BIEN = 503;
 }
