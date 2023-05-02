@@ -13,9 +13,12 @@ import negocio.factura.SAFactura;
 import negocio.factura.TransFactura;
 import negocio.material.SAMaterial;
 import negocio.material.TransMaterial;
+import negocio.monitor.SAMonitor;
+import negocio.monitor.TransMonitor;
 import presentacion.actividad.ActividadWindow;
 import presentacion.factura.FacturaWindow;
 import presentacion.material.MaterialWindow;
+import presentacion.monitor.MonitorWindow;
 
 public class ControladorImp extends Controlador {
 	FactoriaSA factoria;
@@ -245,10 +248,10 @@ public class ControladorImp extends Controlador {
 		}
 		case Eventos.MOSTRAR_MATERIAL: {
 			int id = (int) info;
-			SAMaterial actividad = factoria.getInstanciaSAMaterial();
+			SAMaterial material = factoria.getInstanciaSAMaterial();
 			try {
 
-				TransMaterial tMaterial = actividad.MostrarMaterial(id);
+				TransMaterial tMaterial = material.MostrarMaterial(id);
 				if (tMaterial != null) {
 					MaterialWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_MATERIAL_BIEN, tMaterial);
 				}
@@ -262,10 +265,10 @@ public class ControladorImp extends Controlador {
 		}
 		case Eventos.MOSTRAR_LISTA_MATERIAL: {
 
-			SAMaterial actividad = factoria.getInstanciaSAMaterial();
+			SAMaterial material = factoria.getInstanciaSAMaterial();
 			try {
 
-				ArrayList<TransMaterial> lista = actividad.ListarMaterial();
+				ArrayList<TransMaterial> lista = material.ListarMaterial();
 				if (lista != null) {
 					MaterialWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_LISTA_MATERIAL_BIEN, lista);
 				}
@@ -277,6 +280,88 @@ public class ControladorImp extends Controlador {
 
 			break;
 		}
+		
+		//MONITOR
+		
+		case Eventos.ALTA_MONITOR: {
+			TransMonitor tMonitor = (TransMonitor) info;
+			SAMonitor monitor = factoria.getInstanciaSAMonitor();
+			try {
+				int resultado = monitor.AltaMonitor(tMonitor);
+				if (resultado > 0) {
+					MonitorWindow.obtenerInstancia().Actualizar(Eventos.ALTA_MONITOR_BIEN, tMonitor);
+				}
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+
+			break;
+		}
+		case Eventos.BAJA_MONITOR: {
+			int id = (int) info;
+			SAMonitor monitor = factoria.getInstanciaSAMonitor();
+			try {
+				int resultado = monitor.BajaMonitor(id);
+				if (resultado > 0) {
+					MonitorWindow.obtenerInstancia().Actualizar(Eventos.BAJA_MONITOR_BIEN, id);
+				}
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+			break;
+		}
+		case Eventos.MODIFICAR_MONITOR: {
+			TransMonitor tMonitor = (TransMonitor) info;
+			SAMonitor monitor = factoria.getInstanciaSAMonitor();
+			try {
+				int resultado = monitor.ModificarMonitor(tMonitor);
+				if (resultado > 0) {
+					MonitorWindow.obtenerInstancia().Actualizar(Eventos.MODIFICAR_MONITOR_BIEN, tMonitor);
+				}
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+
+			break;
+		}
+		case Eventos.MOSTRAR_MONITOR: {
+			int id = (int) info;
+			SAMonitor monitor = factoria.getInstanciaSAMonitor();
+			try {
+
+				TransMonitor tMonitor = monitor.MostrarMonitor(id);
+				if (tMonitor != null) {
+					MonitorWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_MONITOR_BIEN, tMonitor);
+				}
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+
+			}
+
+			break;
+		}
+		case Eventos.MOSTRAR_LISTA_MONITOR: {
+
+			SAMonitor monitor = factoria.getInstanciaSAMonitor();
+			try {
+
+				ArrayList<TransMonitor> lista = monitor.ListarMonitor();
+				if (lista != null) {
+					MonitorWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_LISTA_MONITOR_BIEN, lista);
+				}
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+
+			}
+
+			break;
+		}
+		
 		}
 
 	}
