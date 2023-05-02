@@ -5,7 +5,7 @@ import javax.swing.*;
 import presentacion.actividad.ActividadWindowImp;
 import presentacion.cliente.ClientWindow;
 import presentacion.entrenamiento.EntrenamientoWindow;
-import presentacion.factura.FacturaWindow;
+import presentacion.factura.FacturaWindowImp;
 import presentacion.material.MaterialWindow;
 import presentacion.monitor.MonitorWindow;
 
@@ -93,7 +93,7 @@ public class MainWindow extends JFrame {
 		facturaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Abrir la ventana de facturas
-				FacturaWindow facturaWindow = new FacturaWindow();
+				FacturaWindowImp facturaWindow = new FacturaWindowImp();
 				facturaWindow.setVisible(true);
 
 			}
