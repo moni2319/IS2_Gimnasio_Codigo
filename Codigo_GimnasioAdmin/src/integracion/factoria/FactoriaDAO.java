@@ -3,6 +3,7 @@ package integracion.factoria;
 import integracion.actividad.DAOActividad;
 import integracion.factura.DAOFactura;
 import integracion.material.DAOMaterial;
+import integracion.monitor.DAOMonitor;
 
 public interface FactoriaDAO {
 	// descomentar mientras se va haciendo
@@ -13,5 +14,5 @@ public interface FactoriaDAO {
 	public DAOFactura getDAOFactura();
 
 	public DAOMaterial getDAOMaterial();
-	// public DAOMonitor getDAOMonitor();
+	public DAOMonitor getDAOMonitor();
 }
