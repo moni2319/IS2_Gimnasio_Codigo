@@ -13,7 +13,7 @@ public interface DAOFactura {
 
 	public ArrayList<TransFactura> listarFactura();
 
-	public boolean modificarFactura(TransFactura tActividad);
+	public boolean modificarFactura(TransFactura tFactura);
 
 	public boolean cerrarFactura(int cod);
 }

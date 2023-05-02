@@ -2,6 +2,7 @@ package integracion.factura;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -37,28 +38,88 @@ public class DAOFacturaImp implements DAOFactura {
 		}
 	}
 
-	@Override
 	public TransFactura buscarFactura(int cod) {
-		// TODO Auto-generated method stub
-		return null;
+		String query = "SELECT * FROM factura WHERE cod = ?";
+		try (PreparedStatement st = connection.prepareStatement(query)) {
+			st.setInt(1, cod);
+			ResultSet rs = st.executeQuery();
+			return getNextFactura(rs);
+		} catch (SQLException e) {
+			System.err.print(e.getMessage());
+			e.printStackTrace();
+			return null;
+		}
 	}
 
-	@Override
+	public TransFactura getNextFactura(ResultSet rs) {
+
+		TransFactura factura = null;
+		try {
+			if (rs.next()) {
+				int cod = rs.getInt("cod");
+				int idC = rs.getInt("idCliente");
+				int imp = rs.getInt("importe");
+
+				factura = new TransFactura(cod, idC, imp);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return factura;
+	}
+
 	public ArrayList<TransFactura> buscarFacturasCliente(int idCliente) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<TransFactura> facturas = new ArrayList<>();
+		String query = "SELECT * FROM factura WHERE idCliente = ?";
+		try (PreparedStatement st = connection.prepareStatement(query)) {
+			st.setInt(1, idCliente);
+			ResultSet rs = st.executeQuery();
+			while (rs.next()) {
+				int cod = rs.getInt("cod");
+				int idC = rs.getInt("idCliente");
+				int imp = rs.getInt("importe");
+				TransFactura factura = new TransFactura(cod, idC, imp);
+				facturas.add(factura);
+			}
+		} catch (SQLException e) {
+			System.err.print(e.getMessage());
+			e.printStackTrace();
+		}
+		return facturas;
 	}
 
-	@Override
 	public ArrayList<TransFactura> listarFactura() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<TransFactura> facturas = new ArrayList<>();
+		String query = "SELECT * FROM factura";
+		try (PreparedStatement st = connection.prepareStatement(query)) {
+			ResultSet rs = st.executeQuery();
+			while (rs.next()) {
+				int cod = rs.getInt("cod");
+				int idC = rs.getInt("idCliente");
+				int imp = rs.getInt("importe");
+				TransFactura factura = new TransFactura(cod, idC, imp);
+				facturas.add(factura);
+			}
+		} catch (SQLException e) {
+			System.err.print(e.getMessage());
+			e.printStackTrace();
+		}
+		return facturas;
 	}
 
-	@Override
-	public boolean modificarFactura(TransFactura tActividad) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean modificarFactura(TransFactura tFactura) {
+		String query = "UPDATE factura SET idCliente = ?, importe = ? WHERE cod = ?";
+		try (PreparedStatement st = connection.prepareStatement(query)) {
+			st.setInt(1, tFactura.getIdCliente());
+			st.setInt(2, tFactura.getImporte());
+			st.setInt(3, tFactura.getCod());
+			int rowsAffected = st.executeUpdate();
+			return rowsAffected > 0;
+		} catch (SQLException e) {
+			System.err.print(e.getMessage());
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	public boolean cerrarFactura(int cod) {

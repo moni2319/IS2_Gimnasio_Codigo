@@ -55,7 +55,7 @@ public class DAOActividadImp implements DAOActividad {
 	}
 
 	public TransActividad buscar(int id) {
-		String query = "SELECT * FROM servicio WHERE nombre = ?";
+		String query = "SELECT * FROM actividad WHERE id = ?";
 		try (PreparedStatement st = connection.prepareStatement(query)) {
 			// Dar valores a parametro de busqueda
 			st.setInt(1, id);
