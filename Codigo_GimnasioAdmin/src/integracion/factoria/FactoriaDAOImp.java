@@ -7,6 +7,8 @@ import integracion.actividad.DAOActividad;
 import integracion.actividad.DAOActividadImp;
 import integracion.factura.DAOFactura;
 import integracion.factura.DAOFacturaImp;
+import integracion.material.DAOMaterial;
+import integracion.material.DAOMaterialImp;
 
 public class FactoriaDAOImp implements FactoriaDAO {
 	private Connection connection;
@@ -33,12 +35,12 @@ public class FactoriaDAOImp implements FactoriaDAO {
 	public DAOFactura getDAOFactura() {
 		return new DAOFacturaImp(connection);
 	}
+
+	public DAOMaterial getDAOMaterial() {
+		return new DAOMaterialImp(connection);
+	}
 	//
-	// public DAOMaterial getDAOServicio(){
-	// return new DAOMaterialImp(connection);
-	// }
-	//
-	// public DAOMonitor getDAOTren(){
+	// public DAOMonitor getDAOMonitor(){
 	// return new DAOMonitorImp(connection);
 	// }
 }

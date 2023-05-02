@@ -2,38 +2,58 @@ package negocio.material;
 
 import java.util.ArrayList;
 
+import integracion.factoria.FactoriaDAOImp;
 import integracion.material.DAOMaterial;
 
-public class SAMaterialImp implements SAMaterial{
+public class SAMaterialImp implements SAMaterial {
 	private DAOMaterial daoMaterial;
-	@Override
+
+	public SAMaterialImp() {
+		daoMaterial = new FactoriaDAOImp().getDAOMaterial();
+	}
+
 	public int AltaMaterial(TransMaterial tMaterial) {
-		// TODO Auto-generated method stub
+		if (daoMaterial.buscarMaterial(tMaterial.getId()) != null) {
+			throw new IllegalArgumentException("Ya existe un material con id " + tMaterial.getId());
+		}
+		boolean exito = daoMaterial.altaMaterial(tMaterial);
+		if (!exito) {
+			throw new IllegalArgumentException("No se pudo guardar en la base de datos el material");
+		}
 		return 1;
 	}
 
-	@Override
 	public int BajaMaterial(int id) {
-		// TODO Auto-generated method stub
+		if (daoMaterial.buscarMaterial(id) == null) {
+			throw new IllegalArgumentException("No existe un material con id " + id);
+		}
+		boolean exito = daoMaterial.bajaMaterial(id);
+		if (!exito) {
+			throw new IllegalArgumentException("No se pudo dar de baja un material");
+		}
 		return 1;
 	}
 
-	@Override
 	public int ModificarMaterial(TransMaterial tMaterial) {
-		// TODO Auto-generated method stub
+		if (daoMaterial.buscarMaterial(tMaterial.getId()) == null) {
+			throw new IllegalArgumentException("No existe un material con id " + tMaterial.getId());
+		}
+		boolean exito = daoMaterial.modificarMaterial(tMaterial);
+		if (!exito) {
+			throw new IllegalArgumentException("No se pudo modificar en la base de datos el material");
+		}
 		return 1;
 	}
 
-	@Override
 	public TransMaterial MostrarMaterial(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		if (daoMaterial.buscarMaterial(id) == null) {
+			throw new IllegalArgumentException("No existe una factura con codigo " + id);
+		}
+		return daoMaterial.buscarMaterial(id);
 	}
 
-	@Override
 	public ArrayList<TransMaterial> ListarMaterial() {
-		// TODO Auto-generated method stub
-		return null;
+		return daoMaterial.listarMaterial();
 	}
 
 }
