@@ -11,7 +11,7 @@ public interface SAFactura {
 
 	public ArrayList<TransFactura> ListarFactura();
 
-	public int ModificarFactura(TransFactura tActividad);
+	public int ModificarFactura(TransFactura tFactura);
 
 	public int CerrarActividad(int cod);
 }
