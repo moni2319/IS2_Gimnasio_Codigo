@@ -176,7 +176,25 @@ public class ControladorImp extends Controlador {
 			}
 			break;
 		}
+		case Eventos.MOSTRAR_LISTA_FACTURA: {
+
+			SAFactura factura = factoria.getInstanciaSAFactura();
+			try {
+
+				ArrayList<TransFactura> lista = factura.ListarFactura();
+				if (lista != null) {
+					FacturaWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_LISTA_FACTURA_BIEN,lista);
+				}
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+
+			}
+
+			break;
 		}
+		}
+		
 	}
 
 }

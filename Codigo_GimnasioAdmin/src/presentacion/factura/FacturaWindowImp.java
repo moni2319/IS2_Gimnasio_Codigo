@@ -6,6 +6,7 @@ import negocio.actividad.TransActividad;
 import negocio.factura.TransFactura;
 import presentacion.actividad.ActividadWindowImp;
 import presentacion.actividad.MostrarActividadWindow;
+import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
 import java.awt.*;
@@ -83,8 +84,7 @@ public class FacturaWindowImp extends FacturaWindow {
 		});
 		listaFacturaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Lógica para modificar factura
-				JOptionPane.showMessageDialog(FacturaWindowImp.this, "Funcionalidad de Listar Cliente");
+				Controlador.obtenerInstancia().Accion(Eventos.MOSTRAR_LISTA_FACTURA, null);
 			}
 		});
 
@@ -124,6 +124,13 @@ public class FacturaWindowImp extends FacturaWindow {
 			break;
 		}
 		case Eventos.MOSTRAR_FACTURA_CLIENTE_BIEN: {
+			ArrayList<TransFactura> lista = (ArrayList<TransFactura>) data;
+			MostrarFacturaWindow mostrarWindow = new MostrarFacturaWindow(lista);
+			mostrarWindow.setVisible(true);
+
+			break;
+		}
+		case Eventos.MOSTRAR_LISTA_FACTURA_BIEN: {
 			ArrayList<TransFactura> lista = (ArrayList<TransFactura>) data;
 			MostrarFacturaWindow mostrarWindow = new MostrarFacturaWindow(lista);
 			mostrarWindow.setVisible(true);
