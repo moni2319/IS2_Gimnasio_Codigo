@@ -106,8 +106,8 @@ public class ClienteWindowImp extends ClienteWindow{
 			ArrayList<TransCliente> lista = new ArrayList<TransCliente>();
 			lista.add(cliente);
 
-//			MostrarClienteWindow mostrarWindow = new MostrarClienteWindow(lista);
-//			mostrarWindow.setVisible(true);
+			MostrarClienteWindow mostrarWindow = new MostrarClienteWindow(lista);
+			mostrarWindow.setVisible(true);
 
 			break;
 		}
@@ -115,8 +115,8 @@ public class ClienteWindowImp extends ClienteWindow{
 
 			ArrayList<TransCliente> lista = (ArrayList<TransCliente>) data;
 
-//			MostrarClienteWindow mostrarWindow = new MostrarClienteWindow(lista);
-//			mostrarWindow.setVisible(true);
+			MostrarClienteWindow mostrarWindow = new MostrarClienteWindow(lista);
+			mostrarWindow.setVisible(true);
 
 			break;
 		}
