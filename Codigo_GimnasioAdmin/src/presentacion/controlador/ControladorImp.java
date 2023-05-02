@@ -152,9 +152,23 @@ public class ControladorImp extends Controlador {
 			int cod = (int) info;
 			SAFactura factura = factoria.getInstanciaSAFactura();
 			try {
-				int resultado = factura.CerrarFactura(cod);
-				if (resultado > 0) {
-					FacturaWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_FACTURA_BIEN, cod);
+				TransFactura tFactura = factura.MostrarFactura(cod);
+				if (tFactura != null) {
+					FacturaWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_FACTURA_BIEN, tFactura);
+				}
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+			break;
+		}
+		case Eventos.MOSTRAR_FACTURA_CLIENTE: {
+			int cod = (int) info;
+			SAFactura factura = factoria.getInstanciaSAFactura();
+			try {
+				TransFactura tFactura = factura.MostrarFactura(cod);
+				if (tFactura != null) {
+					FacturaWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_FACTURA_CLIENTE_BIEN, tFactura);
 				}
 
 			} catch (IllegalArgumentException e) {

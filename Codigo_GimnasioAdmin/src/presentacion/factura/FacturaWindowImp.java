@@ -2,13 +2,16 @@ package presentacion.factura;
 
 import javax.swing.*;
 
+import negocio.actividad.TransActividad;
 import negocio.factura.TransFactura;
 import presentacion.actividad.ActividadWindowImp;
+import presentacion.actividad.MostrarActividadWindow;
 import presentacion.controlador.Eventos;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class FacturaWindowImp extends FacturaWindow {
 
@@ -68,8 +71,8 @@ public class FacturaWindowImp extends FacturaWindow {
 		});
 		mostrarFacturaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Lógica para modificar factura
-				JOptionPane.showMessageDialog(FacturaWindowImp.this, "Funcionalidad de Mostrar Cliente");
+				MostrarFactura mostrarFactura = new MostrarFactura();
+				mostrarFactura.setVisible(true);
 			}
 		});
 		mostrarFacturaClienteButton.addActionListener(new ActionListener() {
@@ -108,6 +111,15 @@ public class FacturaWindowImp extends FacturaWindow {
 			TransFactura tFactura = (TransFactura) data;
 			int cod = tFactura.getCod();
 			JOptionPane.showMessageDialog(FacturaWindowImp.this, "Factura " + cod + " modificada correctamente");
+
+			break;
+		}
+		case Eventos.MOSTRAR_FACTURA_BIEN: {
+			TransFactura tFactura = (TransFactura) data;
+			ArrayList<TransFactura> lista = new ArrayList<TransFactura>();
+			lista.add(tFactura);
+			MostrarFacturaWindow mostrarWindow = new MostrarFacturaWindow(lista);
+			mostrarWindow.setVisible(true);
 
 			break;
 		}
