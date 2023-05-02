@@ -27,6 +27,7 @@ public class FacturaWindowImp extends FacturaWindow {
 		JButton modificarFacturaButton = new JButton("Modificar Factura");
 		JButton mostrarFacturaButton = new JButton("Mostrar Factura");
 		//MOSTRAR FACTURA CLIENTE
+		JButton mostrarFacturaClienteButton = new JButton("Mostrar Facturas de Cliente");
 		JButton listaFacturaButton = new JButton("Lista de Facturas");
 
 		// Agregar botones al panel
@@ -34,6 +35,7 @@ public class FacturaWindowImp extends FacturaWindow {
 		panel.add(bajaFacturaButton);
 		panel.add(modificarFacturaButton);
 		panel.add(mostrarFacturaButton);
+		panel.add(mostrarFacturaClienteButton);
 		panel.add(listaFacturaButton);
 
 		// Agregar panel a la ventana
@@ -62,6 +64,12 @@ public class FacturaWindowImp extends FacturaWindow {
 			}
 		});
 		mostrarFacturaButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// Lógica para modificar factura
+				JOptionPane.showMessageDialog(FacturaWindowImp.this, "Funcionalidad de Mostrar Cliente");
+			}
+		});
+		mostrarFacturaClienteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Lógica para modificar factura
 				JOptionPane.showMessageDialog(FacturaWindowImp.this, "Funcionalidad de Mostrar Cliente");
