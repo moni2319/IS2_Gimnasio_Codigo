@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 
 import negocio.material.TransMaterial;
 import negocio.monitor.TransMonitor;
+import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 import presentacion.material.MaterialWindowImp;
 import presentacion.material.MostrarMaterialWindow;
@@ -65,20 +66,19 @@ public class MonitorWindowImp extends MonitorWindow {
 
 		modificarMonitorButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Lógica para modificar monitor
-				JOptionPane.showMessageDialog(MonitorWindowImp.this, "Funcionalidad de Modificar Monitor");
+				ModificarMonitor modificarMonitor = new ModificarMonitor();
+				modificarMonitor.setVisible(true);
 			}
 		});
 		mostrarMonitorButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Lógica para modificar monitor
-				JOptionPane.showMessageDialog(MonitorWindowImp.this, "Funcionalidad de Mostrar Monitor");
+				MostrarMonitor mostrarMonitor = new MostrarMonitor();
+				mostrarMonitor.setVisible(true);
 			}
 		});
 		listaMonitorButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Lógica para modificar monitor
-				JOptionPane.showMessageDialog(MonitorWindowImp.this, "Funcionalidad de Listar Monitor");
+				Controlador.obtenerInstancia().Accion(Eventos.MOSTRAR_LISTA_MONITOR, null);
 			}
 		});
 
