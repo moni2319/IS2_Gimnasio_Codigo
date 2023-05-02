@@ -23,7 +23,6 @@ public class MostrarActividadWindow extends JFrame {
 //		lista = l;
 //	
 
-
 		setTitle("Actividades");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(800, 500);
