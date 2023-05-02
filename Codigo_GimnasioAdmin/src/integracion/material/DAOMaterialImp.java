@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import integracion.factura.DAOFacturaImp;
-import negocio.factura.TransFactura;
 import negocio.material.TransMaterial;
 
 public class DAOMaterialImp implements DAOMaterial {
