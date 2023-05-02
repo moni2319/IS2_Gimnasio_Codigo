@@ -167,8 +167,8 @@ public class ControladorImp extends Controlador {
 			SAFactura factura = factoria.getInstanciaSAFactura();
 			try {
 				ArrayList<TransFactura> lista = factura.MostrarFacturasCliente(idC);
-				if (lista!= null) {
-					FacturaWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_FACTURA_CLIENTE_BIEN,lista);
+				if (lista != null) {
+					FacturaWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_FACTURA_CLIENTE_BIEN, lista);
 				}
 
 			} catch (IllegalArgumentException e) {
@@ -183,7 +183,7 @@ public class ControladorImp extends Controlador {
 
 				ArrayList<TransFactura> lista = factura.ListarFactura();
 				if (lista != null) {
-					FacturaWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_LISTA_FACTURA_BIEN,lista);
+					FacturaWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_LISTA_FACTURA_BIEN, lista);
 				}
 
 			} catch (IllegalArgumentException e) {
@@ -194,7 +194,7 @@ public class ControladorImp extends Controlador {
 			break;
 		}
 		}
-		
+
 	}
 
 }
