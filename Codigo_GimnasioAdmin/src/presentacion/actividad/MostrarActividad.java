@@ -28,19 +28,19 @@ public class MostrarActividad extends JFrame {
 		JLabel labelId = new JLabel("Id de la actividad:");
 		txtIdActividad = new JTextField(20);
 
-		JButton bajaButton = new JButton("Mostrar Actividad");
+		JButton mostrarButton = new JButton("Mostrar Actividad");
 
 		// Crear el panel y agregar los componentes
 		JPanel panel = new JPanel();
 		panel.add(labelId);
 		panel.add(txtIdActividad);
-		panel.add(bajaButton);
+		panel.add(mostrarButton);
 
 		// Agregar panel a la ventana
 		setContentPane(panel);
 
 		// Botón de baja
-		bajaButton.addActionListener(new ActionListener() {
+		mostrarButton.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
 				// Obtener los datos de entrada

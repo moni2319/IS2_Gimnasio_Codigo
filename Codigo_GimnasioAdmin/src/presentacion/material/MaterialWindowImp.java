@@ -6,6 +6,7 @@ import negocio.actividad.TransActividad;
 import negocio.material.TransMaterial;
 import presentacion.actividad.ActividadWindowImp;
 import presentacion.actividad.MostrarActividadWindow;
+import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
 import java.awt.*;
@@ -68,14 +69,13 @@ public class MaterialWindowImp extends MaterialWindow {
 		});
 		mostrarMaterialButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Lógica para modificar material
-				JOptionPane.showMessageDialog(MaterialWindowImp.this, "Funcionalidad de Mostrar Cliente");
+				MostrarMaterial mostrarMaterial = new MostrarMaterial();
+				mostrarMaterial.setVisible(true);
 			}
 		});
 		listaMaterialButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Lógica para modificar material
-				JOptionPane.showMessageDialog(MaterialWindowImp.this, "Funcionalidad de Listar Cliente");
+				Controlador.obtenerInstancia().Accion(Eventos.MOSTRAR_LISTA_MATERIAL, null);
 			}
 		});
 
