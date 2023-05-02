@@ -52,7 +52,8 @@ public class FacturaWindowImp extends FacturaWindow {
 		cerrarFacturaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Lógica para baja de factura
-				JOptionPane.showMessageDialog(FacturaWindowImp.this, "Funcionalidad de Baja Cliente");
+				CerrarFactura cerrarFactura = new CerrarFactura();
+				cerrarFactura.setVisible(true);
 			}
 		});
 

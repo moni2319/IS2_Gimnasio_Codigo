@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import negocio.factura.TransFactura;
+
 import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
@@ -23,7 +23,7 @@ public class CerrarFactura extends JFrame {
 
 	private void initComponents() {
 		setTitle("Alta Actividad");
-		setSize(300, 400);
+		setSize(300, 200);
 		setLocationRelativeTo(null);
 
 		JLabel labelId = new JLabel("Codigo de la factura:");
