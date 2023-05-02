@@ -5,9 +5,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ClientWindow extends JFrame {
+public class ClienteWindowImp extends ClienteWindow{
 
-	public ClientWindow() {
+	public ClienteWindowImp() {
 		initComponents();
 	}
 
@@ -41,36 +41,41 @@ public class ClientWindow extends JFrame {
 		altaClienteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Lógica para alta de cliente
-				JOptionPane.showMessageDialog(ClientWindow.this, "Funcionalidad de Alta Cliente");
+				JOptionPane.showMessageDialog(ClienteWindowImp.this, "Funcionalidad de Alta Cliente");
 			}
 		});
 
 		bajaClienteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Lógica para baja de cliente
-				JOptionPane.showMessageDialog(ClientWindow.this, "Funcionalidad de Baja Cliente");
+				JOptionPane.showMessageDialog(ClienteWindowImp.this, "Funcionalidad de Baja Cliente");
 			}
 		});
 
 		modificarClienteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Lógica para modificar cliente
-				JOptionPane.showMessageDialog(ClientWindow.this, "Funcionalidad de Modificar Cliente");
+				JOptionPane.showMessageDialog(ClienteWindowImp.this, "Funcionalidad de Modificar Cliente");
 			}
 		});
 		mostrarClienteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Lógica para modificar cliente
-				JOptionPane.showMessageDialog(ClientWindow.this, "Funcionalidad de Mostrar Cliente");
+				JOptionPane.showMessageDialog(ClienteWindowImp.this, "Funcionalidad de Mostrar Cliente");
 			}
 		});
 		listaClienteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Lógica para modificar cliente
-				JOptionPane.showMessageDialog(ClientWindow.this, "Funcionalidad de Listar Cliente");
+				JOptionPane.showMessageDialog(ClienteWindowImp.this, "Funcionalidad de Listar Cliente");
 			}
 		});
 
 		pack();
+	}
+	
+	public void Actualizar(int evento, Object data) {
+		// TODO Auto-generated method stub
+
 	}
 }

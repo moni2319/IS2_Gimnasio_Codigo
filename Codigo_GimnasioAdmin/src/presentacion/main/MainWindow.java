@@ -3,7 +3,7 @@ package presentacion.main;
 import javax.swing.*;
 
 import presentacion.actividad.ActividadWindowImp;
-import presentacion.cliente.ClientWindow;
+import presentacion.cliente.ClienteWindowImp;
 import presentacion.entrenamiento.EntrenamientoWindow;
 import presentacion.factura.FacturaWindowImp;
 import presentacion.material.MaterialWindowImp;
@@ -52,7 +52,7 @@ public class MainWindow extends JFrame {
 		clienteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Abrir la ventana de clientes
-				ClientWindow clientWindow = new ClientWindow();
+				ClienteWindowImp clientWindow = new ClienteWindowImp();
 				clientWindow.setVisible(true);
 			}
 		});

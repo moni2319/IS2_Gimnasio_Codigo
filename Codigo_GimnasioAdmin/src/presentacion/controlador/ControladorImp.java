@@ -7,6 +7,8 @@ import javax.swing.JOptionPane;
 
 import negocio.actividad.SAActividad;
 import negocio.actividad.TransActividad;
+import negocio.cliente.SACliente;
+import negocio.cliente.TransCliente;
 import negocio.factorias.FactoriaSA;
 import negocio.factorias.FactoriaSAImp;
 import negocio.factura.SAFactura;
@@ -16,6 +18,7 @@ import negocio.material.TransMaterial;
 import negocio.monitor.SAMonitor;
 import negocio.monitor.TransMonitor;
 import presentacion.actividad.ActividadWindow;
+import presentacion.cliente.ClienteWindow;
 import presentacion.factura.FacturaWindow;
 import presentacion.material.MaterialWindow;
 import presentacion.monitor.MonitorWindow;
@@ -280,9 +283,9 @@ public class ControladorImp extends Controlador {
 
 			break;
 		}
-		
-		//MONITOR
-		
+
+		// MONITOR
+
 		case Eventos.ALTA_MONITOR: {
 			TransMonitor tMonitor = (TransMonitor) info;
 			SAMonitor monitor = factoria.getInstanciaSAMonitor();
@@ -361,6 +364,89 @@ public class ControladorImp extends Controlador {
 
 			break;
 		}
+
+		// CLIENTE
+
+		case Eventos.ALTA_CLIENTE: {
+			TransCliente tCliente = (TransCliente) info;
+			SACliente cliente = factoria.getInstanciaSACliente();
+			try {
+				int resultado = cliente.AltaCliente(tCliente);
+				if (resultado > 0) {
+					ClienteWindow.obtenerInstancia().Actualizar(Eventos.ALTA_CLIENTE_BIEN, tCliente);
+				}
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+
+			break;
+		}
+		case Eventos.BAJA_CLIENTE: {
+			int id = (int) info;
+			SACliente cliente = factoria.getInstanciaSACliente();
+			try {
+				int resultado = cliente.BajaCliente(id);
+				if (resultado > 0) {
+					ClienteWindow.obtenerInstancia().Actualizar(Eventos.BAJA_CLIENTE_BIEN, id);
+				}
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+			break;
+		}
+		case Eventos.MODIFICAR_CLIENTE: {
+			TransCliente tCliente = (TransCliente) info;
+			SACliente cliente = factoria.getInstanciaSACliente();
+			try {
+				int resultado = cliente.ModificarCliente(tCliente);
+				if (resultado > 0) {
+					ClienteWindow.obtenerInstancia().Actualizar(Eventos.MODIFICAR_CLIENTE_BIEN, tCliente);
+				}
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+
+			break;
+		}
+		case Eventos.MOSTRAR_CLIENTE: {
+			int id = (int) info;
+			SACliente cliente = factoria.getInstanciaSACliente();
+			try {
+
+				TransCliente tCliente = cliente.MostrarCliente(id);
+				if (tCliente != null) {
+					ClienteWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_CLIENTE_BIEN, tCliente);
+				}
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+
+			}
+
+			break;
+		}
+		case Eventos.MOSTRAR_LISTA_CLIENTE: {
+
+			SACliente cliente = factoria.getInstanciaSACliente();
+			try {
+
+				ArrayList<TransCliente> lista = cliente.ListarCliente();
+				if (lista != null) {
+					ClienteWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_LISTA_CLIENTE_BIEN, lista);
+				}
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+
+			}
+
+			break;
+		}
+		// ENTRENAMIENTO
+		
 		
 		}
 
