@@ -5,6 +5,8 @@ import java.sql.Connection;
 import integracion.DataBaseConnection;
 import integracion.actividad.DAOActividad;
 import integracion.actividad.DAOActividadImp;
+import integracion.factura.DAOFactura;
+import integracion.factura.DAOFacturaImp;
 
 public class FactoriaDAOImp implements FactoriaDAO {
 	private Connection connection;
@@ -28,9 +30,9 @@ public class FactoriaDAOImp implements FactoriaDAO {
 	// return new DAOClienteImp(connection);
 	// }
 	//
-	// public DAOFactura getDAOFactura(){
-	// return new DAOFacturaImp(connection);
-	// }
+	public DAOFactura getDAOFactura() {
+		return new DAOFacturaImp(connection);
+	}
 	//
 	// public DAOMaterial getDAOServicio(){
 	// return new DAOMaterialImp(connection);
