@@ -4,6 +4,7 @@ import javax.swing.*;
 
 import negocio.actividad.SAActividad;
 import negocio.actividad.TransActividad;
+import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
 import java.awt.*;
@@ -76,8 +77,7 @@ public class ActividadWindowImp extends ActividadWindow {
 		});
 		listaActividadButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Lógica para modificar actividad
-				JOptionPane.showMessageDialog(ActividadWindowImp.this, "Funcionalidad de Listar Actividad");
+				Controlador.obtenerInstancia().Accion(Eventos.MOSTRAR_LISTA_ACTIVIDAD, null);
 			}
 		});
 
@@ -108,6 +108,15 @@ public class ActividadWindowImp extends ActividadWindow {
 			ArrayList<TransActividad> lista = new ArrayList<TransActividad>();
 			lista.add(actividad);
 		
+			MostrarActividadWindow mostrarWindow = new MostrarActividadWindow(lista);
+			mostrarWindow.setVisible(true);
+
+			break;
+		}
+		case Eventos.MOSTRAR_LISTA_ACTIVIDAD_BIEN: {
+			
+			ArrayList<TransActividad> lista = (ArrayList<TransActividad>) data;
+			
 			MostrarActividadWindow mostrarWindow = new MostrarActividadWindow(lista);
 			mostrarWindow.setVisible(true);
 

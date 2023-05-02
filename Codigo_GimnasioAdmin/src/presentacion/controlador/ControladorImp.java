@@ -1,5 +1,7 @@
 package presentacion.controlador;
 
+import java.util.ArrayList;
+
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -76,6 +78,23 @@ public class ControladorImp extends Controlador {
 				TransActividad tActividad = actividad.MostrarActividad(id);
 				if (tActividad != null){
 					ActividadWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_ACTIVIDAD_BIEN, tActividad);
+				}
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+				
+			}
+
+			break;
+		}
+		case Eventos.MOSTRAR_LISTA_ACTIVIDAD: {
+			
+			SAActividad actividad = factoria.getInstanciaSAActividad();
+			try {
+				
+				ArrayList<TransActividad> lista = actividad.ListarActividad();
+				if (lista != null){
+					ActividadWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_LISTA_ACTIVIDAD_BIEN, lista);
 				}
 
 			} catch (IllegalArgumentException e) {

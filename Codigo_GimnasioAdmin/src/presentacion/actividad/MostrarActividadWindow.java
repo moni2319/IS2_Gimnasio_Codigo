@@ -24,7 +24,6 @@ public class MostrarActividadWindow extends JFrame {
 //	
 
 		setTitle("Actividades");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(800, 500);
 		setLocation(400, 500);
 		// Crear el modelo de tabla
