@@ -3,6 +3,7 @@ package negocio.factorias;
 import negocio.actividad.SAActividad;
 import negocio.factura.SAFactura;
 import negocio.material.SAMaterial;
+import negocio.monitor.SAMonitor;
 
 // ir descomentando mientras vayais haciendo
 public interface FactoriaSA {
@@ -11,6 +12,6 @@ public interface FactoriaSA {
 	// public SACliente getInstanciaSACliente();
 	 public SAFactura getInstanciaSAFactura();
 	 public SAMaterial getInstanciaSAMaterial();
-	// public SAMonitor getInstanciaSAMonitor();
+	 public SAMonitor getInstanciaSAMonitor();
 
 }

@@ -2,36 +2,60 @@ package negocio.monitor;
 
 import java.util.ArrayList;
 
-public class SAMonitorImp implements SAMonitor{
+import integracion.factoria.FactoriaDAOImp;
 
-	@Override
+import integracion.monitor.DAOMonitor;
+
+public class SAMonitorImp implements SAMonitor {
+
+	private DAOMonitor daoMonitor;
+
+	public SAMonitorImp() {
+		daoMonitor = new FactoriaDAOImp().getDAOMonitor();
+	}
+
 	public int AltaMonitor(TransMonitor tMonitor) {
-		// TODO Auto-generated method stub
+		if (daoMonitor.buscarMonitor(tMonitor.getId()) != null) {
+			throw new IllegalArgumentException("Ya existe un monitor con id " + tMonitor.getId());
+		}
+		boolean exito = daoMonitor.altaMonitor(tMonitor);
+		if (!exito) {
+			throw new IllegalArgumentException("No se pudo guardar en la base de datos el monitor");
+		}
 		return 1;
 	}
 
-	@Override
 	public int BajaMonitor(int id) {
-		// TODO Auto-generated method stub
+		if (daoMonitor.buscarMonitor(id) == null) {
+			throw new IllegalArgumentException("No existe un monitor con id " + id);
+		}
+		boolean exito = daoMonitor.bajaMonitor(id);
+		if (!exito) {
+			throw new IllegalArgumentException("No se pudo dar de baja el monitor");
+		}
 		return 1;
 	}
 
-	@Override
 	public int ModificarMonitor(TransMonitor tMonitor) {
-		// TODO Auto-generated method stub
+		if (daoMonitor.buscarMonitor(tMonitor.getId()) == null) {
+			throw new IllegalArgumentException("No existe un monitor con id " + tMonitor.getId());
+		}
+		boolean exito = daoMonitor.modificarMonitor(tMonitor);
+		if (!exito) {
+			throw new IllegalArgumentException("No se pudo modificar en la base de datos el monitor");
+		}
 		return 1;
 	}
 
-	@Override
 	public TransMonitor MostrarMonitor(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		if (daoMonitor.buscarMonitor(id) == null) {
+			throw new IllegalArgumentException("No existe un monitor con id " + id);
+		}
+		return daoMonitor.buscarMonitor(id);
 	}
 
-	@Override
 	public ArrayList<TransMonitor> ListarMonitor() {
-		// TODO Auto-generated method stub
-		return null;
+		return daoMonitor.listarMonitor();
 	}
 
 }

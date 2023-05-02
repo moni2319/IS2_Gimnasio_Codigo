@@ -47,7 +47,7 @@ public class SAMaterialImp implements SAMaterial {
 
 	public TransMaterial MostrarMaterial(int id) {
 		if (daoMaterial.buscarMaterial(id) == null) {
-			throw new IllegalArgumentException("No existe una factura con codigo " + id);
+			throw new IllegalArgumentException("No existe un material con id " + id);
 		}
 		return daoMaterial.buscarMaterial(id);
 	}

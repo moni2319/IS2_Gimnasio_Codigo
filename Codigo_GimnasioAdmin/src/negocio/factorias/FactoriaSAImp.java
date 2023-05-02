@@ -6,11 +6,12 @@ import negocio.factura.SAFactura;
 import negocio.factura.SAFacturaImp;
 import negocio.material.SAMaterial;
 import negocio.material.SAMaterialImp;
+import negocio.monitor.SAMonitor;
+import negocio.monitor.SAMonitorImp;
 
 public class FactoriaSAImp implements FactoriaSA {
 
 	// ir descomentando mientras vayais haciendo
-	@Override
 	public SAActividad getInstanciaSAActividad() {
 		return new SAActividadImp();
 	}
@@ -34,9 +35,8 @@ public class FactoriaSAImp implements FactoriaSA {
 		return new SAMaterialImp();
 	}
 
-	// @Override
-	// public SAMonitor getInstanciaSAMonitor() {
-	// return new SAMonitorImp();
-	// }
+	public SAMonitor getInstanciaSAMonitor() {
+		return new SAMonitorImp();
+	}
 
 }
