@@ -32,7 +32,7 @@ public class FactoriaDAOImp implements FactoriaDAO {
 	// return new DAOEntrenamientoImp(connection);
 	// }
 	//
-	public DAOCliente getDAOACliente() {
+	public DAOCliente getDAOCliente() {
 		return new DAOClienteImp(connection);
 	}
 

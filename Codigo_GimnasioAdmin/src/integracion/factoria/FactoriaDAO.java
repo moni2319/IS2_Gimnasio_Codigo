@@ -11,7 +11,7 @@ public interface FactoriaDAO {
 	public DAOActividad getDAOActividad();
 
 	// public DAOEntrenamiento getDAOEntrenamiento();
-	public DAOCliente getDAOACliente();
+	public DAOCliente getDAOCliente();
 
 	public DAOFactura getDAOFactura();
 

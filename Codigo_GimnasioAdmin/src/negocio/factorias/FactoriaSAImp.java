@@ -2,6 +2,8 @@ package negocio.factorias;
 
 import negocio.actividad.SAActividad;
 import negocio.actividad.SAActividadImp;
+import negocio.cliente.SACliente;
+import negocio.cliente.SAClienteImp;
 import negocio.factura.SAFactura;
 import negocio.factura.SAFacturaImp;
 import negocio.material.SAMaterial;
@@ -11,7 +13,6 @@ import negocio.monitor.SAMonitorImp;
 
 public class FactoriaSAImp implements FactoriaSA {
 
-	// ir descomentando mientras vayais haciendo
 	public SAActividad getInstanciaSAActividad() {
 		return new SAActividadImp();
 	}
@@ -21,11 +22,10 @@ public class FactoriaSAImp implements FactoriaSA {
 	// return new SAEntrenamientoImp();
 	// }
 	//
-	// @Override
-	// public SACliente getInstanciaSACliente() {
-	// return new SAClienteImp();
-	// }
-	//
+
+	public SACliente getInstanciaSACliente() {
+		return new SAClienteImp();
+	}
 
 	public SAFactura getInstanciaSAFactura() {
 		return new SAFacturaImp();
