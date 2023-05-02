@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import negocio.monitor.TransMonitor;
+import negocio.cliente.TransCliente;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
@@ -57,16 +57,12 @@ public class AltaCliente extends JFrame {
 
 			public void actionPerformed(ActionEvent e) {
 
-				if (txtNombre.getText().isEmpty() || txtTelefono.getText().isEmpty()
-						|| txtId.getText().isEmpty() || Integer.parseInt(txtTelefono.getText()) <= 0) {
-					if (Integer.parseInt(txtTelefono.getText()) <= 0) {
-						JOptionPane.showMessageDialog(null, "Por favor, el salario debe ser > 0.");
-					} else {
-						JOptionPane.showMessageDialog(null, "Por favor, ingrese todos los datos.");
-					}
+				if (txtNombre.getText().isEmpty() || txtTelefono.getText().isEmpty() || txtId.getText().isEmpty()) {
+
+					JOptionPane.showMessageDialog(null, "Por favor, ingrese todos los datos.");
 
 				} else {
-					
+
 					setVisible(false);
 					// hacer try y catch de numeros y strings
 					try {
@@ -74,16 +70,16 @@ public class AltaCliente extends JFrame {
 						int s = Integer.parseInt(txtTelefono.getText());
 						String n = txtNombre.getText();
 
-						TransMonitor tMonitor = new TransMonitor(i, n, s);
+						TransCliente tCliente = new TransCliente(i, n, s);
 
-						Controlador.obtenerInstancia().Accion(Eventos.ALTA_MONITOR, tMonitor);
+						Controlador.obtenerInstancia().Accion(Eventos.ALTA_CLIENTE, tCliente);
 
 						setVisible(false);
 					} catch (NumberFormatException error) {
 						JOptionPane.showMessageDialog(null,
 								"Error al ingresar los datos. Asegúrate de que todos los campos numéricos sean válidos.");
 					} catch (Exception error) {
-						JOptionPane.showMessageDialog(null, "Error al dar de alta el monitor: " + error.getMessage());
+						JOptionPane.showMessageDialog(null, "Error al dar de alta el cliente: " + error.getMessage());
 					}
 					setVisible(false);
 				}
