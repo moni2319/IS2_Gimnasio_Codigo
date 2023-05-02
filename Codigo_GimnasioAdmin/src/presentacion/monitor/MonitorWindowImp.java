@@ -4,12 +4,19 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
+import negocio.material.TransMaterial;
+import negocio.monitor.TransMonitor;
+import presentacion.controlador.Eventos;
+import presentacion.material.MaterialWindowImp;
+import presentacion.material.MostrarMaterialWindow;
 
 public class MonitorWindowImp extends MonitorWindow {
 	public MonitorWindowImp() {
@@ -78,7 +85,45 @@ public class MonitorWindowImp extends MonitorWindow {
 		pack();
 	}
 	public void Actualizar(int evento, Object data) {
-		// TODO Auto-generated method stub
+		switch (evento) {
+		case Eventos.ALTA_MONITOR_BIEN: {
+			TransMonitor monitor = (TransMonitor) data;
+			int id = monitor.getId();
+			JOptionPane.showMessageDialog(MonitorWindowImp.this, "Monitor: " + id + " dado de alta correctamente");
+			break;
+		}
+		case Eventos.BAJA_MONITOR_BIEN: {
+			int id = (int) data;
+			JOptionPane.showMessageDialog(MonitorWindowImp.this, "Monitor: " + id + " dado de baja correctamente");
+			break;
+		}
+		case Eventos.MODIFICAR_MONITOR_BIEN: {
+			TransMonitor monitor = (TransMonitor) data;
+			int id = monitor.getId();
+			JOptionPane.showMessageDialog(MonitorWindowImp.this, "Monitor: " + id + " modificado correctamente");
+			break;
+		}
+		case Eventos.MOSTRAR_MONITOR_BIEN: {
+			TransMonitor monitor = (TransMonitor) data;
+			ArrayList<TransMonitor> lista = new ArrayList<TransMonitor>();
+			lista.add(monitor);
+
+//			MostrarMonitorWindow mostrarWindow = new MostrarMonitorWindow(lista);
+//			mostrarWindow.setVisible(true);
+
+			break;
+		}
+		case Eventos.MOSTRAR_LISTA_MONITOR_BIEN: {
+
+			ArrayList<TransMonitor> lista = (ArrayList<TransMonitor>) data;
+
+//			MostrarMonitorWindow mostrarWindow = new MostrarMonitorWindow(lista);
+//			mostrarWindow.setVisible(true);
+
+			break;
+		}
+
+		}
 
 	}
 
