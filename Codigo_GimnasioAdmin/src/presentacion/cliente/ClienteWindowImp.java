@@ -4,6 +4,7 @@ import javax.swing.*;
 
 import negocio.cliente.TransCliente;
 import negocio.monitor.TransMonitor;
+import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 import presentacion.monitor.MonitorWindowImp;
 import presentacion.monitor.MostrarMonitorWindow;
@@ -68,14 +69,13 @@ public class ClienteWindowImp extends ClienteWindow{
 		});
 		mostrarClienteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Lógica para modificar cliente
-				JOptionPane.showMessageDialog(ClienteWindowImp.this, "Funcionalidad de Mostrar Cliente");
+				MostrarCliente mostrarCliente = new MostrarCliente();
+				mostrarCliente.setVisible(true);
 			}
 		});
 		listaClienteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Lógica para modificar cliente
-				JOptionPane.showMessageDialog(ClienteWindowImp.this, "Funcionalidad de Listar Cliente");
+				Controlador.obtenerInstancia().Accion(Eventos.MOSTRAR_LISTA_CLIENTE, null);
 			}
 		});
 
