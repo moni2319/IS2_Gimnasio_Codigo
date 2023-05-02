@@ -4,6 +4,8 @@ import negocio.actividad.SAActividad;
 import negocio.actividad.SAActividadImp;
 import negocio.cliente.SACliente;
 import negocio.cliente.SAClienteImp;
+import negocio.entrenamiento.SAEntrenamiento;
+import negocio.entrenamiento.SAEntrenamientoImp;
 import negocio.factura.SAFactura;
 import negocio.factura.SAFacturaImp;
 import negocio.material.SAMaterial;
@@ -17,11 +19,9 @@ public class FactoriaSAImp implements FactoriaSA {
 		return new SAActividadImp();
 	}
 
-	// @Override
-	// public SAEntrenamiento getInstanciaSAEntrenamiento() {
-	// return new SAEntrenamientoImp();
-	// }
-	//
+	public SAEntrenamiento getInstanciaSAEntrenamiento() {
+		return new SAEntrenamientoImp();
+	}
 
 	public SACliente getInstanciaSACliente() {
 		return new SAClienteImp();

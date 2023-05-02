@@ -2,21 +2,26 @@ package negocio.factura;
 
 import java.util.ArrayList;
 
-
+import integracion.cliente.DAOCliente;
 import integracion.factoria.FactoriaDAOImp;
 import integracion.factura.DAOFactura;
 
 public class SAFacturaImp implements SAFactura{
 
 	private DAOFactura daoFactura;
+	private DAOCliente daoCliente;
 
 	public SAFacturaImp() {
 		daoFactura = new FactoriaDAOImp().getDAOFactura();
+		daoCliente = new FactoriaDAOImp().getDAOCliente();
 	}
 	
 	public int AbrirFactura(TransFactura tFactura) {
 		if (daoFactura.buscarFactura(tFactura.getCod()) != null) {
 			throw new IllegalArgumentException("Ya existe una factura con codigo " + tFactura.getCod());
+		}
+		if (daoCliente.buscarCliente(tFactura.getIdCliente()) == null){
+			throw new IllegalArgumentException("No existe un cliente con id " + tFactura.getIdCliente());
 		}
 		boolean exito = daoFactura.abrirFactura(tFactura);
 		if (!exito) {
@@ -47,6 +52,9 @@ public class SAFacturaImp implements SAFactura{
 	public int ModificarFactura(TransFactura tFactura) {
 		if (daoFactura.buscarFactura(tFactura.getCod()) == null) {
 			throw new IllegalArgumentException("No existe una factura con codigo " + tFactura.getCod());
+		}
+		if (daoCliente.buscarCliente(tFactura.getIdCliente()) == null){
+			throw new IllegalArgumentException("No existe un cliente con id " + tFactura.getIdCliente());
 		}
 		boolean exito = daoFactura.modificarFactura(tFactura);
 		if (!exito) {
