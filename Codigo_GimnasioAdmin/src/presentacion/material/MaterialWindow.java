@@ -2,9 +2,6 @@ package presentacion.material;
 
 import javax.swing.JFrame;
 
-import presentacion.actividad.ActividadWindow;
-import presentacion.actividad.ActividadWindowImp;
-
 public class MaterialWindow extends JFrame{
 	private static MaterialWindow instancia;
 
