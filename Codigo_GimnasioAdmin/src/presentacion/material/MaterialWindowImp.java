@@ -62,8 +62,8 @@ public class MaterialWindowImp extends MaterialWindow {
 
 		modificarMaterialButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Lógica para modificar material
-				JOptionPane.showMessageDialog(MaterialWindowImp.this, "Funcionalidad de Modificar Cliente");
+				ModificarMaterial modificarMaterial = new ModificarMaterial();
+				modificarMaterial.setVisible(true);
 			}
 		});
 		mostrarMaterialButton.addActionListener(new ActionListener() {

@@ -10,22 +10,22 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import negocio.actividad.TransActividad;
 import negocio.material.TransMaterial;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
-public class AltaMaterial extends JFrame{
+public class ModificarMaterial extends JFrame{
 	private JTextField txtIdMaterial;
 	private JTextField txtNombreMaterial;
 	private JTextField txtStockMaterial;
-	
 
-	public AltaMaterial() {
+	public ModificarMaterial() {
 		initComponents();
 	}
 
 	private void initComponents() {
-		setTitle("Alta Material");
+		setTitle("Modificar Material");
 		setSize(300, 400);
 		setLocationRelativeTo(null);
 
@@ -38,7 +38,7 @@ public class AltaMaterial extends JFrame{
 		JLabel labelStock = new JLabel("Cantidad de material:");
 		txtStockMaterial = new JTextField(20);
 
-		JButton altaButton = new JButton("Dar de alta");
+		JButton modificarButton = new JButton("Modificar material");
 
 		// Crear el panel y agregar los componentes
 		JPanel panel = new JPanel();
@@ -48,16 +48,19 @@ public class AltaMaterial extends JFrame{
 		panel.add(txtNombreMaterial);
 		panel.add(labelStock);
 		panel.add(txtStockMaterial);
-		panel.add(altaButton);
+		
+		panel.add(modificarButton);
 
 		// Agregar panel a la ventana
 		setContentPane(panel);
 
-		// Botón de alta
-		altaButton.addActionListener(new ActionListener() {
+		// Botón de modificar
+		modificarButton.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				
+				// Obtener los datos de entrada
+
+				// Comprobar que este relleno
 				if (txtNombreMaterial.getText().isEmpty() || txtStockMaterial.getText().isEmpty()
 						|| txtIdMaterial.getText().isEmpty() || Integer.parseInt(txtStockMaterial.getText())<= 0) {
 					if (Integer.parseInt(txtStockMaterial.getText())<= 0){
@@ -66,10 +69,9 @@ public class AltaMaterial extends JFrame{
 					else{
 						JOptionPane.showMessageDialog(null, "Por favor, ingrese todos los datos.");
 					}
-					
-				} else {
-					// Realizar la lógica de alta de la actividad en la base de
-					// datos
+				}else {
+					// Realizar la lógica de modificar de la actividad en la
+					// BBDD
 
 					setVisible(false);
 					// hacer try y catch de numeros y strings
@@ -80,14 +82,14 @@ public class AltaMaterial extends JFrame{
 
 						TransMaterial tMaterial = new TransMaterial(i, n, s);
 
-						Controlador.obtenerInstancia().Accion(Eventos.ALTA_MATERIAL, tMaterial);
+						Controlador.obtenerInstancia().Accion(Eventos.MODIFICAR_MATERIAL, tMaterial);
 
 						setVisible(false);
 					} catch (NumberFormatException error) {
 						JOptionPane.showMessageDialog(null,
 								"Error al ingresar los datos. Asegúrate de que todos los campos numéricos sean válidos.");
 					} catch (Exception error) {
-						JOptionPane.showMessageDialog(null, "Error al dar de alta el material: " + error.getMessage());
+						JOptionPane.showMessageDialog(null, "Error al modificar el material: " + error.getMessage());
 					}
 					setVisible(false);
 				}
