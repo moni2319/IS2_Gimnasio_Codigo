@@ -23,7 +23,7 @@ public class SAActividadImp implements SAActividad {
 			throw new IllegalArgumentException("No se pudo guardar en la base de datos la actividad");
 		}
 
-		return 0;
+		return 1;
 	}
 
 	public int BajaActividad(int id) {
@@ -34,7 +34,7 @@ public class SAActividadImp implements SAActividad {
 		if (!exito) {
 			throw new IllegalArgumentException("No se pudo quitar en la base de datos la actividad");
 		}
-		return 0; // cambiar
+		return 1; // cambiar
 	}
 
 	public TransActividad MostrarActividad(int id) {
@@ -56,7 +56,7 @@ public class SAActividadImp implements SAActividad {
 		if (!exito) {
 			throw new IllegalArgumentException("No se pudo modificar en la base de datos la actividad");
 		}
-		return 0;
+		return 1;
 	}
 
 }

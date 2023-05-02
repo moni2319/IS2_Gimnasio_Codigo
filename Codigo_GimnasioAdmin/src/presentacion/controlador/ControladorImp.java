@@ -29,6 +29,9 @@ public class ControladorImp extends Controlador {
 			SAActividad actividad = factoria.getInstanciaSAActividad();
 			try {
 				int resultado = actividad.AltaActividad(tActividad);
+				if (resultado > 0){
+					ActividadWindow.obtenerInstancia().Actualizar(Eventos.ALTA_ACTIVIDAD_BIEN, tActividad);
+				}
 
 			} catch (IllegalArgumentException e) {
 				JOptionPane.showMessageDialog(null, e.getMessage());
@@ -41,6 +44,9 @@ public class ControladorImp extends Controlador {
 			SAActividad actividad = factoria.getInstanciaSAActividad();
 			try {
 				int resultado = actividad.BajaActividad(id);
+				if (resultado > 0){
+					ActividadWindow.obtenerInstancia().Actualizar(Eventos.BAJA_ACTIVIDAD_BIEN, id);
+				}
 
 			} catch (IllegalArgumentException e) {
 				JOptionPane.showMessageDialog(null, e.getMessage());
@@ -52,6 +58,9 @@ public class ControladorImp extends Controlador {
 			SAActividad actividad = factoria.getInstanciaSAActividad();
 			try {
 				int resultado = actividad.ModificarActividad(tActividad);
+				if (resultado > 0){
+					ActividadWindow.obtenerInstancia().Actualizar(Eventos.MODIFICAR_ACTIVIDAD_BIEN, tActividad);
+				}
 
 			} catch (IllegalArgumentException e) {
 				JOptionPane.showMessageDialog(null, e.getMessage());
@@ -79,6 +88,9 @@ public class ControladorImp extends Controlador {
 			SAFactura actividad = factoria.getInstanciaSAFactura();
 			try {
 				int resultado = actividad.CerrarFactura(cod);
+				if (resultado > 0){
+					FacturaWindow.obtenerInstancia().Actualizar(Eventos.CERRAR_FACTURA_BIEN, cod);
+				}
 
 			} catch (IllegalArgumentException e) {
 				JOptionPane.showMessageDialog(null, e.getMessage());

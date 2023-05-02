@@ -17,9 +17,18 @@ public class Eventos {
 	public static final int MODIFICAR_FACTURA = 111;
 
 	// ACTIVIDAD
-	public static final int ALTA_ACTIVIDAD_BIEN = 501; // NS SI LO USARE
-	public static final int RES_ALTA_ACTIVIDAD_KO = 502;
+	public static final int ALTA_ACTIVIDAD_BIEN = 501; 
+	public static final int BAJA_ACTIVIDAD_BIEN = 502;
+	public static final int MOSTRAR_ACTIVIDAD_BIEN = 503;
+	public static final int MOSTRAR_LISTA_ACTIVIDAD_BIEN = 504;
+	public static final int MODIFICAR_ACTIVIDAD_BIEN = 505;
 	
 	//FACTURA
-	public static final int ABRIR_FACTURA_BIEN = 503;
+	public static final int ABRIR_FACTURA_BIEN = 506;
+	public static final int CERRAR_FACTURA_BIEN = 507;
+	public static final int MOSTRAR_FACTURA_BIEN = 508;
+	public static final int MOSTRAR_FACTURA_CLIENTE_BIEN = 509;
+	public static final int MOSTRAR_LISTA_FACTURA_BIEN = 510;
+	public static final int MODIFICAR_FACTURA_BIEN = 511;
+
 }

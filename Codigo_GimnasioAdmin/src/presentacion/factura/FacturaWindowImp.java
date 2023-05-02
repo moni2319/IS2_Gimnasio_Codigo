@@ -98,11 +98,7 @@ public class FacturaWindowImp extends FacturaWindow {
 			
 			break;
 		}
-		case Eventos.RES_ALTA_ACTIVIDAD_KO: {
-			// POP UP SE ha dado error
-			JOptionPane.showMessageDialog(FacturaWindowImp.this, "Error al abrir la factura");
-			break;
-		}
+		
 
 		}
 	}

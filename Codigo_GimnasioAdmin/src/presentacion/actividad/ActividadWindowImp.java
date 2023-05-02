@@ -88,14 +88,26 @@ public class ActividadWindowImp extends ActividadWindow {
 		switch (evento) {
 		case Eventos.ALTA_ACTIVIDAD_BIEN: {
 			// POP UP SE ha creado correctamente
-			JOptionPane.showMessageDialog(ActividadWindowImp.this, "Se ha creado correctamente la actividad");
+			TransActividad actividad = (TransActividad) data;
+			int id = actividad.getId();
+			JOptionPane.showMessageDialog(ActividadWindowImp.this, "Actividad: " + id + " dada de alta correctamente");
 			break;
 		}
-		case Eventos.RES_ALTA_ACTIVIDAD_KO: {
-			// POP UP SE ha dado error
-			JOptionPane.showMessageDialog(ActividadWindowImp.this, "Error al dar de alta la actividad: ");
+		case Eventos.BAJA_ACTIVIDAD_BIEN: {
+			// POP UP SE ha creado correctamente
+			int id = (int)data;
+			JOptionPane.showMessageDialog(ActividadWindowImp.this, "Actividad: " + id + " dada de baja correctamente");
 			break;
 		}
+		case Eventos.MODIFICAR_ACTIVIDAD_BIEN: {
+			// POP UP SE ha creado correctamente
+			TransActividad actividad = (TransActividad) data;
+			int id = actividad.getId();
+			JOptionPane.showMessageDialog(ActividadWindowImp.this, "Actividad: " + id + " modificada correctamente");
+			break;
+		}
+		
+		
 		}
 	}
 }
