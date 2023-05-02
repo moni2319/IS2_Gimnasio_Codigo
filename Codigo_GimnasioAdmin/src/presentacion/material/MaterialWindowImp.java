@@ -81,6 +81,7 @@ public class MaterialWindowImp extends MaterialWindow {
 
 		pack();
 	}
+
 	public void Actualizar(int evento, Object data) {
 		switch (evento) {
 		case Eventos.ALTA_MATERIAL_BIEN: {
@@ -104,18 +105,18 @@ public class MaterialWindowImp extends MaterialWindow {
 			TransMaterial material = (TransMaterial) data;
 			ArrayList<TransMaterial> lista = new ArrayList<TransMaterial>();
 			lista.add(material);
-		
-			//MostrarMaterialWindow mostrarWindow = new MostrarMaterialWindow(lista);
-			//mostrarWindow.setVisible(true);
+
+			MostrarMaterialWindow mostrarWindow = new MostrarMaterialWindow(lista);
+			mostrarWindow.setVisible(true);
 
 			break;
 		}
 		case Eventos.MOSTRAR_LISTA_MATERIAL_BIEN: {
-			
+
 			ArrayList<TransMaterial> lista = (ArrayList<TransMaterial>) data;
-			
-			//MostrarMaterialWindow mostrarWindow = new MostrarMaterialWindow(lista);
-		//	mostrarWindow.setVisible(true);
+
+			MostrarMaterialWindow mostrarWindow = new MostrarMaterialWindow(lista);
+			mostrarWindow.setVisible(true);
 
 			break;
 		}
@@ -123,5 +124,5 @@ public class MaterialWindowImp extends MaterialWindow {
 		}
 
 	}
-	
+
 }

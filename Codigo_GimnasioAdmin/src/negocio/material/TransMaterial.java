@@ -8,7 +8,7 @@ public class TransMaterial {
 	public TransMaterial(int i, String n, int s) {
 		id = i;
 		nombre = n;
-		s = stock;
+		stock = s;
 	}
 
 	public int getId() {

@@ -14,11 +14,10 @@ import negocio.material.TransMaterial;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
-public class AltaMaterial extends JFrame{
+public class AltaMaterial extends JFrame {
 	private JTextField txtIdMaterial;
 	private JTextField txtNombreMaterial;
 	private JTextField txtStockMaterial;
-	
 
 	public AltaMaterial() {
 		initComponents();
@@ -57,16 +56,15 @@ public class AltaMaterial extends JFrame{
 		altaButton.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				
+
 				if (txtNombreMaterial.getText().isEmpty() || txtStockMaterial.getText().isEmpty()
-						|| txtIdMaterial.getText().isEmpty() || Integer.parseInt(txtStockMaterial.getText())<= 0) {
-					if (Integer.parseInt(txtStockMaterial.getText())<= 0){
+						|| txtIdMaterial.getText().isEmpty() || Integer.parseInt(txtStockMaterial.getText()) <= 0) {
+					if (Integer.parseInt(txtStockMaterial.getText()) <= 0) {
 						JOptionPane.showMessageDialog(null, "Por favor, la cantidad debe ser > 0.");
-					}
-					else{
+					} else {
 						JOptionPane.showMessageDialog(null, "Por favor, ingrese todos los datos.");
 					}
-					
+
 				} else {
 					// Realizar la lógica de alta de la actividad en la base de
 					// datos
