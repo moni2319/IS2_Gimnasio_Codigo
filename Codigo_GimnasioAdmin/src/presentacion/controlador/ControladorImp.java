@@ -163,12 +163,12 @@ public class ControladorImp extends Controlador {
 			break;
 		}
 		case Eventos.MOSTRAR_FACTURA_CLIENTE: {
-			int cod = (int) info;
+			int idC = (int) info;
 			SAFactura factura = factoria.getInstanciaSAFactura();
 			try {
-				TransFactura tFactura = factura.MostrarFactura(cod);
-				if (tFactura != null) {
-					FacturaWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_FACTURA_CLIENTE_BIEN, tFactura);
+				ArrayList<TransFactura> lista = factura.MostrarFacturasCliente(idC);
+				if (lista!= null) {
+					FacturaWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_FACTURA_CLIENTE_BIEN,lista);
 				}
 
 			} catch (IllegalArgumentException e) {
