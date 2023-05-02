@@ -53,7 +53,7 @@ public class DAOMonitorImp implements DAOMonitor {
 	}
 
 	public boolean modificarMonitor(TransMonitor tMonitor) {
-		String query = "UPDATE monitor SET nombre = ?, stock = ? WHERE id = ?";
+		String query = "UPDATE monitor SET nombre = ?, salario = ? WHERE id = ?";
 		try (PreparedStatement st = connection.prepareStatement(query)) {
 			st.setString(1, tMonitor.getNombre());
 			st.setInt(2, tMonitor.getSalario());
@@ -68,7 +68,7 @@ public class DAOMonitorImp implements DAOMonitor {
 	}
 
 	public TransMonitor buscarMonitor(int id) {
-		String query = "SELECT * FROM material WHERE id = ?";
+		String query = "SELECT * FROM monitor WHERE id = ?";
 		try (PreparedStatement st = connection.prepareStatement(query)) {
 			st.setInt(1, id);
 			ResultSet rs = st.executeQuery();
@@ -87,7 +87,7 @@ public class DAOMonitorImp implements DAOMonitor {
 			if (rs.next()) {
 				int i = rs.getInt("id");
 				String n = rs.getString("nombre");
-				int s = rs.getInt("stock");
+				int s = rs.getInt("salario");
 
 				monitor = new TransMonitor(i, n, s);
 			}

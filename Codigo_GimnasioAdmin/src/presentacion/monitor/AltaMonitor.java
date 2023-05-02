@@ -35,7 +35,7 @@ public class AltaMonitor extends JFrame{
 		JLabel labelNombre = new JLabel("Nombre del monitor:");
 		txtNombreMonitor = new JTextField(20);
 
-		JLabel labelSalario = new JLabel("Cantidad de monitor:");
+		JLabel labelSalario = new JLabel("Salario de monitor:");
 		txtSalarioMonitor = new JTextField(20);
 
 		JButton altaButton = new JButton("Dar de alta");

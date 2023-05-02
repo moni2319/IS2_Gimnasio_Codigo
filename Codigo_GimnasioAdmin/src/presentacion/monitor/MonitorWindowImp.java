@@ -84,6 +84,7 @@ public class MonitorWindowImp extends MonitorWindow {
 
 		pack();
 	}
+
 	public void Actualizar(int evento, Object data) {
 		switch (evento) {
 		case Eventos.ALTA_MONITOR_BIEN: {
@@ -108,8 +109,8 @@ public class MonitorWindowImp extends MonitorWindow {
 			ArrayList<TransMonitor> lista = new ArrayList<TransMonitor>();
 			lista.add(monitor);
 
-//			MostrarMonitorWindow mostrarWindow = new MostrarMonitorWindow(lista);
-//			mostrarWindow.setVisible(true);
+			MostrarMonitorWindow mostrarWindow = new MostrarMonitorWindow(lista);
+			mostrarWindow.setVisible(true);
 
 			break;
 		}
@@ -117,8 +118,8 @@ public class MonitorWindowImp extends MonitorWindow {
 
 			ArrayList<TransMonitor> lista = (ArrayList<TransMonitor>) data;
 
-//			MostrarMonitorWindow mostrarWindow = new MostrarMonitorWindow(lista);
-//			mostrarWindow.setVisible(true);
+			MostrarMonitorWindow mostrarWindow = new MostrarMonitorWindow(lista);
+			mostrarWindow.setVisible(true);
 
 			break;
 		}
