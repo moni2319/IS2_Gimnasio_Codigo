@@ -2,16 +2,16 @@ package negocio.factura;
 
 import java.util.ArrayList;
 
-import negocio.actividad.TransActividad;
+
 
 public interface SAFactura {
-	public int AbrirFactura(TransActividad tActividad);
+	public int AbrirFactura(TransFactura tFactura);
 
-	public TransActividad MostrarActividad(int id);
+	public TransFactura MostrarFactura(int cod);
 
-	public ArrayList<TransActividad> ListarActividad();
+	public ArrayList<TransFactura> ListarFactura();
 
-	public int Modificar(TransActividad tActividad);
+	public int ModificarFactura(TransFactura tActividad);
 
-	public int BajaActividad(int id);
+	public int CerrarActividad(int cod);
 }

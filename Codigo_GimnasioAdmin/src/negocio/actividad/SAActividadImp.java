@@ -48,7 +48,7 @@ public class SAActividadImp implements SAActividad {
 		return daoActividad.listaActividades();
 	}
 
-	public int Modificar(TransActividad tActividad) {
+	public int ModificarActividad(TransActividad tActividad) {
 		if (daoActividad.buscar(tActividad.getId()) == null) {
 			throw new IllegalArgumentException("No existe una actividad con id " + tActividad.getId());
 		}

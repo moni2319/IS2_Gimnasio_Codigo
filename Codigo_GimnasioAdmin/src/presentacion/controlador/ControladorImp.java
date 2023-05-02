@@ -48,7 +48,7 @@ public class ControladorImp extends Controlador {
 			TransActividad tActividad = (TransActividad) info;
 			SAActividad actividad = factoria.getInstanciaSAActividad();
 			try {
-				int resultado = actividad.Modificar(tActividad);
+				int resultado = actividad.ModificarActividad(tActividad);
 
 			} catch (IllegalArgumentException e) {
 				JOptionPane.showMessageDialog(null, e.getMessage());
