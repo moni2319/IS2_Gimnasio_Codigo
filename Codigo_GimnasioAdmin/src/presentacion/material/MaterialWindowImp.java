@@ -55,8 +55,8 @@ public class MaterialWindowImp extends MaterialWindow {
 
 		bajaMaterialButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Lógica para baja de material
-				JOptionPane.showMessageDialog(MaterialWindowImp.this, "Funcionalidad de Baja Cliente");
+				BajaMaterial bajaMaterial = new BajaMaterial();
+				bajaMaterial.setVisible(true);
 			}
 		});
 

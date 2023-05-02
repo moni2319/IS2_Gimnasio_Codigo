@@ -10,7 +10,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import negocio.actividad.TransActividad;
 import negocio.material.TransMaterial;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
