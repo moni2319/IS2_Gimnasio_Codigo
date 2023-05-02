@@ -18,11 +18,11 @@ public class ControladorImp extends Controlador {
 		factoria = new FactoriaSAImp();
 	}
 
-	public void Accion(int event, Object trans) {
+	public void Accion(int event, Object info) {
 		switch (event) {
 		case Eventos.ALTA_ACTIVIDAD: {
 
-			TransActividad tActividad = (TransActividad) trans;
+			TransActividad tActividad = (TransActividad) info;
 
 			// Modelo
 			SAActividad actividad = factoria.getInstanciaSAActividad();
@@ -37,7 +37,20 @@ public class ControladorImp extends Controlador {
 
 			break;
 		}
-		// case Evento.BAJA_ACTIVIDAD: { …… }
+		case Eventos.BAJA_ACTIVIDAD: {
+			int id = (int) info;
+			SAActividad actividad = factoria.getInstanciaSAActividad();
+			try {
+				int resultado = actividad.BajaActividad(id);
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+			break;
+		}
+		// case:{
+
+		// }
 
 		}
 	}

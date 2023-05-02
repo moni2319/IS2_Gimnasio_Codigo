@@ -55,7 +55,8 @@ public class ActividadWindowImp extends ActividadWindow {
 		bajaActividadButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Lógica para baja de actividad
-				JOptionPane.showMessageDialog(ActividadWindowImp.this, "Funcionalidad de Baja Actividad");
+				BajaActividad bajaActividad = new BajaActividad();
+				bajaActividad.setVisible(true);
 			}
 		});
 
