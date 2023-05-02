@@ -4,7 +4,7 @@ import javax.swing.*;
 
 import presentacion.actividad.ActividadWindowImp;
 import presentacion.cliente.ClienteWindowImp;
-import presentacion.entrenamiento.EntrenamientoWindow;
+import presentacion.entrenamiento.EntrenamientoWindowImp;
 import presentacion.factura.FacturaWindowImp;
 import presentacion.material.MaterialWindowImp;
 import presentacion.monitor.MonitorWindowImp;
@@ -68,7 +68,7 @@ public class MainWindow extends JFrame {
 		entrenamientoButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Abrir la ventana de entrenamiento
-				EntrenamientoWindow entrenamientoWindow = new EntrenamientoWindow();
+				EntrenamientoWindowImp entrenamientoWindow = new EntrenamientoWindowImp();
 				entrenamientoWindow.setVisible(true);
 
 			}
