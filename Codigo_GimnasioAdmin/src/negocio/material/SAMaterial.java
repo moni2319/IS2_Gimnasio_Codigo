@@ -11,6 +11,6 @@ public interface SAMaterial {
 
 	public TransMaterial MostrarMaterial(int id);
 
-	public ArrayList<TransMaterial> ListarMateriañ();
+	public ArrayList<TransMaterial> ListarMaterial();
 
 }
