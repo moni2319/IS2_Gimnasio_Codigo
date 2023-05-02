@@ -30,6 +30,13 @@ public class Eventos {
 	public static final int MOSTRAR_LISTA_MONITOR = 120;
 	public static final int MODIFICAR_MONITOR = 121;
 
+	// CLIENTE
+	public static final int ALTA_CLIENTE = 122;
+	public static final int BAJA_CLIENTE = 123;
+	public static final int MOSTRAR_CLIENTE = 124;
+	public static final int MOSTRAR_LISTA_CLIENTE = 125;
+	public static final int MODIFICAR_CLIENTE = 126;
+
 	// _________________________________________________________________________________________________________
 
 	// ACTIVIDAD
@@ -60,5 +67,12 @@ public class Eventos {
 	public static final int MOSTRAR_MONITOR_BIEN = 519;
 	public static final int MOSTRAR_LISTA_MONITOR_BIEN = 520;
 	public static final int MODIFICAR_MONITOR_BIEN = 521;
+
+	// CLIENTE
+	public static final int ALTA_CLIENTE_BIEN = 522;
+	public static final int BAJA_CLIENTE_BIEN = 523;
+	public static final int MOSTRAR_CLIENTE_BIEN = 524;
+	public static final int MOSTRAR_LISTA_CLIENTE_BIEN = 525;
+	public static final int MODIFICAR_CLIENTE_BIEN = 526;
 
 }
