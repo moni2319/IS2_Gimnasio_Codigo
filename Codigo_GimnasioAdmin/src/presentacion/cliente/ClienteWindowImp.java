@@ -48,22 +48,22 @@ public class ClienteWindowImp extends ClienteWindow{
 		// Configurar acciones de los botones de cliente
 		altaClienteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Lógica para alta de cliente
-				JOptionPane.showMessageDialog(ClienteWindowImp.this, "Funcionalidad de Alta Cliente");
+				AltaCliente altaCliente = new AltaCliente();
+				altaCliente.setVisible(true);
 			}
 		});
 
 		bajaClienteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Lógica para baja de cliente
-				JOptionPane.showMessageDialog(ClienteWindowImp.this, "Funcionalidad de Baja Cliente");
+				BajaCliente bajaCliente = new BajaCliente();
+				bajaCliente.setVisible(true);
 			}
 		});
 
 		modificarClienteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Lógica para modificar cliente
-				JOptionPane.showMessageDialog(ClienteWindowImp.this, "Funcionalidad de Modificar Cliente");
+				ModificarCliente modificarCliente = new ModificarCliente();
+				modificarCliente.setVisible(true);
 			}
 		});
 		mostrarClienteButton.addActionListener(new ActionListener() {
