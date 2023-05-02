@@ -1,9 +1,16 @@
 package presentacion.entrenamiento;
 
 import javax.swing.*;
+
+
+import negocio.entrenamiento.TransEntrenamiento;
+
+import presentacion.controlador.Eventos;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class EntrenamientoWindowImp extends EntrenamientoWindow {
 
@@ -40,8 +47,8 @@ public class EntrenamientoWindowImp extends EntrenamientoWindow {
 		// Configurar acciones de los botones de entrenamiento
 		altaEntrenamientoButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Lógica para alta de entrenamiento
-				JOptionPane.showMessageDialog(EntrenamientoWindowImp.this, "Funcionalidad de Alta Cliente");
+				AltaEntrenamiento altaEntrenamiento = new AltaEntrenamiento();
+				altaEntrenamiento.setVisible(true);
 			}
 		});
 
@@ -73,10 +80,47 @@ public class EntrenamientoWindowImp extends EntrenamientoWindow {
 
 		pack();
 	}
-	
+
 	public void Actualizar(int evento, Object data) {
-		// TODO Auto-generated method stub
+		switch (evento) {
+		case Eventos.ALTA_ENTRENAMIENTO_BIEN: {
+			TransEntrenamiento entrenamiento = (TransEntrenamiento) data;
+			int id = entrenamiento.getId();
+			JOptionPane.showMessageDialog(EntrenamientoWindowImp.this, "Entrenamiento: " + id + " dado de alta correctamente");
+			break;
+		}
+		case Eventos.BAJA_ENTRENAMIENTO_BIEN: {
+			int id = (int) data;
+			JOptionPane.showMessageDialog(EntrenamientoWindowImp.this, "Entrenamiento: " + id + " dado de baja correctamente");
+			break;
+		}
+		case Eventos.MODIFICAR_ENTRENAMIENTO_BIEN: {
+			TransEntrenamiento entrenamiento = (TransEntrenamiento) data;
+			int id = entrenamiento.getId();
+			JOptionPane.showMessageDialog(EntrenamientoWindowImp.this, "Entrenamiento: " + id + " modificado correctamente");
+			break;
+		}
+		case Eventos.MOSTRAR_ENTRENAMIENTO_BIEN: {
+			TransEntrenamiento entrenamiento = (TransEntrenamiento) data;
+			ArrayList<TransEntrenamiento> lista = new ArrayList<TransEntrenamiento>();
+			lista.add(entrenamiento);
+
+//			MostrarEntrenamientoWindow mostrarWindow = new MostrarEntrenamientoWindow(lista);
+//			mostrarWindow.setVisible(true);
+
+			break;
+		}
+		case Eventos.MOSTRAR_LISTA_ENTRENAMIENTO_BIEN: {
+
+			ArrayList<TransEntrenamiento> lista = (ArrayList<TransEntrenamiento>) data;
+
+//			MostrarEntrenamientoWindow mostrarWindow = new MostrarEntrenamientoWindow(lista);
+//			mostrarWindow.setVisible(true);
+
+			break;
+		}
+		}
 
 	}
-	
+
 }
