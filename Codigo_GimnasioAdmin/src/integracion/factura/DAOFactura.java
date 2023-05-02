@@ -15,5 +15,5 @@ public interface DAOFactura {
 
 	public boolean modificarFactura(TransFactura tActividad);
 
-	public boolean cerrarActividad(int cod);
+	public boolean cerrarFactura(int cod);
 }

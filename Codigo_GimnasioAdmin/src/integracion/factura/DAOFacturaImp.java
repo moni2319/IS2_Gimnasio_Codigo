@@ -61,10 +61,17 @@ public class DAOFacturaImp implements DAOFactura {
 		return false;
 	}
 
-	@Override
-	public boolean cerrarActividad(int cod) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean cerrarFactura(int cod) {
+		String query = "DELETE FROM factura WHERE cod = ?";
+		try (PreparedStatement st = connection.prepareStatement(query)) {
+			st.setInt(1, cod);
+			int rowsAffected = st.executeUpdate();
+			return rowsAffected > 0;
+		} catch (SQLException e) {
+			System.err.print(e.getMessage());
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 }
