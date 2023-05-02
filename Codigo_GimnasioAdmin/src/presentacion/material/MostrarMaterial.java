@@ -21,7 +21,7 @@ public class MostrarMaterial extends JFrame{
 	}
 
 	private void initComponents() {
-		setTitle("Mostrar AMaterial");
+		setTitle("Mostrar Material");
 		setSize(300, 200);
 		setLocationRelativeTo(null);
 

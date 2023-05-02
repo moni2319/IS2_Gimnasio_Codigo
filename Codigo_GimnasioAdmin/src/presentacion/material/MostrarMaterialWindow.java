@@ -16,7 +16,7 @@ public class MostrarMaterialWindow extends JFrame{
 	private ArrayList<TransMaterial> lista;
 
 	public MostrarMaterialWindow(ArrayList<TransMaterial> l) {
-		setTitle("Actividades");
+		setTitle("Materiales");
 		setSize(800, 500);
 		setLocation(400, 500);
 		// Crear el modelo de tabla
