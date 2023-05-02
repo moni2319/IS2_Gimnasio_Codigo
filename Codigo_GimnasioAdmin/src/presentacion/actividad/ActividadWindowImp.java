@@ -63,7 +63,8 @@ public class ActividadWindowImp extends ActividadWindow {
 		modificarActividadButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Lógica para modificar actividad
-				JOptionPane.showMessageDialog(ActividadWindowImp.this, "Funcionalidad de Modificar Actividad");
+				ModificarActividad modificarActividad = new ModificarActividad();
+				modificarActividad.setVisible(true);
 			}
 		});
 		mostrarActividadButton.addActionListener(new ActionListener() {

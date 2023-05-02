@@ -40,7 +40,7 @@ public class BajaActividad extends JFrame {
 		// Agregar panel a la ventana
 		setContentPane(panel);
 
-		// Botón de alta
+		// Botón de baja
 		bajaButton.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
@@ -50,10 +50,9 @@ public class BajaActividad extends JFrame {
 				if (txtIdActividad.getText().isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Por favor, ingrese el id a dar de baja.");
 				} else {
-					
 
 					setVisible(false);
-					// hacer try y catch de numeros y strings
+					// hacer try y catch de numeros
 					try {
 						int id = Integer.parseInt(txtIdActividad.getText());
 						Controlador.obtenerInstancia().Accion(Eventos.BAJA_ACTIVIDAD, id);
