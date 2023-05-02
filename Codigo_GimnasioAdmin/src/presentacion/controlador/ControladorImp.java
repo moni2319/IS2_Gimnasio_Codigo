@@ -22,9 +22,7 @@ public class ControladorImp extends Controlador {
 		switch (event) {
 		case Eventos.ALTA_ACTIVIDAD: {
 			TransActividad tActividad = (TransActividad) info;
-			// Modelo
 			SAActividad actividad = factoria.getInstanciaSAActividad();
-			// HAY q crear las instanicas
 			try {
 				int resultado = actividad.AltaActividad(tActividad);
 
@@ -47,9 +45,7 @@ public class ControladorImp extends Controlador {
 		}
 		case Eventos.MODIFICAR_ACTIVIDAD: {
 			TransActividad tActividad = (TransActividad) info;
-			// Modelo
 			SAActividad actividad = factoria.getInstanciaSAActividad();
-			// HAY q crear las instanicas
 			try {
 				int resultado = actividad.Modificar(tActividad);
 
