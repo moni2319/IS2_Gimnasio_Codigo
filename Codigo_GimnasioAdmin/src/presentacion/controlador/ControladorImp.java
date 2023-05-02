@@ -9,6 +9,8 @@ import negocio.actividad.SAActividad;
 import negocio.actividad.TransActividad;
 import negocio.cliente.SACliente;
 import negocio.cliente.TransCliente;
+import negocio.entrenamiento.SAEntrenamiento;
+import negocio.entrenamiento.TransEntrenamiento;
 import negocio.factorias.FactoriaSA;
 import negocio.factorias.FactoriaSAImp;
 import negocio.factura.SAFactura;
@@ -19,6 +21,7 @@ import negocio.monitor.SAMonitor;
 import negocio.monitor.TransMonitor;
 import presentacion.actividad.ActividadWindow;
 import presentacion.cliente.ClienteWindow;
+import presentacion.entrenamiento.EntrenamientoWindow;
 import presentacion.factura.FacturaWindow;
 import presentacion.material.MaterialWindow;
 import presentacion.monitor.MonitorWindow;
@@ -444,8 +447,87 @@ public class ControladorImp extends Controlador {
 
 			break;
 		}
+		
 		// ENTRENAMIENTO
 		
+		case Eventos.ALTA_ENTRENAMIENTO: {
+			TransEntrenamiento tEntrenamiento = (TransEntrenamiento) info;
+			SAEntrenamiento entrenamiento = factoria.getInstanciaSAEntrenamiento();
+			try {
+				int resultado = entrenamiento.AltaEntrenamiento(tEntrenamiento);
+				if (resultado > 0) {
+					EntrenamientoWindow.obtenerInstancia().Actualizar(Eventos.ALTA_ENTRENAMIENTO_BIEN, tEntrenamiento);
+				}
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+
+			break;
+		}
+		case Eventos.BAJA_ENTRENAMIENTO: {
+			int id = (int) info;
+			SAEntrenamiento entrenamiento = factoria.getInstanciaSAEntrenamiento();
+			try {
+				int resultado = entrenamiento.BajaEntrenamiento(id);
+				if (resultado > 0) {
+					EntrenamientoWindow.obtenerInstancia().Actualizar(Eventos.BAJA_ENTRENAMIENTO_BIEN, id);
+				}
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+			break;
+		}
+		case Eventos.MODIFICAR_ENTRENAMIENTO: {
+			TransEntrenamiento tEntrenamiento = (TransEntrenamiento) info;
+			SAEntrenamiento entrenamiento = factoria.getInstanciaSAEntrenamiento();
+			try {
+				int resultado = entrenamiento.ModificarEntrenamiento(tEntrenamiento);
+				if (resultado > 0) {
+					EntrenamientoWindow.obtenerInstancia().Actualizar(Eventos.MODIFICAR_ENTRENAMIENTO_BIEN, tEntrenamiento);
+				}
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+
+			break;
+		}
+		case Eventos.MOSTRAR_ENTRENAMIENTO: {
+			int id = (int) info;
+			SAEntrenamiento entrenamiento = factoria.getInstanciaSAEntrenamiento();
+			try {
+
+				TransEntrenamiento tEntrenamiento = entrenamiento.MostrarEntrenamiento(id);
+				if (tEntrenamiento != null) {
+					EntrenamientoWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_ENTRENAMIENTO_BIEN, tEntrenamiento);
+				}
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+
+			}
+
+			break;
+		}
+		case Eventos.MOSTRAR_LISTA_ENTRENAMIENTO: {
+
+			SAEntrenamiento entrenamiento = factoria.getInstanciaSAEntrenamiento();
+			try {
+
+				ArrayList<TransEntrenamiento> lista = entrenamiento.ListarEntrenamiento();
+				if (lista != null) {
+					EntrenamientoWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_LISTA_ENTRENAMIENTO_BIEN, lista);
+				}
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+
+			}
+
+			break;
+		}
 		
 		}
 
