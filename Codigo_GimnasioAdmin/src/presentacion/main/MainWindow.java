@@ -7,7 +7,7 @@ import presentacion.cliente.ClientWindow;
 import presentacion.entrenamiento.EntrenamientoWindow;
 import presentacion.factura.FacturaWindowImp;
 import presentacion.material.MaterialWindowImp;
-import presentacion.monitor.MonitorWindow;
+import presentacion.monitor.MonitorWindowImp;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -60,7 +60,7 @@ public class MainWindow extends JFrame {
 		monitorButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Abrir la ventana de monitores
-				MonitorWindow monitorWindow = new MonitorWindow();
+				MonitorWindowImp monitorWindow = new MonitorWindowImp();
 				monitorWindow.setVisible(true);
 			}
 		});
