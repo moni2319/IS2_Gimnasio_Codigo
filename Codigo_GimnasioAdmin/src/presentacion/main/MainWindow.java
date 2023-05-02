@@ -6,7 +6,7 @@ import presentacion.actividad.ActividadWindowImp;
 import presentacion.cliente.ClientWindow;
 import presentacion.entrenamiento.EntrenamientoWindow;
 import presentacion.factura.FacturaWindowImp;
-import presentacion.material.MaterialWindow;
+import presentacion.material.MaterialWindowImp;
 import presentacion.monitor.MonitorWindow;
 
 import java.awt.*;
@@ -85,7 +85,7 @@ public class MainWindow extends JFrame {
 		materialButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Abrir la ventana de materiales
-				MaterialWindow materialWindow = new MaterialWindow();
+				MaterialWindowImp materialWindow = new MaterialWindowImp();
 				materialWindow.setVisible(true);
 
 			}
