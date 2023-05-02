@@ -11,8 +11,11 @@ import negocio.factorias.FactoriaSA;
 import negocio.factorias.FactoriaSAImp;
 import negocio.factura.SAFactura;
 import negocio.factura.TransFactura;
+import negocio.material.SAMaterial;
+import negocio.material.TransMaterial;
 import presentacion.actividad.ActividadWindow;
 import presentacion.factura.FacturaWindow;
+import presentacion.material.MaterialWindow;
 
 public class ControladorImp extends Controlador {
 	FactoriaSA factoria;
@@ -184,6 +187,87 @@ public class ControladorImp extends Controlador {
 				ArrayList<TransFactura> lista = factura.ListarFactura();
 				if (lista != null) {
 					FacturaWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_LISTA_FACTURA_BIEN, lista);
+				}
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+
+			}
+
+			break;
+		}
+
+		// MATERIAL
+
+		case Eventos.ALTA_MATERIAL: {
+			TransMaterial tMaterial = (TransMaterial) info;
+			SAMaterial material = factoria.getInstanciaSAMaterial();
+			try {
+				int resultado = material.AltaMaterial(tMaterial);
+				if (resultado > 0) {
+					MaterialWindow.obtenerInstancia().Actualizar(Eventos.ALTA_MATERIAL_BIEN, tMaterial);
+				}
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+
+			break;
+		}
+		case Eventos.BAJA_MATERIAL: {
+			int id = (int) info;
+			SAMaterial material = factoria.getInstanciaSAMaterial();
+			try {
+				int resultado = material.BajaMaterial(id);
+				if (resultado > 0) {
+					MaterialWindow.obtenerInstancia().Actualizar(Eventos.BAJA_MATERIAL_BIEN, id);
+				}
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+			break;
+		}
+		case Eventos.MODIFICAR_MATERIAL: {
+			TransMaterial tMaterial = (TransMaterial) info;
+			SAMaterial material = factoria.getInstanciaSAMaterial();
+			try {
+				int resultado = material.ModificarMaterial(tMaterial);
+				if (resultado > 0) {
+					MaterialWindow.obtenerInstancia().Actualizar(Eventos.MODIFICAR_MATERIAL_BIEN, tMaterial);
+				}
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+
+			break;
+		}
+		case Eventos.MOSTRAR_MATERIAL: {
+			int id = (int) info;
+			SAMaterial actividad = factoria.getInstanciaSAMaterial();
+			try {
+
+				TransMaterial tMaterial = actividad.MostrarMaterial(id);
+				if (tMaterial != null) {
+					MaterialWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_MATERIAL_BIEN, tMaterial);
+				}
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+
+			}
+
+			break;
+		}
+		case Eventos.MOSTRAR_LISTA_MATERIAL: {
+
+			SAMaterial actividad = factoria.getInstanciaSAMaterial();
+			try {
+
+				ArrayList<TransMaterial> lista = actividad.ListarMaterial();
+				if (lista != null) {
+					MaterialWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_LISTA_MATERIAL_BIEN, lista);
 				}
 
 			} catch (IllegalArgumentException e) {

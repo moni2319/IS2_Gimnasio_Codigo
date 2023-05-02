@@ -48,8 +48,8 @@ public class MaterialWindowImp extends MaterialWindow {
 		// Configurar acciones de los botones de material
 		altaMaterialButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Lógica para alta de material
-				JOptionPane.showMessageDialog(MaterialWindowImp.this, "Funcionalidad de Alta Cliente");
+				AltaMaterial altaMaterial = new AltaMaterial();
+				altaMaterial.setVisible(true);
 			}
 		});
 

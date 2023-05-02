@@ -30,12 +30,12 @@ public class FactoriaSAImp implements FactoriaSA {
 		return new SAFacturaImp();
 	}
 
-	public SAMaterial getInstanciaSaServicio() {
+	public SAMaterial getInstanciaSAMaterial() {
 		return new SAMaterialImp();
 	}
 
 	// @Override
-	// public SAMonitor getInstanciaSATren() {
+	// public SAMonitor getInstanciaSAMonitor() {
 	// return new SAMonitorImp();
 	// }
 

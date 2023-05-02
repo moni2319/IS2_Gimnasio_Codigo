@@ -10,7 +10,7 @@ public interface FactoriaSA {
 	// public SAEntrenamiento getInstanciaSAEntrenamiento();
 	// public SACliente getInstanciaSACliente();
 	 public SAFactura getInstanciaSAFactura();
-	 public SAMaterial getInstanciaSaServicio();
-	// public SAMonitor getInstanciaSATren();
+	 public SAMaterial getInstanciaSAMaterial();
+	// public SAMonitor getInstanciaSAMonitor();
 
 }
