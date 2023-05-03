@@ -144,7 +144,28 @@ public class SAActividadImpTest {
         saActividad.BajaActividad(1);
     }
 	
-	
+	@Test
+	public void testListarActividad() {
+	    // Preparación de datos de prueba
+	    TransActividad actividad1 = new TransActividad(1, 1, 100, 20, "Actividad 1");
+	    TransActividad actividad2 = new TransActividad(3, 1, 200, 15, "Actividad 2");
+	    
+	    // Insertar las actividades en la base de datos antes de realizar el test
+	    boolean exito1 = daoActividad.altaActividad(actividad1);
+	    boolean exito2 = daoActividad.altaActividad(actividad2);
+	    assertTrue(exito1);
+	    assertTrue(exito2);
+
+	    // Ejecución del método a probar
+	    ArrayList<TransActividad> actividades = saActividad.ListarActividad();
+	    
+	    // Verificación de resultados
+	    assertNotNull(actividades);
+	    assertEquals(2, actividades.size());
+	    saActividad.BajaActividad(3);
+	    saActividad.BajaActividad(1);
+	    
+	}
 
 	
 }

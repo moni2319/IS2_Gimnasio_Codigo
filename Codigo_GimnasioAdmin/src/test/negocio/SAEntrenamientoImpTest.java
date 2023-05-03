@@ -2,6 +2,8 @@ package test.negocio;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,7 +12,7 @@ import integracion.entrenamiento.DAOEntrenamiento;
 import integracion.factoria.FactoriaDAO;
 import integracion.factoria.FactoriaDAOImp;
 import integracion.monitor.DAOMonitor;
-
+import negocio.actividad.TransActividad;
 import negocio.entrenamiento.SAEntrenamiento;
 import negocio.entrenamiento.SAEntrenamientoImp;
 import negocio.entrenamiento.TransEntrenamiento;
@@ -28,7 +30,7 @@ public class SAEntrenamientoImpTest {
 	}
 
 	@Test
-	public void testAltaActividadExitoso() {
+	public void testAltaEntrenamientoExitoso() {
 		// Preparación de datos de prueba
 		TransEntrenamiento entrenamiento = new TransEntrenamiento(1, 1, 100, "Entrenamiento 1");
 
@@ -41,7 +43,7 @@ public class SAEntrenamientoImpTest {
 	}
 
 	@Test
-	public void testAltaActividadExistente() {
+	public void testAltaEntrenamientoExistente() {
 		 // Preparación de datos de prueba
 	    TransEntrenamiento entrenamiento1 = new TransEntrenamiento(1, 1, 100,  "Entrenamiento 1");
 	   
@@ -64,7 +66,7 @@ public class SAEntrenamientoImpTest {
 	}
 	
 	@Test
-    public void testAltaActividadMonitorInexistente() {
+    public void testAltaEntrenamientoMonitorInexistente() {
         // Preparación de datos de prueba
         TransEntrenamiento entrenamiento = new TransEntrenamiento(1, 10, 100, "Entrenamiento 1");
 
@@ -80,7 +82,7 @@ public class SAEntrenamientoImpTest {
     }
 
 	@Test
-    public void testBajaActividadExitoso() {
+    public void testBajaEntrenamientoExitoso() {
         // Preparación de datos de prueba
         TransEntrenamiento entrenamiento = new TransEntrenamiento(1, 1, 100, "Entrenamiento 1");
         daoEntrenamiento.altaEntrenamiento(entrenamiento); 
@@ -93,7 +95,7 @@ public class SAEntrenamientoImpTest {
     }
 	
 	@Test
-	public void testBajaActividadExistente() {
+	public void testBajaEntrenamientoExistente() {
 	    // Preparación de datos de prueba
 	    TransEntrenamiento entrenamiento = new TransEntrenamiento(1, 1, 100, "Entrenamiento 1");
 	    
@@ -113,7 +115,7 @@ public class SAEntrenamientoImpTest {
 	}
 
 	@Test
-	public void testBajaActividadNoExistente() {
+	public void testBajaEntrenamientoNoExistente() {
 	    // Preparación de datos de prueba
 	    int idNoExistente = 100;
 
@@ -127,7 +129,7 @@ public class SAEntrenamientoImpTest {
 	}
 	
 	@Test
-    public void testMostrarActividad() {
+    public void testMostrarEntrenamiento() {
         // Crear una actividad en la base de datos
         TransEntrenamiento entrenamiento = new TransEntrenamiento(1, 1, 100, "Entrenamiento 1");
         
@@ -139,4 +141,26 @@ public class SAEntrenamientoImpTest {
         assertEquals(entrenamiento.getIdM(), entrenamientoMostrado.getIdM());
         saEntrenamiento.BajaEntrenamiento(1);
     }
+	
+	public void testListarEntrenamiento() {
+	    // Preparación de datos de prueba
+	    TransEntrenamiento entrenamiento1 = new TransEntrenamiento(1, 1, 100, "Entrenamiento 1");
+	    TransEntrenamiento entrenamiento2 = new TransEntrenamiento(3, 1, 200,"Entrenamiento 2");
+	    
+	    // Insertar las actividades en la base de datos antes de realizar el test
+	    boolean exito1 = daoEntrenamiento.altaEntrenamiento(entrenamiento1);
+	    boolean exito2 = daoEntrenamiento.altaEntrenamiento(entrenamiento2);
+	    assertTrue(exito1);
+	    assertTrue(exito2);
+
+	    // Ejecución del método a probar
+	    ArrayList<TransEntrenamiento> entrenamientos = saEntrenamiento.ListarEntrenamiento();
+	    
+	    // Verificación de resultados
+	    assertNotNull(entrenamientos);
+	    assertEquals(2, entrenamientos.size());
+	    saEntrenamiento.BajaEntrenamiento(3);
+	    saEntrenamiento.BajaEntrenamiento(1);
+	    
+	}
 }
