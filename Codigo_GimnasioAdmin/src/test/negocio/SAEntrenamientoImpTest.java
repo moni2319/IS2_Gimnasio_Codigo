@@ -12,7 +12,7 @@ import integracion.entrenamiento.DAOEntrenamiento;
 import integracion.factoria.FactoriaDAO;
 import integracion.factoria.FactoriaDAOImp;
 import integracion.monitor.DAOMonitor;
-import negocio.actividad.TransActividad;
+
 import negocio.entrenamiento.SAEntrenamiento;
 import negocio.entrenamiento.SAEntrenamientoImp;
 import negocio.entrenamiento.TransEntrenamiento;
