@@ -104,8 +104,8 @@ public class EntrenamientoWindowImp extends EntrenamientoWindow {
 			ArrayList<TransEntrenamiento> lista = new ArrayList<TransEntrenamiento>();
 			lista.add(entrenamiento);
 
-//			MostrarEntrenamientoWindow mostrarWindow = new MostrarEntrenamientoWindow(lista);
-//			mostrarWindow.setVisible(true);
+			MostrarEntrenamientoWindow mostrarWindow = new MostrarEntrenamientoWindow(lista);
+			mostrarWindow.setVisible(true);
 
 			break;
 		}
@@ -113,8 +113,8 @@ public class EntrenamientoWindowImp extends EntrenamientoWindow {
 
 			ArrayList<TransEntrenamiento> lista = (ArrayList<TransEntrenamiento>) data;
 
-//			MostrarEntrenamientoWindow mostrarWindow = new MostrarEntrenamientoWindow(lista);
-//			mostrarWindow.setVisible(true);
+			MostrarEntrenamientoWindow mostrarWindow = new MostrarEntrenamientoWindow(lista);
+			mostrarWindow.setVisible(true);
 
 			break;
 		}
