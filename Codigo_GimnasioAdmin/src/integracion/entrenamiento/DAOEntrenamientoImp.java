@@ -94,7 +94,7 @@ public class DAOEntrenamientoImp implements DAOEntrenamiento {
 			st.setInt(1, tEntrenamiento.getIdM());
 			st.setString(2, tEntrenamiento.getNombre());
 			st.setInt(3, tEntrenamiento.getPrecio());
-			st.setInt(5, tEntrenamiento.getId());
+			st.setInt(4, tEntrenamiento.getId());
 			int rowsAffected = st.executeUpdate();
 			return rowsAffected > 0;
 		} catch (SQLException e) {
