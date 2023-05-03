@@ -13,55 +13,55 @@ import javax.swing.JTextField;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
-public class BajaEntrenamiento extends JFrame {
+public class MostrarEntrenamiento extends JFrame{
 	private JTextField txtId;
 
-	public BajaEntrenamiento() {
+	public MostrarEntrenamiento() {
 		initComponents();
 	}
 
 	private void initComponents() {
-		setTitle("Baja Entrenamiento");
+		setTitle("Mostrar Entrenamiento");
 		setSize(300, 200);
 		setLocationRelativeTo(null);
 
 		JLabel labelId = new JLabel("Id del entrenamiento:");
 		txtId = new JTextField(20);
 
-		JButton bajaButton = new JButton("Dar de baja");
+		JButton mostrarButton = new JButton("Mostrar Entrenamiento");
 
 		// Crear el panel y agregar los componentes
 		JPanel panel = new JPanel();
 		panel.add(labelId);
 		panel.add(txtId);
-		panel.add(bajaButton);
+		panel.add(mostrarButton);
 
 		// Agregar panel a la ventana
 		setContentPane(panel);
 
 		// Botón de baja
-		bajaButton.addActionListener(new ActionListener() {
+		mostrarButton.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
 				// Obtener los datos de entrada
 
 				// Comprobar que este relleno
 				if (txtId.getText().isEmpty()) {
-					JOptionPane.showMessageDialog(null, "Por favor, ingrese el id a dar de baja.");
+					JOptionPane.showMessageDialog(null, "Por favor, ingrese el id del entrenamiento.");
 				} else {
 
 					setVisible(false);
 					// hacer try y catch de numeros
 					try {
 						int id = Integer.parseInt(txtId.getText());
-						Controlador.obtenerInstancia().Accion(Eventos.BAJA_ENTRENAMIENTO, id);
+						Controlador.obtenerInstancia().Accion(Eventos.MOSTRAR_ENTRENAMIENTO, id);
 
 						setVisible(false);
 					} catch (NumberFormatException error) {
 						JOptionPane.showMessageDialog(null,
-								"Error al ingresar los datos. Asegúrate de que el id sean válido.");
+								"Error al ingresar los datos. Asegúrate de que el id sea válido.");
 					} catch (Exception error) {
-						JOptionPane.showMessageDialog(null, "Error al dar de baja el entrenamiento: " + error.getMessage());
+						JOptionPane.showMessageDialog(null, "Error al mostrar el entrenamiento: " + error.getMessage());
 					}
 					setVisible(false);
 				}

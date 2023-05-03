@@ -4,7 +4,7 @@ import javax.swing.*;
 
 
 import negocio.entrenamiento.TransEntrenamiento;
-
+import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
 import java.awt.*;
@@ -67,14 +67,13 @@ public class EntrenamientoWindowImp extends EntrenamientoWindow {
 		});
 		mostrarEntrenamientoButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Lógica para modificar entrenamiento
-				JOptionPane.showMessageDialog(EntrenamientoWindowImp.this, "Funcionalidad de Mostrar Cliente");
+				MostrarEntrenamiento mostrarEntrenamiento = new MostrarEntrenamiento();
+				mostrarEntrenamiento.setVisible(true);
 			}
 		});
 		listaEntrenamientoButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Lógica para modificar entrenamiento
-				JOptionPane.showMessageDialog(EntrenamientoWindowImp.this, "Funcionalidad de Listar Cliente");
+				Controlador.obtenerInstancia().Accion(Eventos.MOSTRAR_LISTA_ENTRENAMIENTO,null);	
 			}
 		});
 

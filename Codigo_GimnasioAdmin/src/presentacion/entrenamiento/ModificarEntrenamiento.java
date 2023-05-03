@@ -29,16 +29,16 @@ public class ModificarEntrenamiento extends JFrame {
 		setSize(300, 400);
 		setLocationRelativeTo(null);
 
-		JLabel labelId = new JLabel("Id de el entrenamiento:");
+		JLabel labelId = new JLabel("Id del entrenamiento:");
 		txtId = new JTextField(20);
 
-		JLabel labelNombre = new JLabel("Nombre de el entrenamiento:");
+		JLabel labelNombre = new JLabel("Nombre del entrenamiento:");
 		txtNombre = new JTextField(20);
 
 		JLabel labelCodMonitor = new JLabel("Id del monitor:");
 		txtCodigoMonitor = new JTextField(20);
 
-		JLabel labelPrecio = new JLabel("Precio de el entrenamiento:");
+		JLabel labelPrecio = new JLabel("Precio del entrenamiento:");
 		txtPrecio = new JTextField(20);
 
 		JButton modificarButton = new JButton("Modificar Entrenamiento");
@@ -87,7 +87,7 @@ public class ModificarEntrenamiento extends JFrame {
 						JOptionPane.showMessageDialog(null,
 								"Error al ingresar los datos. Asegúrate de que todos los campos numéricos sean válidos.");
 					} catch (Exception error) {
-						JOptionPane.showMessageDialog(null, "Error al modificar la entrenamiento: " + error.getMessage());
+						JOptionPane.showMessageDialog(null, "Error al modificar el entrenamiento: " + error.getMessage());
 					}
 					setVisible(false);
 				}
