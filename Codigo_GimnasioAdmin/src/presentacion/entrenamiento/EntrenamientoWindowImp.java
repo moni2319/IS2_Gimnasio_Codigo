@@ -61,8 +61,8 @@ public class EntrenamientoWindowImp extends EntrenamientoWindow {
 
 		modificarEntrenamientoButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Lógica para modificar entrenamiento
-				JOptionPane.showMessageDialog(EntrenamientoWindowImp.this, "Funcionalidad de Modificar Cliente");
+				ModificarEntrenamiento modificarEntrenamiento = new ModificarEntrenamiento();
+				modificarEntrenamiento.setVisible(true);
 			}
 		});
 		mostrarEntrenamientoButton.addActionListener(new ActionListener() {
