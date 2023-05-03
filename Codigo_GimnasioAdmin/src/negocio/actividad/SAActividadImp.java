@@ -14,7 +14,7 @@ public class SAActividadImp implements SAActividad {
 	public SAActividadImp() {
 		daoActividad = new FactoriaDAOImp().getDAOActividad();
 		daoMonitor = new FactoriaDAOImp().getDAOMonitor();
-		
+
 	}
 
 	public int AltaActividad(TransActividad tActividad) {
@@ -22,7 +22,7 @@ public class SAActividadImp implements SAActividad {
 		if (daoActividad.buscar(tActividad.getId()) != null) {
 			throw new IllegalArgumentException("Ya existe una actividad con id " + tActividad.getId());
 		}
-		if (daoMonitor.buscarMonitor(tActividad.getIdM()) == null){
+		if (daoMonitor.buscarMonitor(tActividad.getIdM()) == null) {
 			throw new IllegalArgumentException("No existe un monitor con id " + tActividad.getIdM());
 		}
 		boolean exito = daoActividad.altaActividad(tActividad);
@@ -41,7 +41,7 @@ public class SAActividadImp implements SAActividad {
 		if (!exito) {
 			throw new IllegalArgumentException("No se pudo quitar en la base de datos la actividad");
 		}
-		return 1; 
+		return 1;
 	}
 
 	public TransActividad MostrarActividad(int id) {
@@ -60,7 +60,7 @@ public class SAActividadImp implements SAActividad {
 		if (daoActividad.buscar(tActividad.getId()) == null) {
 			throw new IllegalArgumentException("No existe una actividad con id " + tActividad.getId());
 		}
-		if (daoMonitor.buscarMonitor(tActividad.getIdM()) == null){
+		if (daoMonitor.buscarMonitor(tActividad.getIdM()) == null) {
 			throw new IllegalArgumentException("No existe un monitor con id " + tActividad.getIdM());
 		}
 		boolean exito = daoActividad.modificarActividad(tActividad);

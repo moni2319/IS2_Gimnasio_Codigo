@@ -2,7 +2,7 @@ package presentacion.cliente;
 
 import javax.swing.JFrame;
 
-public class ClienteWindow extends JFrame{
+public class ClienteWindow extends JFrame {
 	private static ClienteWindow instancia;
 
 	public static ClienteWindow obtenerInstancia() {

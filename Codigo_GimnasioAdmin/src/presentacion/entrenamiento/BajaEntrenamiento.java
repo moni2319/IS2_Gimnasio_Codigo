@@ -61,7 +61,8 @@ public class BajaEntrenamiento extends JFrame {
 						JOptionPane.showMessageDialog(null,
 								"Error al ingresar los datos. Asegúrate de que el id sean válido.");
 					} catch (Exception error) {
-						JOptionPane.showMessageDialog(null, "Error al dar de baja el entrenamiento: " + error.getMessage());
+						JOptionPane.showMessageDialog(null,
+								"Error al dar de baja el entrenamiento: " + error.getMessage());
 					}
 					setVisible(false);
 				}

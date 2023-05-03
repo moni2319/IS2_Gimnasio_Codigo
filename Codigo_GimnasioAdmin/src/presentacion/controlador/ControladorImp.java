@@ -447,9 +447,9 @@ public class ControladorImp extends Controlador {
 
 			break;
 		}
-		
+
 		// ENTRENAMIENTO
-		
+
 		case Eventos.ALTA_ENTRENAMIENTO: {
 			TransEntrenamiento tEntrenamiento = (TransEntrenamiento) info;
 			SAEntrenamiento entrenamiento = factoria.getInstanciaSAEntrenamiento();
@@ -485,7 +485,8 @@ public class ControladorImp extends Controlador {
 			try {
 				int resultado = entrenamiento.ModificarEntrenamiento(tEntrenamiento);
 				if (resultado > 0) {
-					EntrenamientoWindow.obtenerInstancia().Actualizar(Eventos.MODIFICAR_ENTRENAMIENTO_BIEN, tEntrenamiento);
+					EntrenamientoWindow.obtenerInstancia().Actualizar(Eventos.MODIFICAR_ENTRENAMIENTO_BIEN,
+							tEntrenamiento);
 				}
 
 			} catch (IllegalArgumentException e) {
@@ -501,7 +502,8 @@ public class ControladorImp extends Controlador {
 
 				TransEntrenamiento tEntrenamiento = entrenamiento.MostrarEntrenamiento(id);
 				if (tEntrenamiento != null) {
-					EntrenamientoWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_ENTRENAMIENTO_BIEN, tEntrenamiento);
+					EntrenamientoWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_ENTRENAMIENTO_BIEN,
+							tEntrenamiento);
 				}
 
 			} catch (IllegalArgumentException e) {
@@ -528,7 +530,7 @@ public class ControladorImp extends Controlador {
 
 			break;
 		}
-		
+
 		}
 
 	}

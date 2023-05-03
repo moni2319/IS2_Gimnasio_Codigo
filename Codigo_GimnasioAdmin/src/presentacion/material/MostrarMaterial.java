@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
-public class MostrarMaterial extends JFrame{
+public class MostrarMaterial extends JFrame {
 	private JTextField txtIdMaterial;
 
 	public MostrarMaterial() {

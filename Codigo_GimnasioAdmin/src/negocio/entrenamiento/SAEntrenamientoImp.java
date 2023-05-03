@@ -6,7 +6,7 @@ import integracion.entrenamiento.DAOEntrenamiento;
 import integracion.factoria.FactoriaDAOImp;
 import integracion.monitor.DAOMonitor;
 
-public class SAEntrenamientoImp implements SAEntrenamiento{
+public class SAEntrenamientoImp implements SAEntrenamiento {
 
 	private DAOEntrenamiento daoEntrenamiento;
 	private DAOMonitor daoMonitor;
@@ -20,7 +20,7 @@ public class SAEntrenamientoImp implements SAEntrenamiento{
 		if (daoEntrenamiento.buscarEntrenamiento(tEntrenamiento.getId()) != null) {
 			throw new IllegalArgumentException("Ya existe un entrenamiento con id " + tEntrenamiento.getId());
 		}
-		if (daoMonitor.buscarMonitor(tEntrenamiento.getIdM()) == null){
+		if (daoMonitor.buscarMonitor(tEntrenamiento.getIdM()) == null) {
 			throw new IllegalArgumentException("No existe un monitor con id " + tEntrenamiento.getIdM());
 		}
 		boolean exito = daoEntrenamiento.altaEntrenamiento(tEntrenamiento);
@@ -40,14 +40,14 @@ public class SAEntrenamientoImp implements SAEntrenamiento{
 	}
 
 	public ArrayList<TransEntrenamiento> ListarEntrenamiento() {
-	  return daoEntrenamiento.listaEntrenamiento();
+		return daoEntrenamiento.listaEntrenamiento();
 	}
 
 	public int ModificarEntrenamiento(TransEntrenamiento tEntrenamiento) {
 		if (daoEntrenamiento.buscarEntrenamiento(tEntrenamiento.getId()) == null) {
 			throw new IllegalArgumentException("No existe un entrenamiento con id " + tEntrenamiento.getId());
 		}
-		if (daoMonitor.buscarMonitor(tEntrenamiento.getIdM()) == null){
+		if (daoMonitor.buscarMonitor(tEntrenamiento.getIdM()) == null) {
 			throw new IllegalArgumentException("No existe un monitor con id " + tEntrenamiento.getIdM());
 		}
 		boolean exito = daoEntrenamiento.modificarEntrenamiento(tEntrenamiento);
@@ -65,7 +65,7 @@ public class SAEntrenamientoImp implements SAEntrenamiento{
 		if (!exito) {
 			throw new IllegalArgumentException("No se pudo quitar en la base de datos el entrenamiento");
 		}
-		return 1; 
+		return 1;
 	}
 
 }

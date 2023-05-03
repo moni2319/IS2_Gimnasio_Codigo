@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
-public class MostrarFactura extends JFrame{
+public class MostrarFactura extends JFrame {
 	private JTextField txtCodFactura;
 
 	public MostrarFactura() {
@@ -53,7 +53,7 @@ public class MostrarFactura extends JFrame{
 					// hacer try y catch de numeros
 					try {
 						int cod = Integer.parseInt(txtCodFactura.getText());
-						
+
 						Controlador.obtenerInstancia().Accion(Eventos.MOSTRAR_FACTURA, cod);
 
 						setVisible(false);

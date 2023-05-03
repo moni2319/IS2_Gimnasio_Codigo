@@ -6,7 +6,7 @@ import integracion.cliente.DAOCliente;
 import integracion.factoria.FactoriaDAOImp;
 import integracion.factura.DAOFactura;
 
-public class SAFacturaImp implements SAFactura{
+public class SAFacturaImp implements SAFactura {
 
 	private DAOFactura daoFactura;
 	private DAOCliente daoCliente;
@@ -15,12 +15,12 @@ public class SAFacturaImp implements SAFactura{
 		daoFactura = new FactoriaDAOImp().getDAOFactura();
 		daoCliente = new FactoriaDAOImp().getDAOCliente();
 	}
-	
+
 	public int AbrirFactura(TransFactura tFactura) {
 		if (daoFactura.buscarFactura(tFactura.getCod()) != null) {
 			throw new IllegalArgumentException("Ya existe una factura con codigo " + tFactura.getCod());
 		}
-		if (daoCliente.buscarCliente(tFactura.getIdCliente()) == null){
+		if (daoCliente.buscarCliente(tFactura.getIdCliente()) == null) {
 			throw new IllegalArgumentException("No existe un cliente con id " + tFactura.getIdCliente());
 		}
 		boolean exito = daoFactura.abrirFactura(tFactura);
@@ -39,7 +39,7 @@ public class SAFacturaImp implements SAFactura{
 
 	public ArrayList<TransFactura> MostrarFacturasCliente(int idCliente) {
 		ArrayList<TransFactura> lista = daoFactura.buscarFacturasCliente(idCliente);
-		if (lista.isEmpty()){
+		if (lista.isEmpty()) {
 			throw new IllegalArgumentException("No hay clientes activos con el id de  " + idCliente);
 		}
 		return lista;
@@ -53,7 +53,7 @@ public class SAFacturaImp implements SAFactura{
 		if (daoFactura.buscarFactura(tFactura.getCod()) == null) {
 			throw new IllegalArgumentException("No existe una factura con codigo " + tFactura.getCod());
 		}
-		if (daoCliente.buscarCliente(tFactura.getIdCliente()) == null){
+		if (daoCliente.buscarCliente(tFactura.getIdCliente()) == null) {
 			throw new IllegalArgumentException("No existe un cliente con id " + tFactura.getIdCliente());
 		}
 		boolean exito = daoFactura.modificarFactura(tFactura);
@@ -63,7 +63,6 @@ public class SAFacturaImp implements SAFactura{
 		return 1;
 	}
 
-	
 	public int CerrarFactura(int cod) {
 		if (daoFactura.buscarFactura(cod) == null) {
 			throw new IllegalArgumentException("No existe una factura con codigo " + cod);

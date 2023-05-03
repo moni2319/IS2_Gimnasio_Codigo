@@ -2,8 +2,7 @@ package presentacion.entrenamiento;
 
 import javax.swing.JFrame;
 
-
-public class EntrenamientoWindow extends JFrame{
+public class EntrenamientoWindow extends JFrame {
 	private static EntrenamientoWindow instancia;
 
 	public static EntrenamientoWindow obtenerInstancia() {

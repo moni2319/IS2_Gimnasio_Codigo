@@ -5,15 +5,14 @@ import java.util.ArrayList;
 import integracion.cliente.DAOCliente;
 import integracion.factoria.FactoriaDAOImp;
 
-
-public class SAClienteImp implements SACliente{
+public class SAClienteImp implements SACliente {
 
 	private DAOCliente daoCliente;
 
 	public SAClienteImp() {
 		daoCliente = new FactoriaDAOImp().getDAOCliente();
 	}
-	
+
 	public int AltaCliente(TransCliente tCliente) {
 		if (daoCliente.buscarCliente(tCliente.getId()) != null) {
 			throw new IllegalArgumentException("Ya existe un cliente con id " + tCliente.getId());

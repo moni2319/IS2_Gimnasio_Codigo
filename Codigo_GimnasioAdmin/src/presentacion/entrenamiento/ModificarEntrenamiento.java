@@ -87,7 +87,8 @@ public class ModificarEntrenamiento extends JFrame {
 						JOptionPane.showMessageDialog(null,
 								"Error al ingresar los datos. Asegúrate de que todos los campos numéricos sean válidos.");
 					} catch (Exception error) {
-						JOptionPane.showMessageDialog(null, "Error al modificar el entrenamiento: " + error.getMessage());
+						JOptionPane.showMessageDialog(null,
+								"Error al modificar el entrenamiento: " + error.getMessage());
 					}
 					setVisible(false);
 				}

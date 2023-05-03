@@ -10,7 +10,7 @@ import javax.swing.table.DefaultTableModel;
 
 import negocio.material.TransMaterial;
 
-public class MostrarMaterialWindow extends JFrame{
+public class MostrarMaterialWindow extends JFrame {
 	private JTable tablaMateriales;
 	private DefaultTableModel modeloTabla;
 	private ArrayList<TransMaterial> lista;
@@ -34,10 +34,10 @@ public class MostrarMaterialWindow extends JFrame{
 		add(panel);
 
 		for (TransMaterial material : l) {
-			Object[] datosMaterial = { material.getId(), material.getNombre(), material.getStock()};
+			Object[] datosMaterial = { material.getId(), material.getNombre(), material.getStock() };
 			modeloTabla.addRow(datosMaterial);
 
 		}
 	}
-		
+
 }

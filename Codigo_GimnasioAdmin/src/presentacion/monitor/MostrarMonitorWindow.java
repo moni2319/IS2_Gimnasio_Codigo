@@ -10,7 +10,7 @@ import javax.swing.table.DefaultTableModel;
 
 import negocio.monitor.TransMonitor;
 
-public class MostrarMonitorWindow extends JFrame{
+public class MostrarMonitorWindow extends JFrame {
 	private JTable tabla;
 	private DefaultTableModel modeloTabla;
 
@@ -33,10 +33,10 @@ public class MostrarMonitorWindow extends JFrame{
 		add(panel);
 
 		for (TransMonitor monitor : l) {
-			Object[] datos = { monitor.getId(), monitor.getNombre(), monitor.getSalario()};
+			Object[] datos = { monitor.getId(), monitor.getNombre(), monitor.getSalario() };
 			modeloTabla.addRow(datos);
 
 		}
 	}
-		
+
 }

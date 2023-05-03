@@ -2,7 +2,6 @@ package presentacion.entrenamiento;
 
 import javax.swing.*;
 
-
 import negocio.entrenamiento.TransEntrenamiento;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
@@ -73,7 +72,7 @@ public class EntrenamientoWindowImp extends EntrenamientoWindow {
 		});
 		listaEntrenamientoButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Controlador.obtenerInstancia().Accion(Eventos.MOSTRAR_LISTA_ENTRENAMIENTO,null);	
+				Controlador.obtenerInstancia().Accion(Eventos.MOSTRAR_LISTA_ENTRENAMIENTO, null);
 			}
 		});
 
@@ -85,18 +84,21 @@ public class EntrenamientoWindowImp extends EntrenamientoWindow {
 		case Eventos.ALTA_ENTRENAMIENTO_BIEN: {
 			TransEntrenamiento entrenamiento = (TransEntrenamiento) data;
 			int id = entrenamiento.getId();
-			JOptionPane.showMessageDialog(EntrenamientoWindowImp.this, "Entrenamiento: " + id + " dado de alta correctamente");
+			JOptionPane.showMessageDialog(EntrenamientoWindowImp.this,
+					"Entrenamiento: " + id + " dado de alta correctamente");
 			break;
 		}
 		case Eventos.BAJA_ENTRENAMIENTO_BIEN: {
 			int id = (int) data;
-			JOptionPane.showMessageDialog(EntrenamientoWindowImp.this, "Entrenamiento: " + id + " dado de baja correctamente");
+			JOptionPane.showMessageDialog(EntrenamientoWindowImp.this,
+					"Entrenamiento: " + id + " dado de baja correctamente");
 			break;
 		}
 		case Eventos.MODIFICAR_ENTRENAMIENTO_BIEN: {
 			TransEntrenamiento entrenamiento = (TransEntrenamiento) data;
 			int id = entrenamiento.getId();
-			JOptionPane.showMessageDialog(EntrenamientoWindowImp.this, "Entrenamiento: " + id + " modificado correctamente");
+			JOptionPane.showMessageDialog(EntrenamientoWindowImp.this,
+					"Entrenamiento: " + id + " modificado correctamente");
 			break;
 		}
 		case Eventos.MOSTRAR_ENTRENAMIENTO_BIEN: {

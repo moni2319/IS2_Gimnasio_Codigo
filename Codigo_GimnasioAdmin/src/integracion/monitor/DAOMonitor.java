@@ -2,7 +2,6 @@ package integracion.monitor;
 
 import java.util.ArrayList;
 
-
 import negocio.monitor.TransMonitor;
 
 public interface DAOMonitor {

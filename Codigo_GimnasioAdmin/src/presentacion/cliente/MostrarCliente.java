@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
-public class MostrarCliente extends JFrame{
+public class MostrarCliente extends JFrame {
 	private JTextField txtId;
 
 	public MostrarCliente() {
@@ -42,7 +42,7 @@ public class MostrarCliente extends JFrame{
 		mostrarButton.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				
+
 				if (txtId.getText().isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Por favor, ingrese el id del cliente.");
 				} else {

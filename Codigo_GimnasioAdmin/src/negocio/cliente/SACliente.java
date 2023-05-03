@@ -2,8 +2,6 @@ package negocio.cliente;
 
 import java.util.ArrayList;
 
-
-
 public interface SACliente {
 	public int AltaCliente(TransCliente tCliente);
 

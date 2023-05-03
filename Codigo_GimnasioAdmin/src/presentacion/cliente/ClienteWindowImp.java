@@ -14,7 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class ClienteWindowImp extends ClienteWindow{
+public class ClienteWindowImp extends ClienteWindow {
 
 	public ClienteWindowImp() {
 		initComponents();
@@ -81,7 +81,7 @@ public class ClienteWindowImp extends ClienteWindow{
 
 		pack();
 	}
-	
+
 	public void Actualizar(int evento, Object data) {
 		switch (evento) {
 		case Eventos.ALTA_CLIENTE_BIEN: {

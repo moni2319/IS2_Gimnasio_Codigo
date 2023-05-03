@@ -15,7 +15,7 @@ import negocio.monitor.TransMonitor;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
-public class AltaMonitor extends JFrame{
+public class AltaMonitor extends JFrame {
 	private JTextField txtIdMonitor;
 	private JTextField txtNombreMonitor;
 	private JTextField txtSalarioMonitor;
@@ -67,7 +67,7 @@ public class AltaMonitor extends JFrame{
 					}
 
 				} else {
-					
+
 					setVisible(false);
 					// hacer try y catch de numeros y strings
 					try {

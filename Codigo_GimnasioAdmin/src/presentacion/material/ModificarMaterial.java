@@ -15,7 +15,7 @@ import negocio.material.TransMaterial;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
-public class ModificarMaterial extends JFrame{
+public class ModificarMaterial extends JFrame {
 	private JTextField txtIdMaterial;
 	private JTextField txtNombreMaterial;
 	private JTextField txtStockMaterial;
@@ -48,7 +48,7 @@ public class ModificarMaterial extends JFrame{
 		panel.add(txtNombreMaterial);
 		panel.add(labelStock);
 		panel.add(txtStockMaterial);
-		
+
 		panel.add(modificarButton);
 
 		// Agregar panel a la ventana
@@ -62,14 +62,13 @@ public class ModificarMaterial extends JFrame{
 
 				// Comprobar que este relleno
 				if (txtNombreMaterial.getText().isEmpty() || txtStockMaterial.getText().isEmpty()
-						|| txtIdMaterial.getText().isEmpty() || Integer.parseInt(txtStockMaterial.getText())<= 0) {
-					if (Integer.parseInt(txtStockMaterial.getText())<= 0){
+						|| txtIdMaterial.getText().isEmpty() || Integer.parseInt(txtStockMaterial.getText()) <= 0) {
+					if (Integer.parseInt(txtStockMaterial.getText()) <= 0) {
 						JOptionPane.showMessageDialog(null, "Por favor, la cantidad debe ser > 0.");
-					}
-					else{
+					} else {
 						JOptionPane.showMessageDialog(null, "Por favor, ingrese todos los datos.");
 					}
-				}else {
+				} else {
 					// Realizar la lógica de modificar de la actividad en la
 					// BBDD
 

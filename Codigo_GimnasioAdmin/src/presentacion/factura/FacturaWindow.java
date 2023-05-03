@@ -2,8 +2,6 @@ package presentacion.factura;
 
 import javax.swing.JFrame;
 
-
-
 public abstract class FacturaWindow extends JFrame {
 	private static FacturaWindow instancia;
 

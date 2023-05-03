@@ -6,25 +6,24 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-
 import negocio.cliente.TransCliente;
 import negocio.monitor.TransMonitor;
 
-public class DAOClienteImp implements DAOCliente{
+public class DAOClienteImp implements DAOCliente {
 
 	private Connection connection;
 	private static DAOClienteImp daoCliente;
 
-	public  DAOClienteImp(Connection connect) {
+	public DAOClienteImp(Connection connect) {
 		connection = connect;
 	}
-	
+
 	static public DAOClienteImp getInstance(Connection connection) {
 		if (daoCliente == null)
 			daoCliente = new DAOClienteImp(connection);
 		return daoCliente;
 	}
-	
+
 	public boolean altaCliente(TransCliente tCliente) {
 		String query = "INSERT INTO cliente (id, nombre, telefono) VALUES (?, ?, ?)";
 		try (PreparedStatement st = connection.prepareStatement(query)) {
@@ -80,7 +79,7 @@ public class DAOClienteImp implements DAOCliente{
 			return null;
 		}
 	}
-	
+
 	public TransCliente getNextCliente(ResultSet rs) {
 
 		TransCliente cliente = null;

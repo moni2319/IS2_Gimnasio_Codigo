@@ -17,11 +17,10 @@ public class MostrarActividadWindow extends JFrame {
 	private ArrayList<TransActividad> lista;
 
 	public MostrarActividadWindow(ArrayList<TransActividad> l) {
-		
-		
-//		lista = new ArrayList<TransActividad>(); no me funcionaba
-//		lista = l;
-//	
+
+		// lista = new ArrayList<TransActividad>(); no me funcionaba
+		// lista = l;
+		//
 
 		setTitle("Actividades");
 		setSize(800, 500);
@@ -49,7 +48,5 @@ public class MostrarActividadWindow extends JFrame {
 
 		}
 	}
-		
-		
 
 }

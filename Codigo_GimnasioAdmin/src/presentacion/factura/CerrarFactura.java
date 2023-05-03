@@ -10,7 +10,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-
 import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
@@ -54,7 +53,7 @@ public class CerrarFactura extends JFrame {
 					// hacer try y catch de numeros
 					try {
 						int cod = Integer.parseInt(txtCodFactura.getText());
-						
+
 						Controlador.obtenerInstancia().Accion(Eventos.CERRAR_FACTURA, cod);
 
 						setVisible(false);

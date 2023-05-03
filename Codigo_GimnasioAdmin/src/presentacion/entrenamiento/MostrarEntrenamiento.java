@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
-public class MostrarEntrenamiento extends JFrame{
+public class MostrarEntrenamiento extends JFrame {
 	private JTextField txtId;
 
 	public MostrarEntrenamiento() {

@@ -10,8 +10,7 @@ import javax.swing.table.DefaultTableModel;
 
 import negocio.cliente.TransCliente;
 
-
-public class MostrarClienteWindow extends JFrame{
+public class MostrarClienteWindow extends JFrame {
 	private JTable tabla;
 	private DefaultTableModel modeloTabla;
 
@@ -34,7 +33,7 @@ public class MostrarClienteWindow extends JFrame{
 		add(panel);
 
 		for (TransCliente cliente : l) {
-			Object[] datos = { cliente.getId(), cliente.getNombre(), cliente.getTelefono()};
+			Object[] datos = { cliente.getId(), cliente.getNombre(), cliente.getTelefono() };
 			modeloTabla.addRow(datos);
 
 		}

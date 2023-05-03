@@ -14,6 +14,5 @@ public interface DAOMaterial {
 	public TransMaterial buscarMaterial(int id);
 
 	public ArrayList<TransMaterial> listarMaterial();
-	
 
 }

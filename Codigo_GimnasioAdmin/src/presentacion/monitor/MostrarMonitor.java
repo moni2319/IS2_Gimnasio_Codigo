@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
-public class MostrarMonitor extends JFrame{
+public class MostrarMonitor extends JFrame {
 	private JTextField txtId;
 
 	public MostrarMonitor() {
@@ -42,7 +42,7 @@ public class MostrarMonitor extends JFrame{
 		mostrarButton.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				
+
 				if (txtId.getText().isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Por favor, ingrese el id del monitor.");
 				} else {

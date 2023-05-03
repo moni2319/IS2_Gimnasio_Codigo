@@ -43,7 +43,7 @@ public class BajaMonitor extends JFrame {
 		bajaButton.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				
+
 				if (txtIdMonitor.getText().isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Por favor, ingrese el id a dar de baja.");
 				} else {

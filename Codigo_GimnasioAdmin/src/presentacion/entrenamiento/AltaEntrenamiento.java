@@ -14,7 +14,7 @@ import negocio.entrenamiento.TransEntrenamiento;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
-public class AltaEntrenamiento extends JFrame{
+public class AltaEntrenamiento extends JFrame {
 	private JTextField txtId;
 	private JTextField txtNombre;
 	private JTextField txtCodigoMonitor;
@@ -65,8 +65,8 @@ public class AltaEntrenamiento extends JFrame{
 				// Obtener los datos de entrada
 
 				// Comprobar que este relleno
-				if (txtNombre.getText().isEmpty() || txtCodigoMonitor.getText().isEmpty()
-						|| txtId.getText().isEmpty() || txtPrecio.getText().isEmpty()) {
+				if (txtNombre.getText().isEmpty() || txtCodigoMonitor.getText().isEmpty() || txtId.getText().isEmpty()
+						|| txtPrecio.getText().isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Por favor, ingrese todos los datos.");
 				} else {
 					setVisible(false);
@@ -86,7 +86,8 @@ public class AltaEntrenamiento extends JFrame{
 						JOptionPane.showMessageDialog(null,
 								"Error al ingresar los datos. Asegúrate de que todos los campos numéricos sean válidos.");
 					} catch (Exception error) {
-						JOptionPane.showMessageDialog(null, "Error al dar de alta el entrenamiento: " + error.getMessage());
+						JOptionPane.showMessageDialog(null,
+								"Error al dar de alta el entrenamiento: " + error.getMessage());
 					}
 					setVisible(false);
 				}

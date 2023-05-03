@@ -36,8 +36,8 @@ public class Eventos {
 	public static final int MOSTRAR_CLIENTE = 124;
 	public static final int MOSTRAR_LISTA_CLIENTE = 125;
 	public static final int MODIFICAR_CLIENTE = 126;
-	
-	//ENTRENAMIENTO
+
+	// ENTRENAMIENTO
 	public static final int ALTA_ENTRENAMIENTO = 127;
 	public static final int BAJA_ENTRENAMIENTO = 128;
 	public static final int MOSTRAR_ENTRENAMIENTO = 129;
@@ -81,13 +81,12 @@ public class Eventos {
 	public static final int MOSTRAR_CLIENTE_BIEN = 524;
 	public static final int MOSTRAR_LISTA_CLIENTE_BIEN = 525;
 	public static final int MODIFICAR_CLIENTE_BIEN = 526;
-	
-	//ENTRENAMIENTO
+
+	// ENTRENAMIENTO
 	public static final int ALTA_ENTRENAMIENTO_BIEN = 527;
 	public static final int BAJA_ENTRENAMIENTO_BIEN = 528;
 	public static final int MOSTRAR_ENTRENAMIENTO_BIEN = 529;
 	public static final int MOSTRAR_LISTA_ENTRENAMIENTO_BIEN = 530;
 	public static final int MODIFICAR_ENTRENAMIENTO_BIEN = 531;
-	
 
 }

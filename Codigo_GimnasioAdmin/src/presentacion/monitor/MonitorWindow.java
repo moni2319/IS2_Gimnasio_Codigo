@@ -2,7 +2,7 @@ package presentacion.monitor;
 
 import javax.swing.JFrame;
 
-public class MonitorWindow extends JFrame{
+public class MonitorWindow extends JFrame {
 	private static MonitorWindow instancia;
 
 	public static MonitorWindow obtenerInstancia() {

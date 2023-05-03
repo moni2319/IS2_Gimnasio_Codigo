@@ -71,7 +71,7 @@ public class ActividadWindowImp extends ActividadWindow {
 		});
 		mostrarActividadButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MostrarActividad mostrarActividad =new MostrarActividad();
+				MostrarActividad mostrarActividad = new MostrarActividad();
 				mostrarActividad.setVisible(true);
 			}
 		});
@@ -107,16 +107,16 @@ public class ActividadWindowImp extends ActividadWindow {
 			TransActividad actividad = (TransActividad) data;
 			ArrayList<TransActividad> lista = new ArrayList<TransActividad>();
 			lista.add(actividad);
-		
+
 			MostrarActividadWindow mostrarWindow = new MostrarActividadWindow(lista);
 			mostrarWindow.setVisible(true);
 
 			break;
 		}
 		case Eventos.MOSTRAR_LISTA_ACTIVIDAD_BIEN: {
-			
+
 			ArrayList<TransActividad> lista = (ArrayList<TransActividad>) data;
-			
+
 			MostrarActividadWindow mostrarWindow = new MostrarActividadWindow(lista);
 			mostrarWindow.setVisible(true);
 

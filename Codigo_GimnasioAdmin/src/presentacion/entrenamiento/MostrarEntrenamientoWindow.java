@@ -8,7 +8,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-
 import negocio.entrenamiento.TransEntrenamiento;
 
 public class MostrarEntrenamientoWindow extends JFrame {
