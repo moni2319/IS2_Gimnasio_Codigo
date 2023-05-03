@@ -17,8 +17,8 @@ import negocio.actividad.SAActividad;
 import negocio.actividad.SAActividadImp;
 import negocio.actividad.TransActividad;
 
-public class SAActividadImpTest {
-	
+public class SADAOActividadImpTest {
+	//HACEN AMBAS COMPROBACIONES de DAO y SAA
 	private SAActividad saActividad;
 	private DAOActividad daoActividad;
 	private DAOMonitor daoMonitor;

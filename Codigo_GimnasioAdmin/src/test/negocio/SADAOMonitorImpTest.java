@@ -20,7 +20,7 @@ import negocio.cliente.TransCliente;
 import negocio.monitor.SAMonitorImp;
 import negocio.monitor.TransMonitor;
 
-public class SAMonitorImpTest {
+public class SADAOMonitorImpTest {
 	private SAMonitorImp saMonitor;
 	private DAOMonitor daoMonitor;
 	

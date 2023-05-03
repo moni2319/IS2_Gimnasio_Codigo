@@ -17,7 +17,7 @@ import negocio.entrenamiento.SAEntrenamiento;
 import negocio.entrenamiento.SAEntrenamientoImp;
 import negocio.entrenamiento.TransEntrenamiento;
 
-public class SAEntrenamientoImpTest {
+public class SADAOEntrenamientoImpTest {
 	private SAEntrenamiento saEntrenamiento;
 	private DAOEntrenamiento daoEntrenamiento;
 	private DAOMonitor daoMonitor;

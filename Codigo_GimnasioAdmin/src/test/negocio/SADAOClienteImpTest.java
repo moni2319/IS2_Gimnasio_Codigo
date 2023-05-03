@@ -19,7 +19,7 @@ import negocio.cliente.TransCliente;
 import org.junit.Before;
 import org.junit.Test;
 
-public class SAClienteImpTest {
+public class SADAOClienteImpTest {
 	private SAClienteImp saCliente;
 	private DAOCliente daoCliente;
 	
