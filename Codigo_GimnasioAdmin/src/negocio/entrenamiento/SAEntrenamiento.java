@@ -2,7 +2,7 @@ package negocio.entrenamiento;
 
 import java.util.ArrayList;
 
-public interface SAEntrenamiento {
+public interface SAEntrenamiento{
 	public int AltaEntrenamiento(TransEntrenamiento tEntrenamiento);
 
 	public TransEntrenamiento MostrarEntrenamiento(int id);

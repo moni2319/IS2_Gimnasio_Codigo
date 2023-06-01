@@ -5,20 +5,20 @@ import java.util.ArrayList;
 import integracion.actividad.DAOActividad;
 import integracion.factoria.FactoriaDAOImp;
 import integracion.monitor.DAOMonitor;
-import negocio.sesion.SASesion;
 
-public class SASesionImp implements SAS {
+
+public class SASesionImp implements SASesion {
 
 	private DAOActividad daoActividad;
 	private DAOMonitor daoMonitor;
 
 	public SASesionImp() {
-		daoActividad = new FactoriaDAOImp().getDAOActividad();
+		daoActividad = new FactoriaDAOImp().getDAOSesion();
 		daoMonitor = new FactoriaDAOImp().getDAOMonitor();
 
 	}
 
-	public int AltaActividad(SASesion tActividad) {
+	public int AltaActividad(TransActividad tActividad) {
 
 		if (daoActividad.buscar(tActividad.getId()) != null) {
 			throw new IllegalArgumentException("Ya existe una actividad con id " + tActividad.getId());
@@ -45,19 +45,19 @@ public class SASesionImp implements SAS {
 		return 1;
 	}
 
-	public SASesion MostrarActividad(int id) {
-		SASesion actividad = daoActividad.buscar(id);
+	public TransActividad MostrarActividad(int id) {
+		TransActividad actividad = daoActividad.buscar(id);
 		if (actividad == null) {
 			throw new IllegalArgumentException("No existe una actividad con id " + id);
 		}
 		return actividad;
 	}
 
-	public ArrayList<SASesion> ListarActividad() {
+	public ArrayList<TransActividad> ListarActividad() {
 		return daoActividad.listaActividades();
 	}
 
-	public int ModificarActividad(SASesion tActividad) {
+	public int ModificarActividad(TransActividad tActividad) {
 		if (daoActividad.buscar(tActividad.getId()) == null) {
 			throw new IllegalArgumentException("No existe una actividad con id " + tActividad.getId());
 		}

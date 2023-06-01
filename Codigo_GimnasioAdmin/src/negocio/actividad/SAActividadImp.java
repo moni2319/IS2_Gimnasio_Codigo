@@ -45,15 +45,15 @@ public class SAActividadImp implements SAActividad {
 		return 1;
 	}
 
-	public SASesion MostrarActividad(int id) {
-		SASesion actividad = daoActividad.buscar(id);
+	public TransActividad MostrarActividad(int id) {
+		TransActividad actividad = daoActividad.buscar(id);
 		if (actividad == null) {
 			throw new IllegalArgumentException("No existe una actividad con id " + id);
 		}
 		return actividad;
 	}
 
-	public ArrayList<SAActividad> ListarActividad() {
+	public ArrayList<TransActividad> ListarActividad() {
 		return daoActividad.listaActividades();
 	}
 

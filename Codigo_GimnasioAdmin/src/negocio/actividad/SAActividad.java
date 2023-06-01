@@ -4,15 +4,15 @@ import java.util.ArrayList;
 
 
 
-public interface SAActividad {
+public interface SAActividad{
 
-	public int AltaActividad(SAActividad tActividad);
+	public int AltaActividad(TransActividad tActividad);
 
-	public SAActividad MostrarActividad(int id);
+	public TransActividad MostrarActividad(int id);
 
-	public ArrayList<SAActividad> ListarActividad();
+	public ArrayList<TransActividad> ListarActividad();
 
-	public int ModificarActividad(SAActividad tActividad);
+	public int ModificarActividad(TransActividad tActividad);
 
 	public int BajaActividad(int id);
 

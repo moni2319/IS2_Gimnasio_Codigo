@@ -30,7 +30,7 @@ public class DAOActividadImp implements DAOActividad {
 			st.setInt(1, tActividad.getId());
 			st.setInt(2, tActividad.getIdM());
 			st.setString(3, tActividad.getNombre());
-			st.setInt(4, tActividad.getPrecio());
+			st.setDouble(4, tActividad.getPrecio());
 			st.setInt(5, tActividad.getAforo());
 			int rowsAffected = st.executeUpdate();
 			return rowsAffected > 0;
@@ -96,7 +96,7 @@ public class DAOActividadImp implements DAOActividad {
 		try (PreparedStatement st = connection.prepareStatement(query)) {
 			st.setInt(1, tActividad.getIdM());
 			st.setString(2, tActividad.getNombre());
-			st.setInt(3, tActividad.getPrecio());
+			st.setDouble(3, tActividad.getPrecio());
 			st.setInt(4, tActividad.getAforo());
 			st.setInt(5, tActividad.getId());
 			int rowsAffected = st.executeUpdate();

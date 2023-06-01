@@ -30,7 +30,7 @@ public class DAOEntrenamientoImp implements DAOEntrenamiento {
 			st.setInt(1, tEntrenamiento.getId());
 			st.setInt(2, tEntrenamiento.getIdM());
 			st.setString(3, tEntrenamiento.getNombre());
-			st.setInt(4, tEntrenamiento.getPrecio());
+			st.setDouble(4, tEntrenamiento.getPrecio());
 			int rowsAffected = st.executeUpdate();
 			return rowsAffected > 0;
 		} catch (SQLException e) {
@@ -93,7 +93,7 @@ public class DAOEntrenamientoImp implements DAOEntrenamiento {
 		try (PreparedStatement st = connection.prepareStatement(query)) {
 			st.setInt(1, tEntrenamiento.getIdM());
 			st.setString(2, tEntrenamiento.getNombre());
-			st.setInt(3, tEntrenamiento.getPrecio());
+			st.setDouble(3, tEntrenamiento.getPrecio());
 			st.setInt(4, tEntrenamiento.getId());
 			int rowsAffected = st.executeUpdate();
 			return rowsAffected > 0;
