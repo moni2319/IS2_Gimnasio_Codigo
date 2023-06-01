@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import negocio.actividad.SAActividad;
+import negocio.actividad.TransActividad;
 import negocio.cliente.SACliente;
 import negocio.cliente.TransCliente;
 import negocio.entrenamiento.SAEntrenamiento;
@@ -38,7 +39,7 @@ public class ControladorImp extends Controlador {
 		switch (event) {
 		// ACTIVIDAD
 		case Eventos.ALTA_ACTIVIDAD: {
-			SASesion tActividad = (SASesion) info;
+			TransActividad tActividad = (TransActividad) info;
 			SAActividad actividad = factoria.getInstanciaSAActividad();
 			try {
 				int resultado = actividad.AltaActividad(tActividad);
@@ -67,7 +68,7 @@ public class ControladorImp extends Controlador {
 			break;
 		}
 		case Eventos.MODIFICAR_ACTIVIDAD: {
-			SASesion tActividad = (SASesion) info;
+			TransActividad tActividad = (TransActividad) info;
 			SAActividad actividad = factoria.getInstanciaSAActividad();
 			try {
 				int resultado = actividad.ModificarActividad(tActividad);
@@ -86,7 +87,7 @@ public class ControladorImp extends Controlador {
 			SAActividad actividad = factoria.getInstanciaSAActividad();
 			try {
 
-				SASesion tActividad = actividad.MostrarActividad(id);
+				TransActividad tActividad = actividad.MostrarActividad(id);
 				if (tActividad != null) {
 					ActividadWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_ACTIVIDAD_BIEN, tActividad);
 				}
@@ -103,7 +104,7 @@ public class ControladorImp extends Controlador {
 			SAActividad actividad = factoria.getInstanciaSAActividad();
 			try {
 
-				ArrayList<SASesion> lista = actividad.ListarActividad();
+				ArrayList<TransActividad> lista = actividad.ListarActividad();
 				if (lista != null) {
 					ActividadWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_LISTA_ACTIVIDAD_BIEN, lista);
 				}

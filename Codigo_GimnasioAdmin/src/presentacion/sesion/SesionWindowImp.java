@@ -1,10 +1,16 @@
-package presentacion.actividad;
+package presentacion.sesion;
 
 import javax.swing.*;
 
 import negocio.actividad.SAActividad;
 import negocio.actividad.TransActividad;
 import negocio.sesion.SASesion;
+import presentacion.actividad.ActividadWindowImp;
+import presentacion.actividad.AltaActividad;
+import presentacion.actividad.BajaActividad;
+import presentacion.actividad.ModificarActividad;
+import presentacion.actividad.MostrarActividad;
+import presentacion.actividad.MostrarActividadWindow;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
@@ -13,14 +19,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class ActividadWindowImp extends ActividadWindow {
+public class SesionWindowImp extends SesionWindow {
 
-	public ActividadWindowImp() {
+	public SesionWindowImp() {
 		initComponents();
 	}
 
 	private void initComponents() {
-		setTitle("Actividades");
+		setTitle("Sesiones");
 		setPreferredSize(new Dimension(800, 650));
 		setLocation(500, 300);
 
@@ -29,24 +35,24 @@ public class ActividadWindowImp extends ActividadWindow {
 		panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
 		// Botones de actividad
-		JButton altaActividadButton = new JButton("Alta Actividad");
-		JButton bajaActividadButton = new JButton("Baja Actividad");
-		JButton modificarActividadButton = new JButton("Modificar Actividad");
-		JButton mostrarActividadButton = new JButton("Mostrar Actividad");
-		JButton listaActividadButton = new JButton("Lista de Actividades");
+		JButton altaSesionButton = new JButton("Alta Sesion");
+		JButton bajaSesionButton = new JButton("Baja Sesion");
+		JButton modificarSesionButton = new JButton("Modificar Sesion");
+		JButton mostrarSesionButton = new JButton("Mostrar Sesion");
+		JButton listaSesionButton = new JButton("Lista de Sesiones");
 
 		// Agregar botones al panel
-		panel.add(altaActividadButton);
-		panel.add(bajaActividadButton);
-		panel.add(modificarActividadButton);
-		panel.add(mostrarActividadButton);
-		panel.add(listaActividadButton);
+		panel.add(altaSesionButton);
+		panel.add(bajaSesionButton);
+		panel.add(modificarSesionButton);
+		panel.add(mostrarSesionButton);
+		panel.add(listaSesionButton);
 
 		// Agregar panel a la ventana
 		getContentPane().add(panel);
 
 		// Configurar acciones de los botones de actividad
-		altaActividadButton.addActionListener(new ActionListener() {
+		altaSesionButton.addActionListener(new ActionListener() { // preguntar uno u otro
 			public void actionPerformed(ActionEvent e) {
 				// Lógica para alta de actividad
 				AltaActividad altaActividad = new AltaActividad();
@@ -55,7 +61,7 @@ public class ActividadWindowImp extends ActividadWindow {
 			}
 		});
 
-		bajaActividadButton.addActionListener(new ActionListener() {
+		bajaSesionButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Lógica para baja de actividad
 				BajaActividad bajaActividad = new BajaActividad();
@@ -63,20 +69,20 @@ public class ActividadWindowImp extends ActividadWindow {
 			}
 		});
 
-		modificarActividadButton.addActionListener(new ActionListener() {
+		modificarSesionButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Lógica para modificar actividad
 				ModificarActividad modificarActividad = new ModificarActividad();
 				modificarActividad.setVisible(true);
 			}
 		});
-		mostrarActividadButton.addActionListener(new ActionListener() {
+		mostrarSesionButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MostrarActividad mostrarActividad = new MostrarActividad();
 				mostrarActividad.setVisible(true);
 			}
 		});
-		listaActividadButton.addActionListener(new ActionListener() {
+		listaSesionButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Controlador.obtenerInstancia().Accion(Eventos.MOSTRAR_LISTA_ACTIVIDAD, null);
 			}
@@ -87,33 +93,7 @@ public class ActividadWindowImp extends ActividadWindow {
 
 	public void Actualizar(int evento, Object data) {
 		switch (evento) {
-		case Eventos.ALTA_ACTIVIDAD_BIEN: {
-			TransActividad actividad = (TransActividad) data;
-			int id = actividad.getId();
-			JOptionPane.showMessageDialog(ActividadWindowImp.this, "Actividad: " + id + " dada de alta correctamente");
-			break;
-		}
-		case Eventos.BAJA_ACTIVIDAD_BIEN: {
-			int id = (int) data;
-			JOptionPane.showMessageDialog(ActividadWindowImp.this, "Actividad: " + id + " dada de baja correctamente");
-			break;
-		}
-		case Eventos.MODIFICAR_ACTIVIDAD_BIEN: {
-			TransActividad actividad = (TransActividad) data;
-			int id = actividad.getId();
-			JOptionPane.showMessageDialog(ActividadWindowImp.this, "Actividad: " + id + " modificada correctamente");
-			break;
-		}
-		case Eventos.MOSTRAR_ACTIVIDAD_BIEN: {
-			TransActividad actividad = (TransActividad) data;
-			ArrayList<TransActividad> lista = new ArrayList<TransActividad>();
-			lista.add(actividad);
-
-			MostrarActividadWindow mostrarWindow = new MostrarActividadWindow(lista);
-			mostrarWindow.setVisible(true);
-
-			break;
-		}
+		
 		case Eventos.MOSTRAR_LISTA_ACTIVIDAD_BIEN: {
 
 			ArrayList<TransActividad> lista = (ArrayList<TransActividad>) data;

@@ -8,6 +8,7 @@ import presentacion.entrenamiento.EntrenamientoWindowImp;
 import presentacion.factura.FacturaWindowImp;
 import presentacion.material.MaterialWindowImp;
 import presentacion.monitor.MonitorWindowImp;
+import presentacion.sesion.SesionWindowImp;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -33,16 +34,14 @@ public class MainWindow extends JFrame {
 		// botones principales
 		JButton clienteButton = new JButton("Clientes");
 		JButton monitorButton = new JButton("Monitores");
-		JButton entrenamientoButton = new JButton("Entrenamientos");
-		JButton actividadButton = new JButton("Actividades");
+		JButton sesionButton = new JButton("Sesiones");
 		JButton materialButton = new JButton("Materiales");
 		JButton facturaButton = new JButton("Facturas");
 
 		// añadir botones
 		panel.add(clienteButton);
 		panel.add(monitorButton);
-		panel.add(entrenamientoButton);
-		panel.add(actividadButton);
+		panel.add(sesionButton);
 		panel.add(materialButton);
 		panel.add(facturaButton);
 		// añadir el panel
@@ -65,22 +64,16 @@ public class MainWindow extends JFrame {
 			}
 		});
 
-		entrenamientoButton.addActionListener(new ActionListener() {
+		sesionButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Abrir la ventana de entrenamiento
-				EntrenamientoWindowImp entrenamientoWindow = new EntrenamientoWindowImp();
-				entrenamientoWindow.setVisible(true);
+				SesionWindowImp sesionWindow = new SesionWindowImp();
+				sesionWindow.setVisible(true);
 
 			}
 		});
 
-		actividadButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				// Abrir la ventana de actividades
-				ActividadWindowImp actividadWindow = new ActividadWindowImp();
-				actividadWindow.setVisible(true);
-			}
-		});
+		
 
 		materialButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
