@@ -7,7 +7,7 @@ public class TransSesion{
 	protected int idMonitor;
 	// meter despues
 
-	public TransSesion(int i, int idM, int p, String n) {
+	public TransSesion(int i, int idM, double p, String n) {
 		id = i;
 		precio = p;
 		nombre = n;

@@ -10,6 +10,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import negocio.sesion.SASesion;
+import negocio.sesion.TransSesion;
 
 public class DAOSesionImp implements DAOSesion {
 
@@ -26,16 +27,19 @@ public class DAOSesionImp implements DAOSesion {
 		return daoSesion;
 	}
 
-	public boolean altaSesion(SASesion tActividad) {
+	public int setSesion(PreparedStatement st, TransSesion tSesion) throws SQLException {
+		st.setInt(1, tSesion.getId());
+		st.setInt(2, tSesion.getIdM());
+		st.setString(3, tSesion.getNombre());
+		st.setDouble(4, tSesion.getPrecio());
+
+		return st.executeUpdate();
+	}
+
+	public boolean altaSesion(TransSesion tSesion) {
 		String query = "INSERT INTO actividad (id, idMonitor, nombre, precio, aforo) VALUES (?, ?, ?, ?, ?)";
 		try (PreparedStatement st = connection.prepareStatement(query)) {
-			st.setInt(1, tActividad.getId());
-			st.setInt(2, tActividad.getIdM());
-			st.setString(3, tActividad.getNombre());
-			st.setInt(4, tActividad.getPrecio());
-			st.setInt(5, tActividad.getAforo());
-			int rowsAffected = st.executeUpdate();
-			return rowsAffected > 0;
+			return setSesion(st, tSesion) > 0;
 		} catch (SQLException e) {
 			System.err.print(e.getMessage());
 			e.printStackTrace();
@@ -56,15 +60,12 @@ public class DAOSesionImp implements DAOSesion {
 		}
 	}
 
-	public SASesion buscar(int id) {
+	public TransSesion buscar(int id) {
 		String query = "SELECT * FROM actividad WHERE id = ?";
 		try (PreparedStatement st = connection.prepareStatement(query)) {
-
-			// Dar valores a parametro de busqueda
 			st.setInt(1, id);
-			// Ejecuta la query
 			ResultSet rs = st.executeQuery();
-			return getNextActividad(rs);
+			return getNextSesion(rs);
 		} catch (SQLException e) {
 			System.err.print(e.getMessage());
 			e.printStackTrace();
@@ -72,18 +73,16 @@ public class DAOSesionImp implements DAOSesion {
 		}
 	}
 
-	public SASesion getNextActividad(ResultSet rs) { // tomar la actividad
-															// de la BBDD
-		SASesion actividad = null;
+	public TransSesion getNextSesion(ResultSet rs) {
+
+		TransSesion actividad = null;
 		try {
 			if (rs.next()) {
 				int id = rs.getInt("id");
 				int idM = rs.getInt("idMonitor");
 				String nombre = rs.getString("nombre");
 				int p = rs.getInt("precio");
-				int a = rs.getInt("aforo");
-
-				actividad = new SASesion(id, idM, p, a, nombre);
+				actividad = new TransSesion(id, idM, p, nombre);
 
 			}
 		} catch (SQLException e) {
@@ -93,16 +92,11 @@ public class DAOSesionImp implements DAOSesion {
 		return actividad;
 	}
 
-	public boolean modificarSesion(SASesion tActividad) {
+	public boolean modificarSesion(TransSesion tSesion) {
 		String query = "UPDATE actividad SET idMonitor = ?, nombre = ?, precio = ?, aforo = ? WHERE id = ?";
 		try (PreparedStatement st = connection.prepareStatement(query)) {
-			st.setInt(1, tActividad.getIdM());
-			st.setString(2, tActividad.getNombre());
-			st.setInt(3, tActividad.getPrecio());
-			st.setInt(4, tActividad.getAforo());
-			st.setInt(5, tActividad.getId());
-			int rowsAffected = st.executeUpdate();
-			return rowsAffected > 0;
+
+			return setSesion(st, tSesion) > 0;
 		} catch (SQLException e) {
 			System.err.print(e.getMessage());
 			e.printStackTrace();
@@ -110,27 +104,19 @@ public class DAOSesionImp implements DAOSesion {
 		}
 	}
 
-	public ArrayList<SASesion> listaSesiones() {
-		ArrayList<SASesion> actividades = new ArrayList<>();
+	public ArrayList<TransSesion> listaSesiones() {
+		ArrayList<TransSesion> sesiones = new ArrayList<>();
 		String query = "SELECT * FROM actividad";
 		try (PreparedStatement st = connection.prepareStatement(query)) {
 			ResultSet rs = st.executeQuery();
 			while (rs.next()) {
-				int id = rs.getInt("id");
-				int idM = rs.getInt("idMonitor");
-				String nombre = rs.getString("nombre");
-				int p = rs.getInt("precio");
-				int a = rs.getInt("aforo");
-				SASesion actividad = new SASesion(id, idM, p, a, nombre);
-				actividades.add(actividad);
+				sesiones.add(getNextSesion(rs));
 			}
 		} catch (SQLException e) {
 			System.err.print(e.getMessage());
 			e.printStackTrace();
 		}
-		return actividades;
+		return sesiones;
 	}
-
-
 
 }
