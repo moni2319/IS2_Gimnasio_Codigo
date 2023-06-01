@@ -2,12 +2,11 @@ package presentacion.sesion;
 
 import javax.swing.*;
 
-import negocio.actividad.SAActividad;
+
 import negocio.actividad.TransActividad;
-import negocio.sesion.SASesion;
-import presentacion.actividad.ActividadWindowImp;
+
 import presentacion.actividad.AltaActividad;
-import presentacion.actividad.BajaActividad;
+
 import presentacion.actividad.ModificarActividad;
 import presentacion.actividad.MostrarActividad;
 import presentacion.actividad.MostrarActividadWindow;
@@ -64,7 +63,7 @@ public class SesionWindowImp extends SesionWindow {
 		bajaSesionButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Lógica para baja de actividad
-				BajaActividad bajaActividad = new BajaActividad();
+				BajaSesion bajaActividad = new BajaSesion();
 				bajaActividad.setVisible(true);
 			}
 		});

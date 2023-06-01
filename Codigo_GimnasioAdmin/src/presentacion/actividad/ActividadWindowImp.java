@@ -30,14 +30,14 @@ public class ActividadWindowImp extends ActividadWindow {
 
 		// Botones de actividad
 		JButton altaActividadButton = new JButton("Alta Actividad");
-		JButton bajaActividadButton = new JButton("Baja Actividad");
+		
 		JButton modificarActividadButton = new JButton("Modificar Actividad");
 		JButton mostrarActividadButton = new JButton("Mostrar Actividad");
 		JButton listaActividadButton = new JButton("Lista de Actividades");
 
 		// Agregar botones al panel
 		panel.add(altaActividadButton);
-		panel.add(bajaActividadButton);
+		
 		panel.add(modificarActividadButton);
 		panel.add(mostrarActividadButton);
 		panel.add(listaActividadButton);
@@ -55,13 +55,7 @@ public class ActividadWindowImp extends ActividadWindow {
 			}
 		});
 
-		bajaActividadButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				// Lógica para baja de actividad
-				BajaActividad bajaActividad = new BajaActividad();
-				bajaActividad.setVisible(true);
-			}
-		});
+		
 
 		modificarActividadButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

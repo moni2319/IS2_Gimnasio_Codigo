@@ -28,14 +28,13 @@ public class EntrenamientoWindowImp extends EntrenamientoWindow {
 
 		// Botones de entrenamiento
 		JButton altaEntrenamientoButton = new JButton("Alta Entrenamiento");
-		JButton bajaEntrenamientoButton = new JButton("Baja Entrenamiento");
+		
 		JButton modificarEntrenamientoButton = new JButton("Modificar Entrenamiento");
 		JButton mostrarEntrenamientoButton = new JButton("Mostrar Entrenamiento");
 		JButton listaEntrenamientoButton = new JButton("Lista de Entrenamientos");
 
 		// Agregar botones al panel
 		panel.add(altaEntrenamientoButton);
-		panel.add(bajaEntrenamientoButton);
 		panel.add(modificarEntrenamientoButton);
 		panel.add(mostrarEntrenamientoButton);
 		panel.add(listaEntrenamientoButton);
@@ -51,12 +50,7 @@ public class EntrenamientoWindowImp extends EntrenamientoWindow {
 			}
 		});
 
-		bajaEntrenamientoButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				BajaEntrenamiento bajaEntrenamiento = new BajaEntrenamiento();
-				bajaEntrenamiento.setVisible(true);
-			}
-		});
+	
 
 		modificarEntrenamientoButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
