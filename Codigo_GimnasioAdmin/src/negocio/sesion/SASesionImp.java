@@ -7,7 +7,7 @@ import integracion.factoria.FactoriaDAOImp;
 import integracion.monitor.DAOMonitor;
 import negocio.sesion.SASesion;
 
-public class SASesionImp implements SASesion {
+public class SASesionImp implements SAS {
 
 	private DAOActividad daoActividad;
 	private DAOMonitor daoMonitor;
