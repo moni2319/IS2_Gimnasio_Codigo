@@ -15,6 +15,8 @@ import integracion.material.DAOMaterial;
 import integracion.material.DAOMaterialImp;
 import integracion.monitor.DAOMonitor;
 import integracion.monitor.DAOMonitorImp;
+import integracion.sesion.DAOSesion;
+import integracion.sesion.DAOSesionImp;
 
 public class FactoriaDAOImp implements FactoriaDAO {
 	private Connection connection;
@@ -46,5 +48,9 @@ public class FactoriaDAOImp implements FactoriaDAO {
 
 	public DAOMonitor getDAOMonitor() {
 		return new DAOMonitorImp(connection);
+	}
+	
+	public DAOSesion getDAOSesion() {
+		return new DAOSesionImp(connection);
 	}
 }

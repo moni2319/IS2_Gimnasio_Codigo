@@ -6,6 +6,7 @@ import integracion.entrenamiento.DAOEntrenamiento;
 import integracion.factura.DAOFactura;
 import integracion.material.DAOMaterial;
 import integracion.monitor.DAOMonitor;
+import integracion.sesion.DAOSesion;
 
 public interface FactoriaDAO {
 
@@ -20,4 +21,6 @@ public interface FactoriaDAO {
 	public DAOMaterial getDAOMaterial();
 
 	public DAOMonitor getDAOMonitor();
+
+	public DAOSesion getDAOSesion();
 }

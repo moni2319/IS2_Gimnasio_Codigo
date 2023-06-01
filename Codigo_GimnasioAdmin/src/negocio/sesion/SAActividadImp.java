@@ -9,24 +9,24 @@ import integracion.monitor.DAOMonitor;
 
 public class SASesionImp implements SASesion {
 
-	private DAOActividad daoActividad;
+	private DAOSesion daoSesion;
 	private DAOMonitor daoMonitor;
 
 	public SASesionImp() {
-		daoActividad = new FactoriaDAOImp().getDAOSesion();
+		daoSesion = new FactoriaDAOImp().getDAOSesion();
 		daoMonitor = new FactoriaDAOImp().getDAOMonitor();
 
 	}
 
-	public int AltaActividad(TransActividad tActividad) {
+	public int AltaActividad(TransSesion tSesion) {
 
-		if (daoActividad.buscar(tActividad.getId()) != null) {
-			throw new IllegalArgumentException("Ya existe una actividad con id " + tActividad.getId());
+		if (daoSesion.buscar(tSesion.getId()) != null) {
+			throw new IllegalArgumentException("Ya existe una actividad con id " + tSesion.getId());
 		}
-		if (daoMonitor.buscarMonitor(tActividad.getIdM()) == null) {
-			throw new IllegalArgumentException("No existe un monitor con id " + tActividad.getIdM());
+		if (daoMonitor.buscarMonitor(tSesion.getIdM()) == null) {
+			throw new IllegalArgumentException("No existe un monitor con id " + tSesion.getIdM());
 		}
-		boolean exito = daoActividad.altaActividad(tActividad);
+		boolean exito = daoSesion.altaSesion(tSesion);
 		if (!exito) {
 			throw new IllegalArgumentException("No se pudo guardar en la base de datos la actividad");
 		}
@@ -35,10 +35,10 @@ public class SASesionImp implements SASesion {
 	}
 
 	public int BajaActividad(int id) {
-		if (daoActividad.buscar(id) == null) {
+		if (daoSesion.buscar(id) == null) {
 			throw new IllegalArgumentException("No existe una actividad con id " + id);
 		}
-		boolean exito = daoActividad.bajaActividad(id);
+		boolean exito = daoSesion.bajaActividad(id);
 		if (!exito) {
 			throw new IllegalArgumentException("No se pudo quitar en la base de datos la actividad");
 		}
@@ -46,7 +46,7 @@ public class SASesionImp implements SASesion {
 	}
 
 	public TransActividad MostrarActividad(int id) {
-		TransActividad actividad = daoActividad.buscar(id);
+		TransActividad actividad = daoSesion.buscar(id);
 		if (actividad == null) {
 			throw new IllegalArgumentException("No existe una actividad con id " + id);
 		}
@@ -54,17 +54,17 @@ public class SASesionImp implements SASesion {
 	}
 
 	public ArrayList<TransActividad> ListarActividad() {
-		return daoActividad.listaActividades();
+		return daoSesion.listaActividades();
 	}
 
 	public int ModificarActividad(TransActividad tActividad) {
-		if (daoActividad.buscar(tActividad.getId()) == null) {
+		if (daoSesion.buscar(tActividad.getId()) == null) {
 			throw new IllegalArgumentException("No existe una actividad con id " + tActividad.getId());
 		}
 		if (daoMonitor.buscarMonitor(tActividad.getIdM()) == null) {
 			throw new IllegalArgumentException("No existe un monitor con id " + tActividad.getIdM());
 		}
-		boolean exito = daoActividad.modificarActividad(tActividad);
+		boolean exito = daoSesion.modificarActividad(tActividad);
 		if (!exito) {
 			throw new IllegalArgumentException("No se pudo modificar en la base de datos la actividad");
 		}

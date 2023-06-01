@@ -48,7 +48,7 @@ public class DAOSesionImp implements DAOSesion {
 	}
 
 	public boolean bajaSesion(int id) {
-		String query = "DELETE FROM actividad WHERE id = ?";
+		String query = "DELETE FROM sesion WHERE id = ?";
 		try (PreparedStatement st = connection.prepareStatement(query)) {
 			st.setInt(1, id);
 			int rowsAffected = st.executeUpdate();
@@ -61,7 +61,7 @@ public class DAOSesionImp implements DAOSesion {
 	}
 
 	public TransSesion buscar(int id) {
-		String query = "SELECT * FROM actividad WHERE id = ?";
+		String query = "SELECT * FROM sesion WHERE id = ?";
 		try (PreparedStatement st = connection.prepareStatement(query)) {
 			st.setInt(1, id);
 			ResultSet rs = st.executeQuery();
@@ -93,7 +93,7 @@ public class DAOSesionImp implements DAOSesion {
 	}
 
 	public boolean modificarSesion(TransSesion tSesion) {
-		String query = "UPDATE actividad SET idMonitor = ?, nombre = ?, precio = ?, aforo = ? WHERE id = ?";
+		String query = "UPDATE sesion SET idMonitor = ?, nombre = ?, precio = ?, WHERE id = ?";
 		try (PreparedStatement st = connection.prepareStatement(query)) {
 
 			return setSesion(st, tSesion) > 0;
@@ -106,7 +106,7 @@ public class DAOSesionImp implements DAOSesion {
 
 	public ArrayList<TransSesion> listaSesiones() {
 		ArrayList<TransSesion> sesiones = new ArrayList<>();
-		String query = "SELECT * FROM actividad";
+		String query = "SELECT * FROM sesion";
 		try (PreparedStatement st = connection.prepareStatement(query)) {
 			ResultSet rs = st.executeQuery();
 			while (rs.next()) {
