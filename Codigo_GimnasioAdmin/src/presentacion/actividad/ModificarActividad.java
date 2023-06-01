@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import negocio.actividad.TransActividad;
+import negocio.sesion.SASesion;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
@@ -88,7 +88,7 @@ public class ModificarActividad extends JFrame {
 						int p = Integer.parseInt(txtPrecioActividad.getText());
 						String nombreActividad = txtNombreActividad.getText();
 
-						TransActividad tActividad = new TransActividad(id, idM, p, a, nombreActividad);
+						SASesion tActividad = new SASesion(id, idM, p, a, nombreActividad);
 
 						Controlador.obtenerInstancia().Accion(Eventos.MODIFICAR_ACTIVIDAD, tActividad);
 

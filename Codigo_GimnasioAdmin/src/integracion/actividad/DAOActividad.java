@@ -3,6 +3,7 @@ package integracion.actividad;
 import java.util.ArrayList;
 import java.util.List;
 
+import negocio.actividad.SAActividad;
 import negocio.actividad.TransActividad;
 
 public interface DAOActividad {

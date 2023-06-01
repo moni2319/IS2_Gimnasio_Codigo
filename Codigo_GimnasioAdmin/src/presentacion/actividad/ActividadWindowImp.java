@@ -3,7 +3,7 @@ package presentacion.actividad;
 import javax.swing.*;
 
 import negocio.actividad.SAActividad;
-import negocio.actividad.TransActividad;
+import negocio.sesion.SASesion;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
@@ -87,7 +87,7 @@ public class ActividadWindowImp extends ActividadWindow {
 	public void Actualizar(int evento, Object data) {
 		switch (evento) {
 		case Eventos.ALTA_ACTIVIDAD_BIEN: {
-			TransActividad actividad = (TransActividad) data;
+			SASesion actividad = (SASesion) data;
 			int id = actividad.getId();
 			JOptionPane.showMessageDialog(ActividadWindowImp.this, "Actividad: " + id + " dada de alta correctamente");
 			break;
@@ -98,14 +98,14 @@ public class ActividadWindowImp extends ActividadWindow {
 			break;
 		}
 		case Eventos.MODIFICAR_ACTIVIDAD_BIEN: {
-			TransActividad actividad = (TransActividad) data;
+			SASesion actividad = (SASesion) data;
 			int id = actividad.getId();
 			JOptionPane.showMessageDialog(ActividadWindowImp.this, "Actividad: " + id + " modificada correctamente");
 			break;
 		}
 		case Eventos.MOSTRAR_ACTIVIDAD_BIEN: {
-			TransActividad actividad = (TransActividad) data;
-			ArrayList<TransActividad> lista = new ArrayList<TransActividad>();
+			SASesion actividad = (SASesion) data;
+			ArrayList<SASesion> lista = new ArrayList<SASesion>();
 			lista.add(actividad);
 
 			MostrarActividadWindow mostrarWindow = new MostrarActividadWindow(lista);
@@ -115,7 +115,7 @@ public class ActividadWindowImp extends ActividadWindow {
 		}
 		case Eventos.MOSTRAR_LISTA_ACTIVIDAD_BIEN: {
 
-			ArrayList<TransActividad> lista = (ArrayList<TransActividad>) data;
+			ArrayList<SASesion> lista = (ArrayList<SASesion>) data;
 
 			MostrarActividadWindow mostrarWindow = new MostrarActividadWindow(lista);
 			mostrarWindow.setVisible(true);

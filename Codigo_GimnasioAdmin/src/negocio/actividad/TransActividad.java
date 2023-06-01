@@ -1,6 +1,6 @@
 package negocio.actividad;
 
-public class TransActividad {
+public class TransActividad{
 	private int id;
 	private int precio;
 	private int aforo;

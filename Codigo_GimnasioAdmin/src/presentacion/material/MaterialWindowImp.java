@@ -2,8 +2,8 @@ package presentacion.material;
 
 import javax.swing.*;
 
-import negocio.actividad.TransActividad;
 import negocio.material.TransMaterial;
+import negocio.sesion.SASesion;
 import presentacion.actividad.ActividadWindowImp;
 import presentacion.actividad.MostrarActividadWindow;
 import presentacion.controlador.Controlador;

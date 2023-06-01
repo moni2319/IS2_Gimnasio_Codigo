@@ -6,7 +6,6 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import negocio.actividad.SAActividad;
-import negocio.actividad.TransActividad;
 import negocio.cliente.SACliente;
 import negocio.cliente.TransCliente;
 import negocio.entrenamiento.SAEntrenamiento;
@@ -19,6 +18,7 @@ import negocio.material.SAMaterial;
 import negocio.material.TransMaterial;
 import negocio.monitor.SAMonitor;
 import negocio.monitor.TransMonitor;
+import negocio.sesion.SASesion;
 import presentacion.actividad.ActividadWindow;
 import presentacion.cliente.ClienteWindow;
 import presentacion.entrenamiento.EntrenamientoWindow;
@@ -38,7 +38,7 @@ public class ControladorImp extends Controlador {
 		switch (event) {
 		// ACTIVIDAD
 		case Eventos.ALTA_ACTIVIDAD: {
-			TransActividad tActividad = (TransActividad) info;
+			SASesion tActividad = (SASesion) info;
 			SAActividad actividad = factoria.getInstanciaSAActividad();
 			try {
 				int resultado = actividad.AltaActividad(tActividad);
@@ -67,7 +67,7 @@ public class ControladorImp extends Controlador {
 			break;
 		}
 		case Eventos.MODIFICAR_ACTIVIDAD: {
-			TransActividad tActividad = (TransActividad) info;
+			SASesion tActividad = (SASesion) info;
 			SAActividad actividad = factoria.getInstanciaSAActividad();
 			try {
 				int resultado = actividad.ModificarActividad(tActividad);
@@ -86,7 +86,7 @@ public class ControladorImp extends Controlador {
 			SAActividad actividad = factoria.getInstanciaSAActividad();
 			try {
 
-				TransActividad tActividad = actividad.MostrarActividad(id);
+				SASesion tActividad = actividad.MostrarActividad(id);
 				if (tActividad != null) {
 					ActividadWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_ACTIVIDAD_BIEN, tActividad);
 				}
@@ -103,7 +103,7 @@ public class ControladorImp extends Controlador {
 			SAActividad actividad = factoria.getInstanciaSAActividad();
 			try {
 
-				ArrayList<TransActividad> lista = actividad.ListarActividad();
+				ArrayList<SASesion> lista = actividad.ListarActividad();
 				if (lista != null) {
 					ActividadWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_LISTA_ACTIVIDAD_BIEN, lista);
 				}

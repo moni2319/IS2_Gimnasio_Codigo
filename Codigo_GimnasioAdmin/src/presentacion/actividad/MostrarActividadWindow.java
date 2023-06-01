@@ -9,14 +9,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import negocio.actividad.TransActividad;
+import negocio.sesion.SASesion;
 
 public class MostrarActividadWindow extends JFrame {
 	private JTable tablaActividades;
 	private DefaultTableModel modeloTabla;
-	private ArrayList<TransActividad> lista;
+	private ArrayList<SASesion> lista;
 
-	public MostrarActividadWindow(ArrayList<TransActividad> l) {
+	public MostrarActividadWindow(ArrayList<SASesion> l) {
 
 		// lista = new ArrayList<TransActividad>(); no me funcionaba
 		// lista = l;
@@ -41,7 +41,7 @@ public class MostrarActividadWindow extends JFrame {
 		panel.add(scrollPane);
 		add(panel);
 
-		for (TransActividad actividad : l) {
+		for (SASesion actividad : l) {
 			Object[] datosActividad = { actividad.getId(), actividad.getIdM(), actividad.getNombre(),
 					actividad.getPrecio(), actividad.getAforo() };
 			modeloTabla.addRow(datosActividad);

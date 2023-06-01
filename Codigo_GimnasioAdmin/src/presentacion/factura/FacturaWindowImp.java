@@ -2,8 +2,8 @@ package presentacion.factura;
 
 import javax.swing.*;
 
-import negocio.actividad.TransActividad;
 import negocio.factura.TransFactura;
+import negocio.sesion.SASesion;
 import presentacion.actividad.ActividadWindowImp;
 import presentacion.actividad.MostrarActividadWindow;
 import presentacion.controlador.Controlador;

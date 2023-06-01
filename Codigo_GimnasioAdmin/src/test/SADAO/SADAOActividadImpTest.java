@@ -15,7 +15,7 @@ import integracion.monitor.DAOMonitor;
 import integracion.monitor.DAOMonitorImp;
 import negocio.actividad.SAActividad;
 import negocio.actividad.SAActividadImp;
-import negocio.actividad.TransActividad;
+import negocio.sesion.SASesion;
 
 public class SADAOActividadImpTest {
 	//HACEN AMBAS COMPROBACIONES de DAO y SAA
@@ -34,7 +34,7 @@ public class SADAOActividadImpTest {
 	@Test
 	public void testAltaActividadExitoso() {
 		// Preparación de datos de prueba
-		TransActividad actividad = new TransActividad(1, 1, 100, 20, "Actividad 1");
+		SASesion actividad = new SASesion(1, 1, 100, 20, "Actividad 1");
 
 		// Ejecución del método a probar
 		int resultado = saActividad.AltaActividad(actividad);
@@ -47,7 +47,7 @@ public class SADAOActividadImpTest {
 	@Test
 	public void testAltaActividadExistente() {
 		 // Preparación de datos de prueba
-	    TransActividad actividad1 = new TransActividad(1, 1, 100, 20, "Actividad 1");
+	    SASesion actividad1 = new SASesion(1, 1, 100, 20, "Actividad 1");
 	   
 
 	   
@@ -70,7 +70,7 @@ public class SADAOActividadImpTest {
 	@Test
     public void testAltaActividadMonitorInexistente() {
         // Preparación de datos de prueba
-        TransActividad actividad = new TransActividad(1, 10, 100, 20, "Actividad 1");
+        SASesion actividad = new SASesion(1, 10, 100, 20, "Actividad 1");
 
         // Ejecución del método a probar
         try {
@@ -86,7 +86,7 @@ public class SADAOActividadImpTest {
 	@Test
     public void testBajaActividadExitoso() {
         // Preparación de datos de prueba
-        TransActividad actividad = new TransActividad(1, 1, 100, 20, "Actividad 1");
+        SASesion actividad = new SASesion(1, 1, 100, 20, "Actividad 1");
         daoActividad.altaActividad(actividad); // Insertar la actividad en la base de datos antes de realizar el test
 
         // Ejecución del método a probar
@@ -99,7 +99,7 @@ public class SADAOActividadImpTest {
 	@Test
 	public void testBajaActividadExistente() {
 	    // Preparación de datos de prueba
-	    TransActividad actividad = new TransActividad(1, 1, 100, 20, "Actividad 1");
+	    SASesion actividad = new SASesion(1, 1, 100, 20, "Actividad 1");
 	    
 	    // Insertar la actividad en la base de datos antes de realizar el test
 	    boolean exito = daoActividad.altaActividad(actividad);
@@ -112,7 +112,7 @@ public class SADAOActividadImpTest {
 	    assertEquals(1, resultado);
 
 	    // Verificar que la actividad ya no existe en la base de datos
-	    TransActividad actividadBorrada = daoActividad.buscar(actividad.getId());
+	    SASesion actividadBorrada = daoActividad.buscar(actividad.getId());
 	    assertNull(actividadBorrada);
 	}
 
@@ -133,11 +133,11 @@ public class SADAOActividadImpTest {
 	@Test
     public void testMostrarActividad() {
         // Crear una actividad en la base de datos
-        TransActividad actividad = new TransActividad(1, 1, 100, 20, "Actividad 1");
+        SASesion actividad = new SASesion(1, 1, 100, 20, "Actividad 1");
         
         daoActividad.altaActividad(actividad);
         // Mostrar la actividad
-        TransActividad actividadMostrada = saActividad.MostrarActividad(actividad.getId());
+        SASesion actividadMostrada = saActividad.MostrarActividad(actividad.getId());
         assertNotNull(actividadMostrada);
         assertEquals(actividad.getId(), actividadMostrada.getId());
         assertEquals(actividad.getIdM(), actividadMostrada.getIdM());
@@ -147,8 +147,8 @@ public class SADAOActividadImpTest {
 	@Test
 	public void testListarActividad() {
 	    // Preparación de datos de prueba
-	    TransActividad actividad1 = new TransActividad(1, 1, 100, 20, "Actividad 1");
-	    TransActividad actividad2 = new TransActividad(3, 1, 200, 15, "Actividad 2");
+	    SASesion actividad1 = new SASesion(1, 1, 100, 20, "Actividad 1");
+	    SASesion actividad2 = new SASesion(3, 1, 200, 15, "Actividad 2");
 	    
 	    // Insertar las actividades en la base de datos antes de realizar el test
 	    boolean exito1 = daoActividad.altaActividad(actividad1);
@@ -157,7 +157,7 @@ public class SADAOActividadImpTest {
 	    assertTrue(exito2);
 
 	    // Ejecución del método a probar
-	    ArrayList<TransActividad> actividades = saActividad.ListarActividad();
+	    ArrayList<SASesion> actividades = saActividad.ListarActividad();
 	    
 	    // Verificación de resultados
 	    assertNotNull(actividades);

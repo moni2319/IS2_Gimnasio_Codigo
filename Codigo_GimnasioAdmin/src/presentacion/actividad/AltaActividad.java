@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-import negocio.actividad.TransActividad;
+import negocio.sesion.SASesion;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
@@ -83,7 +83,7 @@ public class AltaActividad extends JFrame {
 						int p = Integer.parseInt(txtPrecioActividad.getText());
 						String nombreActividad = txtNombreActividad.getText();
 
-						TransActividad tActividad = new TransActividad(id, idM, p, a, nombreActividad);
+						SASesion tActividad = new SASesion(id, idM, p, a, nombreActividad);
 
 						Controlador.obtenerInstancia().Accion(Eventos.ALTA_ACTIVIDAD, tActividad);
 

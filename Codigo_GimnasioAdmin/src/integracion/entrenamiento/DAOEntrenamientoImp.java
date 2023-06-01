@@ -6,8 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import negocio.actividad.TransActividad;
 import negocio.entrenamiento.TransEntrenamiento;
+
 
 public class DAOEntrenamientoImp implements DAOEntrenamiento {
 

@@ -1,30 +1,32 @@
-package integracion.actividad;
+package integracion.sesion;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
-import negocio.actividad.TransActividad;
+import javax.swing.JOptionPane;
 
+import negocio.sesion.SASesion;
 
-public class DAOActividadImp implements DAOActividad {
+public class DAOSesionImp implements DAOSesion {
 
 	private Connection connection;
-	private static DAOActividadImp daoActividad;
+	private static DAOSesionImp daoSesion;
 
-	public DAOActividadImp(Connection connect) {
+	public DAOSesionImp(Connection connect) {
 		connection = connect;
 	}
 
-	static public DAOActividadImp getInstance(Connection connection) {
-		if (daoActividad == null)
-			daoActividad = new DAOActividadImp(connection);
-		return daoActividad;
+	static public DAOSesionImp getInstance(Connection connection) {
+		if (daoSesion == null)
+			daoSesion = new DAOSesionImp(connection);
+		return daoSesion;
 	}
 
-	public boolean altaActividad(TransActividad tActividad) {
+	public boolean altaSesion(SASesion tActividad) {
 		String query = "INSERT INTO actividad (id, idMonitor, nombre, precio, aforo) VALUES (?, ?, ?, ?, ?)";
 		try (PreparedStatement st = connection.prepareStatement(query)) {
 			st.setInt(1, tActividad.getId());
@@ -41,7 +43,7 @@ public class DAOActividadImp implements DAOActividad {
 		}
 	}
 
-	public boolean bajaActividad(int id) {
+	public boolean bajaSesion(int id) {
 		String query = "DELETE FROM actividad WHERE id = ?";
 		try (PreparedStatement st = connection.prepareStatement(query)) {
 			st.setInt(1, id);
@@ -54,7 +56,7 @@ public class DAOActividadImp implements DAOActividad {
 		}
 	}
 
-	public TransActividad buscar(int id) {
+	public SASesion buscar(int id) {
 		String query = "SELECT * FROM actividad WHERE id = ?";
 		try (PreparedStatement st = connection.prepareStatement(query)) {
 
@@ -70,9 +72,9 @@ public class DAOActividadImp implements DAOActividad {
 		}
 	}
 
-	public TransActividad getNextActividad(ResultSet rs) { // tomar la actividad
+	public SASesion getNextActividad(ResultSet rs) { // tomar la actividad
 															// de la BBDD
-		TransActividad actividad = null;
+		SASesion actividad = null;
 		try {
 			if (rs.next()) {
 				int id = rs.getInt("id");
@@ -81,7 +83,7 @@ public class DAOActividadImp implements DAOActividad {
 				int p = rs.getInt("precio");
 				int a = rs.getInt("aforo");
 
-				actividad = new TransActividad(id, idM, p, a, nombre);
+				actividad = new SASesion(id, idM, p, a, nombre);
 
 			}
 		} catch (SQLException e) {
@@ -91,7 +93,7 @@ public class DAOActividadImp implements DAOActividad {
 		return actividad;
 	}
 
-	public boolean modificarActividad(TransActividad tActividad) {
+	public boolean modificarSesion(SASesion tActividad) {
 		String query = "UPDATE actividad SET idMonitor = ?, nombre = ?, precio = ?, aforo = ? WHERE id = ?";
 		try (PreparedStatement st = connection.prepareStatement(query)) {
 			st.setInt(1, tActividad.getIdM());
@@ -108,8 +110,8 @@ public class DAOActividadImp implements DAOActividad {
 		}
 	}
 
-	public ArrayList<TransActividad> listaActividades() {
-		ArrayList<TransActividad> actividades = new ArrayList<>();
+	public ArrayList<SASesion> listaSesiones() {
+		ArrayList<SASesion> actividades = new ArrayList<>();
 		String query = "SELECT * FROM actividad";
 		try (PreparedStatement st = connection.prepareStatement(query)) {
 			ResultSet rs = st.executeQuery();
@@ -119,7 +121,7 @@ public class DAOActividadImp implements DAOActividad {
 				String nombre = rs.getString("nombre");
 				int p = rs.getInt("precio");
 				int a = rs.getInt("aforo");
-				TransActividad actividad = new TransActividad(id, idM, p, a, nombre);
+				SASesion actividad = new SASesion(id, idM, p, a, nombre);
 				actividades.add(actividad);
 			}
 		} catch (SQLException e) {
@@ -128,5 +130,7 @@ public class DAOActividadImp implements DAOActividad {
 		}
 		return actividades;
 	}
+
+
 
 }
