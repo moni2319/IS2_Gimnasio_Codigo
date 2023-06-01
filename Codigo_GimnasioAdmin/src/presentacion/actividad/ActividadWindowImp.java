@@ -46,24 +46,11 @@ public class ActividadWindowImp extends ActividadWindow {
 		getContentPane().add(panel);
 
 		// Configurar acciones de los botones de actividad
-		altaActividadButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				// Lógica para alta de actividad
-				AltaActividad altaActividad = new AltaActividad();
-				altaActividad.setVisible(true);
-
-			}
-		});
+		
 
 		
 
-		modificarActividadButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				// Lógica para modificar actividad
-				ModificarActividad modificarActividad = new ModificarActividad();
-				modificarActividad.setVisible(true);
-			}
-		});
+		
 		mostrarActividadButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MostrarActividad mostrarActividad = new MostrarActividad();

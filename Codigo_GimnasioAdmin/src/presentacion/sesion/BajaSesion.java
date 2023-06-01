@@ -65,7 +65,7 @@ public class BajaSesion extends JFrame {
 						if (daoActividad.buscar(id)!= null) {
 							Controlador.obtenerInstancia().Accion(Eventos.BAJA_ACTIVIDAD, id);
 						}
-						else{
+						else if (daoEntrenamiento.buscarEntrenamiento(id)!= null){
 							Controlador.obtenerInstancia().Accion(Eventos.BAJA_ENTRENAMIENTO, id);
 						}
 

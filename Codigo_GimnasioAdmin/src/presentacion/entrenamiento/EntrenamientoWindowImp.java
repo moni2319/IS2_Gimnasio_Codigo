@@ -52,12 +52,7 @@ public class EntrenamientoWindowImp extends EntrenamientoWindow {
 
 	
 
-		modificarEntrenamientoButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ModificarEntrenamiento modificarEntrenamiento = new ModificarEntrenamiento();
-				modificarEntrenamiento.setVisible(true);
-			}
-		});
+		
 		mostrarEntrenamientoButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MostrarEntrenamiento mostrarEntrenamiento = new MostrarEntrenamiento();

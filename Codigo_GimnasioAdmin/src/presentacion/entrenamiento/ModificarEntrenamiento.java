@@ -15,22 +15,21 @@ import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
 public class ModificarEntrenamiento extends JFrame {
-	private JTextField txtId;
+	
 	private JTextField txtNombre;
 	private JTextField txtCodigoMonitor;
 	private JTextField txtPrecio;
 
-	public ModificarEntrenamiento() {
-		initComponents();
+	public ModificarEntrenamiento(int id) {
+		initComponents(id);
 	}
 
-	private void initComponents() {
+	private void initComponents(int id) {
 		setTitle("Modificar Entrenamiento");
 		setSize(300, 400);
 		setLocationRelativeTo(null);
 
-		JLabel labelId = new JLabel("Id del entrenamiento:");
-		txtId = new JTextField(20);
+		
 
 		JLabel labelNombre = new JLabel("Nombre del entrenamiento:");
 		txtNombre = new JTextField(20);
@@ -45,8 +44,7 @@ public class ModificarEntrenamiento extends JFrame {
 
 		// Crear el panel y agregar los componentes
 		JPanel panel = new JPanel();
-		panel.add(labelId);
-		panel.add(txtId);
+		
 		panel.add(labelNombre);
 		panel.add(txtNombre);
 		panel.add(labelCodMonitor);
@@ -65,15 +63,14 @@ public class ModificarEntrenamiento extends JFrame {
 				// Obtener los datos de entrada
 
 				// Comprobar que este relleno
-				if (txtNombre.getText().isEmpty() || txtCodigoMonitor.getText().isEmpty() || txtId.getText().isEmpty()
-						|| txtPrecio.getText().isEmpty()) {
+				if (txtNombre.getText().isEmpty() || txtCodigoMonitor.getText().isEmpty() || txtPrecio.getText().isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Por favor, ingrese todos los datos.");
 				} else {
 
 					setVisible(false);
 					// hacer try y catch de numeros y strings
 					try {
-						int id = Integer.parseInt(txtId.getText());
+						
 						int idM = Integer.parseInt(txtCodigoMonitor.getText());
 						int p = Integer.parseInt(txtPrecio.getText());
 						String nombre = txtNombre.getText();

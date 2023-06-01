@@ -53,9 +53,9 @@ public class SesionWindowImp extends SesionWindow {
 		// Configurar acciones de los botones de actividad
 		altaSesionButton.addActionListener(new ActionListener() { // preguntar uno u otro
 			public void actionPerformed(ActionEvent e) {
-				// Lógica para alta de actividad
-				AltaActividad altaActividad = new AltaActividad();
-				altaActividad.setVisible(true);
+				
+				AltaSesion altaSesion = new AltaSesion();
+				altaSesion.setVisible(true);
 
 			}
 		});
@@ -71,8 +71,8 @@ public class SesionWindowImp extends SesionWindow {
 		modificarSesionButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Lógica para modificar actividad
-				ModificarActividad modificarActividad = new ModificarActividad();
-				modificarActividad.setVisible(true);
+				ModificarSesion modificarSesion = new ModificarSesion();
+				modificarSesion.setVisible(true);
 			}
 		});
 		mostrarSesionButton.addActionListener(new ActionListener() {
