@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import negocio.entrenamiento.TransEntrenamiento;
+import negocio.sesion.TransSesion;
 
 
 public class DAOEntrenamientoImp implements DAOEntrenamiento {
@@ -23,16 +24,20 @@ public class DAOEntrenamientoImp implements DAOEntrenamiento {
 			daoEntrenamiento = new DAOEntrenamientoImp(connection);
 		return daoEntrenamiento;
 	}
+	
+	public int setEntrenamiento(PreparedStatement st, TransEntrenamiento tEntrenamiento) throws SQLException {
+		st.setInt(1, tEntrenamiento.getId());
+		st.setInt(2, tEntrenamiento.getIdM());
+		st.setString(3, tEntrenamiento.getNombre());
+		st.setDouble(4, tEntrenamiento.getPrecio());
+
+		return st.executeUpdate();
+	}
 
 	public boolean altaEntrenamiento(TransEntrenamiento tEntrenamiento) {
 		String query = "INSERT INTO entrenamiento (id, idMonitor, nombre, precio) VALUES (?, ?, ?, ?)";
 		try (PreparedStatement st = connection.prepareStatement(query)) {
-			st.setInt(1, tEntrenamiento.getId());
-			st.setInt(2, tEntrenamiento.getIdM());
-			st.setString(3, tEntrenamiento.getNombre());
-			st.setDouble(4, tEntrenamiento.getPrecio());
-			int rowsAffected = st.executeUpdate();
-			return rowsAffected > 0;
+			return setEntrenamiento( st, tEntrenamiento) > 0;
 		} catch (SQLException e) {
 			System.err.print(e.getMessage());
 			e.printStackTrace();
@@ -91,12 +96,7 @@ public class DAOEntrenamientoImp implements DAOEntrenamiento {
 	public boolean modificarEntrenamiento(TransEntrenamiento tEntrenamiento) {
 		String query = "UPDATE entrenamiento SET idMonitor = ?, nombre = ?, precio = ? WHERE id = ?";
 		try (PreparedStatement st = connection.prepareStatement(query)) {
-			st.setInt(1, tEntrenamiento.getIdM());
-			st.setString(2, tEntrenamiento.getNombre());
-			st.setDouble(3, tEntrenamiento.getPrecio());
-			st.setInt(4, tEntrenamiento.getId());
-			int rowsAffected = st.executeUpdate();
-			return rowsAffected > 0;
+			return setEntrenamiento( st, tEntrenamiento) > 0;
 		} catch (SQLException e) {
 			System.err.print(e.getMessage());
 			e.printStackTrace();

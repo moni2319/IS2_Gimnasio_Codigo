@@ -37,7 +37,7 @@ public class DAOSesionImp implements DAOSesion {
 	}
 
 	public boolean altaSesion(TransSesion tSesion) {
-		String query = "INSERT INTO actividad (id, idMonitor, nombre, precio, aforo) VALUES (?, ?, ?, ?, ?)";
+		String query = "INSERT INTO sesion (id, idMonitor, nombre, precio) VALUES (?, ?, ?, ?)";
 		try (PreparedStatement st = connection.prepareStatement(query)) {
 			return setSesion(st, tSesion) > 0;
 		} catch (SQLException e) {
