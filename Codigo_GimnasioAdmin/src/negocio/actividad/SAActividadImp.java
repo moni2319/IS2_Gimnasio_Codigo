@@ -5,16 +5,19 @@ import java.util.ArrayList;
 import integracion.actividad.DAOActividad;
 import integracion.factoria.FactoriaDAOImp;
 import integracion.monitor.DAOMonitor;
+import integracion.sesion.DAOSesion;
 
 
 public class SAActividadImp implements SAActividad {
 
 	private DAOActividad daoActividad;
 	private DAOMonitor daoMonitor;
+	private DAOSesion daoSesion;
 
 	public SAActividadImp() {
 		daoActividad = new FactoriaDAOImp().getDAOActividad();
 		daoMonitor = new FactoriaDAOImp().getDAOMonitor();
+		daoSesion  = new FactoriaDAOImp().getDAOSesion();
 
 	}
 
@@ -26,7 +29,12 @@ public class SAActividadImp implements SAActividad {
 		if (daoMonitor.buscarMonitor(tActividad.getIdM()) == null) {
 			throw new IllegalArgumentException("No existe un monitor con id " + tActividad.getIdM());
 		}
+		
 		boolean exito = daoActividad.altaActividad(tActividad);
+		if(exito){
+			
+			exito = daoSesion.altaSesion(tActividad);
+		}
 		if (!exito) {
 			throw new IllegalArgumentException("No se pudo guardar en la base de datos la actividad");
 		}

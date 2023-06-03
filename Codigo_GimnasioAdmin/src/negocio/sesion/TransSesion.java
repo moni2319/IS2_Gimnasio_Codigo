@@ -1,17 +1,25 @@
 package negocio.sesion;
 
-public class TransSesion{
+public class TransSesion {
 	protected int id;
 	protected double precio;
 	protected String nombre;
 	protected int idMonitor;
 	// meter despues
+	public static int ID_CONTADOR = 0;
+
+	public TransSesion(int idM, double p, String n) {
+		precio = p;
+		nombre = n;
+		idMonitor = idM;
+	}
 
 	public TransSesion(int i, int idM, double p, String n) {
 		id = i;
 		precio = p;
 		nombre = n;
 		idMonitor = idM;
+
 	}
 
 	public int getId() {

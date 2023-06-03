@@ -28,7 +28,7 @@ public class DAOSesionImp implements DAOSesion {
 	}
 
 	public int setSesion(PreparedStatement st, TransSesion tSesion) throws SQLException {
-		st.setInt(1, tSesion.getId());
+		
 		st.setInt(2, tSesion.getIdM());
 		st.setString(3, tSesion.getNombre());
 		st.setDouble(4, tSesion.getPrecio());
@@ -39,6 +39,8 @@ public class DAOSesionImp implements DAOSesion {
 	public boolean altaSesion(TransSesion tSesion) {
 		String query = "INSERT INTO sesion (id, idMonitor, nombre, precio) VALUES (?, ?, ?, ?)";
 		try (PreparedStatement st = connection.prepareStatement(query)) {
+			TransSesion.ID_CONTADOR++;
+			st.setInt(1, TransSesion.ID_CONTADOR);
 			return setSesion(st, tSesion) > 0;
 		} catch (SQLException e) {
 			System.err.print(e.getMessage());
@@ -75,21 +77,21 @@ public class DAOSesionImp implements DAOSesion {
 
 	public TransSesion getNextSesion(ResultSet rs) {
 
-		TransSesion actividad = null;
+		TransSesion sesion = null;
 		try {
 			if (rs.next()) {
 				int id = rs.getInt("id");
 				int idM = rs.getInt("idMonitor");
 				String nombre = rs.getString("nombre");
 				int p = rs.getInt("precio");
-				actividad = new TransSesion(id, idM, p, nombre);
+				sesion = new TransSesion(id, idM, p, nombre);
 
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		return actividad;
+		return sesion;
 	}
 
 	public boolean modificarSesion(TransSesion tSesion) {

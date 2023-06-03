@@ -82,7 +82,7 @@ public class AltaActividad extends JFrame {
 						int p = Integer.parseInt(txtPrecioActividad.getText());
 						String nombreActividad = txtNombreActividad.getText();
 
-						TransActividad tActividad = new TransActividad(0, idM, p, a, nombreActividad);
+						TransActividad tActividad = new TransActividad( idM, p, a, nombreActividad);
 
 						Controlador.obtenerInstancia().Accion(Eventos.ALTA_ACTIVIDAD, tActividad);
 

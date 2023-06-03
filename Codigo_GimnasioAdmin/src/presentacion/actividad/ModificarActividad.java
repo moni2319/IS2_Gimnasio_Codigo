@@ -85,7 +85,7 @@ public class ModificarActividad extends JFrame {
 						int p = Integer.parseInt(txtPrecioActividad.getText());
 						String nombreActividad = txtNombreActividad.getText();
 
-						TransActividad tActividad = new TransActividad(id, idM, p, a, nombreActividad);
+						TransActividad tActividad = new TransActividad(idM, p, a, nombreActividad);
 
 						Controlador.obtenerInstancia().Accion(Eventos.MODIFICAR_ACTIVIDAD, tActividad);
 
