@@ -6,6 +6,7 @@ import integracion.actividad.DAOActividad;
 import integracion.factoria.FactoriaDAOImp;
 import integracion.monitor.DAOMonitor;
 import integracion.sesion.DAOSesion;
+import negocio.sesion.TransSesion;
 
 
 public class SAActividadImp implements SAActividad {
@@ -23,9 +24,7 @@ public class SAActividadImp implements SAActividad {
 
 	public int AltaActividad(TransActividad tActividad) {
 
-		if (daoActividad.buscar(tActividad.getId()) != null) {
-			throw new IllegalArgumentException("Ya existe una actividad con id " + tActividad.getId());
-		}
+		
 		if (daoMonitor.buscarMonitor(tActividad.getIdM()) == null) {
 			throw new IllegalArgumentException("No existe un monitor con id " + tActividad.getIdM());
 		}

@@ -17,9 +17,7 @@ public class SAEntrenamientoImp implements SAEntrenamiento {
 	}
 
 	public int AltaEntrenamiento(TransEntrenamiento tEntrenamiento) {
-		if (daoEntrenamiento.buscarEntrenamiento(tEntrenamiento.getId()) != null) {
-			throw new IllegalArgumentException("Ya existe un entrenamiento con id " + tEntrenamiento.getId());
-		}
+		
 		if (daoMonitor.buscarMonitor(tEntrenamiento.getIdM()) == null) {
 			throw new IllegalArgumentException("No existe un monitor con id " + tEntrenamiento.getIdM());
 		}
