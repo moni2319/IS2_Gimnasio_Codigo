@@ -35,7 +35,7 @@ public class ModificarSesion extends JFrame {
 
 	private void initComponents() {
 		setTitle("Modificar Sesion");
-		setSize(300, 400);
+		setSize(300, 200);
 		setLocationRelativeTo(null);
 
 		JLabel labelId = new JLabel("Id de la Sesion:");
