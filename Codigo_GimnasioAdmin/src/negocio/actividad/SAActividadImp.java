@@ -30,10 +30,9 @@ public class SAActividadImp implements SAActividad {
 			throw new IllegalArgumentException("No existe un monitor con id " + tActividad.getIdM());
 		}
 		
-		boolean exito = daoActividad.altaActividad(tActividad);
+		boolean exito = daoSesion.altaSesion(tActividad);
 		if(exito){
-			
-			exito = daoSesion.altaSesion(tActividad);
+			exito = daoActividad.altaActividad(tActividad);
 		}
 		if (!exito) {
 			throw new IllegalArgumentException("No se pudo guardar en la base de datos la actividad");
@@ -47,6 +46,7 @@ public class SAActividadImp implements SAActividad {
 			throw new IllegalArgumentException("No existe una actividad con id " + id);
 		}
 		boolean exito = daoActividad.bajaActividad(id);
+		
 		if (!exito) {
 			throw new IllegalArgumentException("No se pudo quitar en la base de datos la actividad");
 		}
@@ -73,6 +73,9 @@ public class SAActividadImp implements SAActividad {
 			throw new IllegalArgumentException("No existe un monitor con id " + tActividad.getIdM());
 		}
 		boolean exito = daoActividad.modificarActividad(tActividad);
+		if(exito){
+			exito = daoSesion.modificarSesion(tActividad);
+		}
 		if (!exito) {
 			throw new IllegalArgumentException("No se pudo modificar en la base de datos la actividad");
 		}

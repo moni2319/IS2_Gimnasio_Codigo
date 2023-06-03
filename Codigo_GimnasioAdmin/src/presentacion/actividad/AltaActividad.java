@@ -11,7 +11,7 @@ import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
 public class AltaActividad extends JFrame {
-	
+
 	private JTextField txtNombreActividad;
 	private JTextField txtCodigoMonitor;
 	private JTextField txtPrecioActividad;
@@ -25,8 +25,6 @@ public class AltaActividad extends JFrame {
 		setTitle("Alta Actividad");
 		setSize(300, 400);
 		setLocationRelativeTo(null);
-
-		
 
 		JLabel labelNomActividad = new JLabel("Nombre de la actividad:");
 		txtNombreActividad = new JTextField(20);
@@ -44,7 +42,7 @@ public class AltaActividad extends JFrame {
 
 		// Crear el panel y agregar los componentes
 		JPanel panel = new JPanel();
-		
+
 		panel.add(labelNomActividad);
 		panel.add(txtNombreActividad);
 		panel.add(labelCodMonitor);
@@ -66,8 +64,7 @@ public class AltaActividad extends JFrame {
 
 				// Comprobar que este relleno
 				if (txtNombreActividad.getText().isEmpty() || txtCodigoMonitor.getText().isEmpty()
-						||  txtPrecioActividad.getText().isEmpty()
-						|| txtAforoActividad.getText().isEmpty()) {
+						|| txtPrecioActividad.getText().isEmpty() || txtAforoActividad.getText().isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Por favor, ingrese todos los datos.");
 				} else {
 					// Realizar la lógica de alta de la actividad en la base de
@@ -76,13 +73,13 @@ public class AltaActividad extends JFrame {
 					setVisible(false);
 					// hacer try y catch de numeros y strings
 					try {
-					
+
 						int idM = Integer.parseInt(txtCodigoMonitor.getText());
 						int a = Integer.parseInt(txtAforoActividad.getText());
 						int p = Integer.parseInt(txtPrecioActividad.getText());
 						String nombreActividad = txtNombreActividad.getText();
 
-						TransActividad tActividad = new TransActividad( idM, p, a, nombreActividad);
+						TransActividad tActividad = new TransActividad(idM, p, a, nombreActividad);
 
 						Controlador.obtenerInstancia().Accion(Eventos.ALTA_ACTIVIDAD, tActividad);
 

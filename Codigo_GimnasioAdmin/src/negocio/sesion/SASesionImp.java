@@ -47,11 +47,11 @@ public class SASesionImp implements SASesion {
 	}
 
 	public TransSesion MostrarSesion(int id) {
-		TransSesion actividad = daoSesion.buscar(id);
-		if (actividad == null) {
+		TransSesion sesion = daoSesion.buscar(id);
+		if (sesion == null) {
 			throw new IllegalArgumentException("No existe una sesion con id " + id);
 		}
-		return actividad;
+		return sesion;
 	}
 
 	public ArrayList<TransSesion> ListarSesion() {

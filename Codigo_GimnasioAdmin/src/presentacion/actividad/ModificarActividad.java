@@ -16,7 +16,7 @@ import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
 public class ModificarActividad extends JFrame {
-	
+
 	private JTextField txtNombreActividad;
 	private JTextField txtCodigoMonitor;
 	private JTextField txtPrecioActividad;
@@ -47,7 +47,7 @@ public class ModificarActividad extends JFrame {
 
 		// Crear el panel y agregar los componentes
 		JPanel panel = new JPanel();
-		
+
 		panel.add(labelNomActividad);
 		panel.add(txtNombreActividad);
 		panel.add(labelCodMonitor);
@@ -69,8 +69,7 @@ public class ModificarActividad extends JFrame {
 
 				// Comprobar que este relleno
 				if (txtNombreActividad.getText().isEmpty() || txtCodigoMonitor.getText().isEmpty()
-						||  txtPrecioActividad.getText().isEmpty()
-						|| txtAforoActividad.getText().isEmpty()) {
+						|| txtPrecioActividad.getText().isEmpty() || txtAforoActividad.getText().isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Por favor, ingrese todos los datos.");
 				} else {
 					// Realizar la lógica de modificar de la actividad en la
@@ -79,13 +78,13 @@ public class ModificarActividad extends JFrame {
 					setVisible(false);
 					// hacer try y catch de numeros y strings
 					try {
-						
+
 						int idM = Integer.parseInt(txtCodigoMonitor.getText());
 						int a = Integer.parseInt(txtAforoActividad.getText());
 						int p = Integer.parseInt(txtPrecioActividad.getText());
 						String nombreActividad = txtNombreActividad.getText();
 
-						TransActividad tActividad = new TransActividad(idM, p, a, nombreActividad);
+						TransActividad tActividad = new TransActividad(id, idM, p, a, nombreActividad);
 
 						Controlador.obtenerInstancia().Accion(Eventos.MODIFICAR_ACTIVIDAD, tActividad);
 

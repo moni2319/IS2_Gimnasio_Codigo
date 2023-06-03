@@ -41,8 +41,6 @@ public class ModificarSesion extends JFrame {
 		JLabel labelId = new JLabel("Id de la Sesion:");
 		txtIdSesion = new JTextField(20);
 
-		
-
 		JButton modificarButton = new JButton("Modificar actividad");
 
 		// Crear el panel y agregar los componentes
@@ -59,20 +57,17 @@ public class ModificarSesion extends JFrame {
 
 			public void actionPerformed(ActionEvent e) {
 				int id = Integer.parseInt(txtIdSesion.getText());
-				if (daoActividad.buscar(id)!= null) {
+				if (daoActividad.buscar(id) != null) {
 					ModificarActividad altaActividad = new ModificarActividad(id);
 					altaActividad.setVisible(true);
-				}
-				else if (daoEntrenamiento.buscarEntrenamiento(id)!= null){
-					ModificarEntrenamiento altaEntrenamiento= new ModificarEntrenamiento(id);
+				} else if (daoEntrenamiento.buscarEntrenamiento(id) != null) {
+					ModificarEntrenamiento altaEntrenamiento = new ModificarEntrenamiento(id);
 					altaEntrenamiento.setVisible(true);
+				} else {
+					JOptionPane.showMessageDialog(null, "No hay sesiones con ese id.");
 				}
-				else{
-					JOptionPane.showMessageDialog(null,
-							"No hay sesiones con ese id.");
-				}
-					setVisible(false);
-				
+				setVisible(false);
+
 			}
 		});
 		setVisible(true);
