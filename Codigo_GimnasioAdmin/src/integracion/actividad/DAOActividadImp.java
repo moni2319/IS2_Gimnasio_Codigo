@@ -3,11 +3,11 @@ package integracion.actividad;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import negocio.actividad.TransActividad;
-
 
 public class DAOActividadImp implements DAOActividad {
 
@@ -25,13 +25,10 @@ public class DAOActividadImp implements DAOActividad {
 	}
 
 	public boolean altaActividad(TransActividad tActividad) {
-		String query = "INSERT INTO actividad (id, idMonitor, nombre, precio, aforo) VALUES (?, ?, ?, ?, ?)";
+		String query = "INSERT INTO actividad (id, aforo) VALUES (?, ?)";
 		try (PreparedStatement st = connection.prepareStatement(query)) {
 			st.setInt(1, tActividad.getId());
-			st.setInt(2, tActividad.getIdM());
-			st.setString(3, tActividad.getNombre());
-			st.setDouble(4, tActividad.getPrecio());
-			st.setInt(5, tActividad.getAforo());
+			st.setInt(2, tActividad.getAforo());
 			int rowsAffected = st.executeUpdate();
 			return rowsAffected > 0;
 		} catch (SQLException e) {
@@ -55,41 +52,41 @@ public class DAOActividadImp implements DAOActividad {
 	}
 
 	public TransActividad buscar(int id) {
-		String query = "SELECT * FROM actividad WHERE id = ?";
-		try (PreparedStatement st = connection.prepareStatement(query)) {
+	    String query = "SELECT * FROM sesion LEFT OUTER JOIN actividad ON sesion.id = actividad.id " +
+	                   "WHERE sesion.id = ?";
 
-			// Dar valores a parametro de busqueda
-			st.setInt(1, id);
-			// Ejecuta la query
-			ResultSet rs = st.executeQuery();
-			return getNextActividad(rs);
-		} catch (SQLException e) {
-			System.err.print(e.getMessage());
-			e.printStackTrace();
-			return null;
-		}
+	    try (PreparedStatement st = connection.prepareStatement(query)) {
+	        // Dar valores al parámetro de búsqueda
+	        st.setInt(1, id);
+	        // Ejecutar la consulta
+	        ResultSet rs = st.executeQuery();
+
+	        return getNextActividad(rs);
+	    } catch (SQLException e) {
+	        System.err.print(e.getMessage());
+	        e.printStackTrace();
+	        return null;
+	    }
 	}
 
-	public TransActividad getNextActividad(ResultSet rs) { // tomar la actividad
-															// de la BBDD
-		TransActividad actividad = null;
-		try {
-			if (rs.next()) {
-				int id = rs.getInt("id");
-				int idM = rs.getInt("idMonitor");
-				String nombre = rs.getString("nombre");
-				int p = rs.getInt("precio");
-				int a = rs.getInt("aforo");
+	public TransActividad getNextActividad(ResultSet rs) {
+	    TransActividad actividad = null;
+	    try {
+	        if (rs.next()) {
+	            int id = rs.getInt("sesion.id");
+	            int idM = rs.getInt("sesion.idMonitor");
+	            String nombre = rs.getString("sesion.nombre");
+	            double precio = rs.getDouble("sesion.precio");
+	            int aforo = rs.getInt("actividad.aforo");
 
-				actividad = new TransActividad(id, idM, p, a, nombre);
-
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		return actividad;
+	            actividad = new TransActividad(id, idM, precio, aforo, nombre);
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    return actividad;
 	}
+
 
 	public boolean modificarActividad(TransActividad tActividad) {
 		String query = "UPDATE actividad SET idMonitor = ?, nombre = ?, precio = ?, aforo = ? WHERE id = ?";
@@ -110,7 +107,7 @@ public class DAOActividadImp implements DAOActividad {
 
 	public ArrayList<TransActividad> listaActividades() {
 		ArrayList<TransActividad> actividades = new ArrayList<>();
-		String query = "SELECT * FROM actividad";
+		String query = "SELECT * FROM sesion LEFT OUTER JOIN actividad ON sesion.id = actividad.id ";
 		try (PreparedStatement st = connection.prepareStatement(query)) {
 			ResultSet rs = st.executeQuery();
 			while (rs.next()) {
