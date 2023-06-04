@@ -6,20 +6,15 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
-import negocio.entrenamiento.TransEntrenamiento;
-import presentacion.actividad.AltaActividad;
+
 import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
-import presentacion.entrenamiento.AltaEntrenamiento;
 
-public class AltaSesion extends JFrame {
 
-	public AltaSesion() {
+public class EleccionMostrar extends JFrame {
+	public EleccionMostrar() {
 		initComponents();
 	}
 
@@ -28,14 +23,16 @@ public class AltaSesion extends JFrame {
 		setSize(500, 400);
 		setLocationRelativeTo(null);
 
-		JButton ActividadButton = new JButton("Actividad");
-		JButton EntrenamientoButton = new JButton("Entrenamiento");
+		JButton ActividadButton = new JButton("Actividades");
+		JButton EntrenamientoButton = new JButton("Entrenamientos");
+		JButton SesionButton = new JButton("Sesiones");
 
 		// Crear el panel y agregar los componentes
 		JPanel panel = new JPanel(new GridLayout(3, 1, 10, 10));
 
 		panel.add(ActividadButton);
 		panel.add(EntrenamientoButton);
+		panel.add(SesionButton);
 
 		// Agregar panel a la ventana
 		getContentPane().add(panel);
@@ -44,16 +41,22 @@ public class AltaSesion extends JFrame {
 		ActividadButton.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				AltaActividad altaActividad = new AltaActividad();
-				altaActividad.setVisible(true);
+				Controlador.obtenerInstancia().Accion(Eventos.MOSTRAR_LISTA_ACTIVIDAD, null);
 			}
 
 		});
 		EntrenamientoButton.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				AltaEntrenamiento altaEntrenamiento = new AltaEntrenamiento();
-				altaEntrenamiento.setVisible(true);
+				Controlador.obtenerInstancia().Accion(Eventos.MOSTRAR_LISTA_ENTRENAMIENTO, null);
+
+			}
+
+		});
+		SesionButton.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				Controlador.obtenerInstancia().Accion(Eventos.MOSTRAR_LISTA_ENTRENAMIENTO, null);
 
 			}
 

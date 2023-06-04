@@ -66,6 +66,10 @@ public class MostrarSesion extends JFrame {
 						else if (daoEntrenamiento.buscarEntrenamiento(id)!= null){
 							Controlador.obtenerInstancia().Accion(Eventos.MOSTRAR_ENTRENAMIENTO, id);
 						}
+						else{
+							JOptionPane.showMessageDialog(null,
+									"No existe sesion con id: " + id);
+						}
 						setVisible(false);
 					} catch (NumberFormatException error) {
 						JOptionPane.showMessageDialog(null,

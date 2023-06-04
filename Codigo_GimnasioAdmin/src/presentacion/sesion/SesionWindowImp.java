@@ -8,7 +8,7 @@ import negocio.actividad.TransActividad;
 import presentacion.actividad.AltaActividad;
 
 import presentacion.actividad.ModificarActividad;
-import presentacion.actividad.MostrarActividad;
+
 import presentacion.actividad.MostrarActividadWindow;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
@@ -83,7 +83,8 @@ public class SesionWindowImp extends SesionWindow {
 		});
 		listaSesionButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Controlador.obtenerInstancia().Accion(Eventos.MOSTRAR_LISTA_ACTIVIDAD, null);
+				EleccionMostrar eleccionMostrar = new EleccionMostrar();
+				eleccionMostrar.setVisible(true);
 			}
 		});
 
@@ -93,15 +94,7 @@ public class SesionWindowImp extends SesionWindow {
 	public void Actualizar(int evento, Object data) {
 		switch (evento) {
 		
-		case Eventos.MOSTRAR_LISTA_ACTIVIDAD_BIEN: {
-
-			ArrayList<TransActividad> lista = (ArrayList<TransActividad>) data;
-
-			MostrarActividadWindow mostrarWindow = new MostrarActividadWindow(lista);
-			mostrarWindow.setVisible(true);
-
-			break;
-		}
+		
 
 		}
 	}
