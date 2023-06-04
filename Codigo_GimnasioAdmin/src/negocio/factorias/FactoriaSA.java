@@ -6,6 +6,7 @@ import negocio.entrenamiento.SAEntrenamiento;
 import negocio.factura.SAFactura;
 import negocio.material.SAMaterial;
 import negocio.monitor.SAMonitor;
+import negocio.sesion.SASesion;
 
 public interface FactoriaSA {
 	public SAActividad getInstanciaSAActividad();
@@ -19,5 +20,7 @@ public interface FactoriaSA {
 	public SAMaterial getInstanciaSAMaterial();
 
 	public SAMonitor getInstanciaSAMonitor();
+	
+	public SASesion getInstanciaSASesion();
 
 }

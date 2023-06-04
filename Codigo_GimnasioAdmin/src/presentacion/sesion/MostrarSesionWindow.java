@@ -1,23 +1,22 @@
-package presentacion.actividad;
+package presentacion.sesion;
 
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import negocio.actividad.TransActividad;
-import negocio.sesion.SASesion;
+import negocio.sesion.TransSesion;
 
-public class MostrarActividadWindow extends JFrame {
+public class MostrarSesionWindow extends JFrame{
 	private JTable tablaActividades;
 	private DefaultTableModel modeloTabla;
 
 
-	public MostrarActividadWindow(ArrayList<TransActividad> l) {
+	public MostrarSesionWindow(ArrayList<TransSesion> l) {
 
 		setTitle("Actividades");
 		setSize(800, 500);
@@ -28,7 +27,7 @@ public class MostrarActividadWindow extends JFrame {
 		modeloTabla.addColumn("IDMonitor");
 		modeloTabla.addColumn("Nombre");
 		modeloTabla.addColumn("Precio");
-		modeloTabla.addColumn("Aforo");
+		
 
 		tablaActividades = new JTable(modeloTabla);
 
@@ -38,12 +37,11 @@ public class MostrarActividadWindow extends JFrame {
 		panel.add(scrollPane);
 		add(panel);
 
-		for (TransActividad actividad : l) {
-			Object[] datosActividad = { actividad.getId(), actividad.getIdM(), actividad.getNombre(),
-					actividad.getPrecio(), actividad.getAforo() };
-			modeloTabla.addRow(datosActividad);
+		for (TransSesion sesion : l) {
+			Object[] datosSesion = { sesion.getId(), sesion.getIdM(), sesion.getNombre(),
+					sesion.getPrecio() };
+			modeloTabla.addRow(datosSesion);
 
 		}
 	}
-
 }

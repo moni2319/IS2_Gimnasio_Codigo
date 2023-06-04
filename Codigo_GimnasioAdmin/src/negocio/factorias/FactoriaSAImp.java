@@ -12,6 +12,8 @@ import negocio.material.SAMaterial;
 import negocio.material.SAMaterialImp;
 import negocio.monitor.SAMonitor;
 import negocio.monitor.SAMonitorImp;
+import negocio.sesion.SASesion;
+import negocio.sesion.SASesionImp;
 
 public class FactoriaSAImp implements FactoriaSA {
 
@@ -39,4 +41,9 @@ public class FactoriaSAImp implements FactoriaSA {
 		return new SAMonitorImp();
 	}
 
+	public SASesion getInstanciaSASesion() {
+		return new SASesionImp();
+	}
+
+	
 }

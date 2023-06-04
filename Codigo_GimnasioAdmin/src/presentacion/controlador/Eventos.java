@@ -44,6 +44,9 @@ public class Eventos {
 	public static final int MOSTRAR_LISTA_ENTRENAMIENTO = 130;
 	public static final int MODIFICAR_ENTRENAMIENTO = 131;
 
+	// SESION
+	public static final int MOSTRAR_LISTA_SESION = 132;
+
 	// _________________________________________________________________________________________________________
 
 	// ACTIVIDAD
@@ -88,5 +91,8 @@ public class Eventos {
 	public static final int MOSTRAR_ENTRENAMIENTO_BIEN = 529;
 	public static final int MOSTRAR_LISTA_ENTRENAMIENTO_BIEN = 530;
 	public static final int MODIFICAR_ENTRENAMIENTO_BIEN = 531;
+
+	// SESION
+	public static final int MOSTRAR_LISTA_SESION_BIEN = 532;
 
 }

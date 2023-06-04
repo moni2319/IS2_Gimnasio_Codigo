@@ -20,12 +20,14 @@ import negocio.material.TransMaterial;
 import negocio.monitor.SAMonitor;
 import negocio.monitor.TransMonitor;
 import negocio.sesion.SASesion;
+import negocio.sesion.TransSesion;
 import presentacion.actividad.ActividadWindow;
 import presentacion.cliente.ClienteWindow;
 import presentacion.entrenamiento.EntrenamientoWindow;
 import presentacion.factura.FacturaWindow;
 import presentacion.material.MaterialWindow;
 import presentacion.monitor.MonitorWindow;
+import presentacion.sesion.SesionWindow;
 
 public class ControladorImp extends Controlador {
 	FactoriaSA factoria;
@@ -107,6 +109,24 @@ public class ControladorImp extends Controlador {
 				ArrayList<TransActividad> lista = actividad.ListarActividad();
 				if (lista != null) {
 					ActividadWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_LISTA_ACTIVIDAD_BIEN, lista);
+				}
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+
+			}
+
+			break;
+		}
+		//SESION
+		case Eventos.MOSTRAR_LISTA_SESION: {
+
+			SASesion sesion = factoria.getInstanciaSASesion();
+			try {
+
+				ArrayList<TransSesion> lista = sesion.ListarSesion();
+				if (lista != null) {
+					SesionWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_LISTA_SESION_BIEN, lista);
 				}
 
 			} catch (IllegalArgumentException e) {

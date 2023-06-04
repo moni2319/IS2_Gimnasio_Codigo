@@ -4,7 +4,7 @@ import javax.swing.*;
 
 
 import negocio.actividad.TransActividad;
-
+import negocio.sesion.TransSesion;
 import presentacion.actividad.AltaActividad;
 
 import presentacion.actividad.ModificarActividad;
@@ -94,7 +94,15 @@ public class SesionWindowImp extends SesionWindow {
 	public void Actualizar(int evento, Object data) {
 		switch (evento) {
 		
-		
+		case Eventos.MOSTRAR_LISTA_SESION_BIEN: {
+
+			ArrayList<TransSesion> lista = (ArrayList<TransSesion>) data;
+
+			MostrarSesionWindow mostrarWindow = new MostrarSesionWindow(lista);
+			mostrarWindow.setVisible(true);
+
+			break;
+		}
 
 		}
 	}

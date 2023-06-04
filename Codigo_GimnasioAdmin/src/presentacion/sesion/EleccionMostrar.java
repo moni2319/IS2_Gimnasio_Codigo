@@ -56,7 +56,7 @@ public class EleccionMostrar extends JFrame {
 		SesionButton.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				Controlador.obtenerInstancia().Accion(Eventos.MOSTRAR_LISTA_ENTRENAMIENTO, null);
+				Controlador.obtenerInstancia().Accion(Eventos.MOSTRAR_LISTA_SESION, null);
 
 			}
 
