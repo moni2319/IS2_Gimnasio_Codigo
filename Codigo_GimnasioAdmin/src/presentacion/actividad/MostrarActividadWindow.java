@@ -19,10 +19,6 @@ public class MostrarActividadWindow extends JFrame {
 
 	public MostrarActividadWindow(ArrayList<TransActividad> l) {
 
-		// lista = new ArrayList<TransActividad>(); no me funcionaba
-		// lista = l;
-		//
-
 		setTitle("Actividades");
 		setSize(800, 500);
 		setLocation(400, 500);
