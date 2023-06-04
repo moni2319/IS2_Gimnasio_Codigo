@@ -39,17 +39,19 @@ public class DAOActividadImp implements DAOActividad {
 	}
 
 	public boolean bajaActividad(int id) {
-		String query = "DELETE FROM actividad WHERE id = ?";
-		try (PreparedStatement st = connection.prepareStatement(query)) {
-			st.setInt(1, id);
-			int rowsAffected = st.executeUpdate();
-			return rowsAffected > 0;
-		} catch (SQLException e) {
-			System.err.print(e.getMessage());
-			e.printStackTrace();
-			return false;
-		}
+	    String query = "DELETE FROM actividad WHERE id = ?";
+	    try (PreparedStatement st = connection.prepareStatement(query)) {
+	        st.setInt(1, id);
+	        int rowsAffected = st.executeUpdate();
+	        
+	        return rowsAffected > 0;
+	    } catch (SQLException e) {
+	        System.err.print(e.getMessage());
+	        e.printStackTrace();
+	        return false;
+	    }
 	}
+
 
 	public TransActividad buscar(int id) {
 	    String query = "SELECT * FROM sesion LEFT OUTER JOIN actividad ON sesion.id = actividad.id " +

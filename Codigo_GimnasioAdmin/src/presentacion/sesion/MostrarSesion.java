@@ -16,11 +16,11 @@ import integracion.factoria.FactoriaDAOImp;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
-public class MostrarEntrenamiento extends JFrame {
+public class MostrarSesion extends JFrame {
 	private JTextField txtId;
 	private DAOActividad daoActividad;
 	private DAOEntrenamiento daoEntrenamiento;
-	public MostrarEntrenamiento() {
+	public MostrarSesion() {
 		daoActividad = new FactoriaDAOImp().getDAOActividad();
 		daoEntrenamiento = new FactoriaDAOImp().getDAOEntrenamiento();
 		initComponents();
@@ -53,7 +53,7 @@ public class MostrarEntrenamiento extends JFrame {
 
 				// Comprobar que este relleno
 				if (txtId.getText().isEmpty()) {
-					JOptionPane.showMessageDialog(null, "Por favor, ingrese el id del entrenamiento.");
+					JOptionPane.showMessageDialog(null, "Por favor, ingrese el id de la sesion.");
 				} else {
 
 					setVisible(false);

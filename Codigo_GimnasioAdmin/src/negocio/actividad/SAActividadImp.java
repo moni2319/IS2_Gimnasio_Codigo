@@ -45,7 +45,9 @@ public class SAActividadImp implements SAActividad {
 			throw new IllegalArgumentException("No existe una actividad con id " + id);
 		}
 		boolean exito = daoActividad.bajaActividad(id);
-		
+		if(exito){
+			exito = daoSesion.bajaSesion(id);
+		}
 		if (!exito) {
 			throw new IllegalArgumentException("No se pudo quitar en la base de datos la actividad");
 		}

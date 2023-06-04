@@ -77,8 +77,8 @@ public class SesionWindowImp extends SesionWindow {
 		});
 		mostrarSesionButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MostrarActividad mostrarActividad = new MostrarActividad();
-				mostrarActividad.setVisible(true);
+				MostrarSesion mostrarSesion = new MostrarSesion();
+				mostrarSesion.setVisible(true);
 			}
 		});
 		listaSesionButton.addActionListener(new ActionListener() {
