@@ -58,11 +58,11 @@ public class ModificarSesion extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int id = Integer.parseInt(txtIdSesion.getText());
 				if (daoActividad.buscar(id) != null) {
-					ModificarActividad altaActividad = new ModificarActividad(id);
-					altaActividad.setVisible(true);
+					ModificarActividad modificarActividad = new ModificarActividad(id);
+					modificarActividad.setVisible(true);
 				} else if (daoEntrenamiento.buscarEntrenamiento(id) != null) {
-					ModificarEntrenamiento altaEntrenamiento = new ModificarEntrenamiento(id);
-					altaEntrenamiento.setVisible(true);
+					ModificarEntrenamiento modificarEntrenamiento = new ModificarEntrenamiento(id);
+					modificarEntrenamiento.setVisible(true);
 				} else {
 					JOptionPane.showMessageDialog(null, "No hay sesiones con ese id.");
 				}

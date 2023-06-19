@@ -80,7 +80,7 @@ public class DAOSesionImp implements DAOSesion {
 		}
 	}
 
-	public TransSesion getNextSesion(ResultSet rs) {
+	private TransSesion getNextSesion(ResultSet rs) {
 
 		TransSesion sesion = null;
 		try {
