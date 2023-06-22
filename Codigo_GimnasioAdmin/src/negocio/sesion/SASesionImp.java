@@ -21,9 +21,6 @@ public class SASesionImp implements SASesion {
 
 	public int AltaSesion(TransSesion tSesion) {
 
-		if (daoSesion.buscar(tSesion.getId()) != null) {
-			throw new IllegalArgumentException("Ya existe una sesion con id " + tSesion.getId());
-		}
 		if (daoMonitor.buscarMonitor(tSesion.getIdM()) == null) {
 			throw new IllegalArgumentException("No existe un monitor con id " + tSesion.getIdM());
 		}
