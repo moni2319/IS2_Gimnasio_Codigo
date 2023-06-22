@@ -30,11 +30,11 @@ public class ApuntarCliente extends JFrame{
 		JLabel labelCliente = new JLabel("ID del cliente:");
 		txtCliente = new JTextField(20);
 
-		JLabel labelSesion = new JLabel("ID de la Sesion");
+		JLabel labelSesion = new JLabel("ID de la Sesion:");
 		txtSesion = new JTextField(20);
 		
-		JLabel labelNivel = new JLabel("Nivel");
-		txtSesion = new JTextField(20);
+		JLabel labelNivel = new JLabel("Nivel en la Sesion:");
+		txtNivel = new JTextField(20);
 
 		JButton apuntarButton = new JButton("Apuntar");
 
@@ -43,8 +43,10 @@ public class ApuntarCliente extends JFrame{
 
 		panel.add(labelCliente);
 		panel.add(txtCliente);
-		panel.add(labelNivel);
+		panel.add(labelSesion);
 		panel.add(txtSesion);
+		panel.add(labelNivel);
+		panel.add(txtNivel);
 		panel.add(apuntarButton);
 
 		// Agregar panel a la ventana
