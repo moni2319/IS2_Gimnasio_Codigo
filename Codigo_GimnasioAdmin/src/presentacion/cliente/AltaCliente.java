@@ -15,7 +15,7 @@ import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
 public class AltaCliente extends JFrame {
-	private JTextField txtId;
+
 	private JTextField txtNombre;
 	private JTextField txtTelefono;
 
@@ -28,9 +28,6 @@ public class AltaCliente extends JFrame {
 		setSize(300, 400);
 		setLocationRelativeTo(null);
 
-		JLabel labelId = new JLabel("Id del cliente:");
-		txtId = new JTextField(20);
-
 		JLabel labelNombre = new JLabel("Nombre del cliente:");
 		txtNombre = new JTextField(20);
 
@@ -41,8 +38,7 @@ public class AltaCliente extends JFrame {
 
 		// Crear el panel y agregar los componentes
 		JPanel panel = new JPanel();
-		panel.add(labelId);
-		panel.add(txtId);
+
 		panel.add(labelNombre);
 		panel.add(txtNombre);
 		panel.add(labelSalario);
@@ -57,7 +53,7 @@ public class AltaCliente extends JFrame {
 
 			public void actionPerformed(ActionEvent e) {
 
-				if (txtNombre.getText().isEmpty() || txtTelefono.getText().isEmpty() || txtId.getText().isEmpty()) {
+				if (txtNombre.getText().isEmpty() || txtTelefono.getText().isEmpty()) {
 
 					JOptionPane.showMessageDialog(null, "Por favor, ingrese todos los datos.");
 
@@ -66,11 +62,11 @@ public class AltaCliente extends JFrame {
 					setVisible(false);
 					// hacer try y catch de numeros y strings
 					try {
-						int i = Integer.parseInt(txtId.getText());
+
 						int s = Integer.parseInt(txtTelefono.getText());
 						String n = txtNombre.getText();
 
-						TransCliente tCliente = new TransCliente(i, n, s);
+						TransCliente tCliente = new TransCliente(n, s);
 
 						Controlador.obtenerInstancia().Accion(Eventos.ALTA_CLIENTE, tCliente);
 

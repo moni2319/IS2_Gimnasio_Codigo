@@ -14,9 +14,7 @@ public class SAClienteImp implements SACliente {
 	}
 
 	public int AltaCliente(TransCliente tCliente) {
-		if (daoCliente.buscarCliente(tCliente.getId()) != null) {
-			throw new IllegalArgumentException("Ya existe un cliente con id " + tCliente.getId());
-		}
+		
 		boolean exito = daoCliente.altaCliente(tCliente);
 		if (!exito) {
 			throw new IllegalArgumentException("No se pudo guardar en la base de datos el cliente");

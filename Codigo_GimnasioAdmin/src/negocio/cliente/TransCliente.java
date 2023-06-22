@@ -1,10 +1,18 @@
 package negocio.cliente;
 
 public class TransCliente {
-	private int id;
+	private int id = -1;
 	private String nombre;
 	private int telefono;
+	
+	public static int ID_CONTADOR = 0;
 
+	public TransCliente( String n, int t) {
+	
+		nombre = n;
+		telefono = t;
+	} 
+	
 	public TransCliente(int i, String n, int t) {
 		id = i;
 		nombre = n;

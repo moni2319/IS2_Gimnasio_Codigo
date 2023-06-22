@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import negocio.cliente.TransCliente;
 import negocio.monitor.TransMonitor;
+import negocio.sesion.TransSesion;
 
 public class DAOClienteImp implements DAOCliente {
 
@@ -24,14 +25,24 @@ public class DAOClienteImp implements DAOCliente {
 		return daoCliente;
 	}
 
+	public int setCliente(PreparedStatement st, TransCliente tCliente) throws SQLException {
+
+		st.setInt(1, tCliente.getId());
+		st.setString(2, tCliente.getNombre());
+		st.setInt(3, tCliente.getTelefono());
+
+		return st.executeUpdate();
+	}
+
 	public boolean altaCliente(TransCliente tCliente) {
 		String query = "INSERT INTO cliente (id, nombre, telefono) VALUES (?, ?, ?)";
 		try (PreparedStatement st = connection.prepareStatement(query)) {
-			st.setInt(1, tCliente.getId());
-			st.setString(2, tCliente.getNombre());
-			st.setInt(3, tCliente.getTelefono());
-			int rowsAffected = st.executeUpdate();
-			return rowsAffected > 0;
+			while (buscarCliente(TransCliente.ID_CONTADOR) != null) {
+				TransCliente.ID_CONTADOR++;
+			}
+			tCliente.setId(TransCliente.ID_CONTADOR);
+
+			return setCliente(st, tCliente) > 0;
 		} catch (SQLException e) {
 			System.err.print(e.getMessage());
 			e.printStackTrace();
