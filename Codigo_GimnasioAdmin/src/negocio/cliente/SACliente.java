@@ -12,4 +12,6 @@ public interface SACliente {
 	public TransCliente MostrarCliente(int id);
 
 	public ArrayList<TransCliente> ListarCliente();
+
+	public int ApuntarCliente(Object[] info);
 }

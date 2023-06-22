@@ -51,7 +51,7 @@ public class ApuntarCliente extends JFrame{
 		setContentPane(panel);
 
 		// Botón de alta
-		altaButton.addActionListener(new ActionListener() {
+		apuntarButton.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
 
@@ -70,6 +70,7 @@ public class ApuntarCliente extends JFrame{
 						String n = txtNivel.getText();
 
 						Object[] parametros = {s, c, n};
+						
 
 						Controlador.obtenerInstancia().Accion(Eventos.APUNTAR_CLIENTE, parametros);
 

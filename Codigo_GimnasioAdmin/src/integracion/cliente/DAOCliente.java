@@ -2,6 +2,7 @@ package integracion.cliente;
 
 import java.util.ArrayList;
 
+import negocio.cliente.SAClienteImp.Nivel;
 import negocio.cliente.TransCliente;
 
 public interface DAOCliente {
@@ -14,4 +15,6 @@ public interface DAOCliente {
 	public TransCliente buscarCliente(int id);
 
 	public ArrayList<TransCliente> listarCliente();
+
+	public boolean apuntarCliente(int s, int c, Nivel nivelEnum);
 }

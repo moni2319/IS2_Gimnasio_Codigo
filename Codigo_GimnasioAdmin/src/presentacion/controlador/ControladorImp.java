@@ -405,6 +405,22 @@ public class ControladorImp extends Controlador {
 
 			break;
 		}
+		case Eventos.APUNTAR_CLIENTE: {
+		
+			SACliente cliente = factoria.getInstanciaSACliente();
+			try {
+				
+				int resultado = cliente.ApuntarCliente((Object[])info);
+				if (resultado > 0) {
+					ClienteWindow.obtenerInstancia().Actualizar(Eventos.APUNTAR_CLIENTE_BIEN, info);
+				}
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+
+			break;
+		}
 		case Eventos.BAJA_CLIENTE: {
 			int id = (int) info;
 			SACliente cliente = factoria.getInstanciaSACliente();

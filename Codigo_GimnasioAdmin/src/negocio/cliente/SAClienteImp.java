@@ -4,13 +4,22 @@ import java.util.ArrayList;
 
 import integracion.cliente.DAOCliente;
 import integracion.factoria.FactoriaDAOImp;
+import integracion.sesion.DAOSesion;
 
 public class SAClienteImp implements SACliente {
 
 	private DAOCliente daoCliente;
+	private DAOSesion daoSesion;
+	
+	public enum Nivel {
+	    INTERMEDIO,
+	    NUEVO,
+	    EXPERTO
+	}
 
 	public SAClienteImp() {
 		daoCliente = new FactoriaDAOImp().getDAOCliente();
+		daoSesion = new FactoriaDAOImp().getDAOSesion();
 	}
 
 	public int AltaCliente(TransCliente tCliente) {
@@ -53,6 +62,28 @@ public class SAClienteImp implements SACliente {
 
 	public ArrayList<TransCliente> ListarCliente() {
 		return daoCliente.listarCliente();
+	}
+
+	
+	public int ApuntarCliente(Object[] info) {
+		
+		int s = (int)info[0];
+		int c = (int)info[1];
+		String n = (String)info[2];
+		Nivel nivelEnum;
+		try {
+		 nivelEnum = Nivel.valueOf(n.toUpperCase());
+		} catch (IllegalArgumentException e) {
+			throw new IllegalArgumentException("El nivel ingresado no es válido.");
+		}
+		if (daoCliente.buscarCliente(c) == null) {
+			throw new IllegalArgumentException("No existe un cliente con id " + c);
+		}
+		if (daoSesion.buscar(s) == null) {
+			throw new IllegalArgumentException("No existe una sesion con id " + s);
+		}
+		boolean exito = daoCliente.apuntarCliente(s, c , nivelEnum);
+		return 0;
 	}
 
 }

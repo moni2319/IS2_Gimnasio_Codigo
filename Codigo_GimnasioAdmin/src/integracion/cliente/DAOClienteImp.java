@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import negocio.cliente.SAClienteImp.Nivel;
 import negocio.cliente.TransCliente;
 import negocio.monitor.TransMonitor;
 import negocio.sesion.TransSesion;
@@ -125,6 +126,24 @@ public class DAOClienteImp implements DAOCliente {
 			e.printStackTrace();
 		}
 		return clientes;
+	}
+
+	public boolean apuntarCliente(int s, int c, Nivel nivelEnum) {
+		String query = "INSERT INTO niveles (idS, idC, nivel) VALUES (?, ?, ?)";
+		try (PreparedStatement st = connection.prepareStatement(query)) {
+
+			st.setInt(1, s);
+			st.setInt(2, c);
+			st.setString(3, nivelEnum.toString());
+
+			return st.executeUpdate() > 0;
+
+		} catch (SQLException e) {
+			System.err.print(e.getMessage());
+			e.printStackTrace();
+			return false;
+		}
+
 	}
 
 }
