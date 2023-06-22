@@ -205,4 +205,19 @@ public class DAOClienteImp implements DAOCliente {
 		}
 	}
 
+	
+	public boolean quitarCliente(int idC, int idS) {
+		String query = "DELETE FROM niveles WHERE idC = ? AND idS = ?";
+		try (PreparedStatement st = connection.prepareStatement(query)) {
+			st.setInt(1, idC);
+			st.setInt(2, idS);
+			int rowsAffected = st.executeUpdate();
+			return rowsAffected > 0;
+		} catch (SQLException e) {
+			System.err.print(e.getMessage());
+			e.printStackTrace();
+			return false;
+		}
+	}
+
 }
