@@ -17,4 +17,6 @@ public interface DAOCliente {
 	public ArrayList<TransCliente> listarCliente();
 
 	public boolean apuntarCliente(int s, int c, Nivel nivelEnum);
+
+	public ArrayList<Object[]> listarSesiones(int id);
 }

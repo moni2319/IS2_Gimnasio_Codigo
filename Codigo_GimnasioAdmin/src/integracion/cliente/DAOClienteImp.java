@@ -147,4 +147,25 @@ public class DAOClienteImp implements DAOCliente {
 
 	}
 
+	
+	public ArrayList<Object[]> listarSesiones(int id) {
+		ArrayList<Object[]> sesiones = new ArrayList<>();
+		String query = "SELECT idS, nivel FROM cliente WHERE idC = ?";
+		try (PreparedStatement st = connection.prepareStatement(query)) {
+			st.setInt(1, id);
+			ResultSet rs = st.executeQuery();
+			while (rs.next()) {
+				int s = rs.getInt("idS");
+				String n = rs.getString("nivel");
+			
+				Object[] objecto = {s , n };
+				sesiones.add(objecto);
+			}
+		} catch (SQLException e) {
+			System.err.print(e.getMessage());
+			e.printStackTrace();
+		}
+		return sesiones;
+	}
+
 }

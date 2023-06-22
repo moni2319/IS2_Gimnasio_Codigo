@@ -90,4 +90,12 @@ public class SAClienteImp implements SACliente {
 		return 1;
 	}
 
+	
+	public ArrayList<Object[]> ListarSesiones(int id) {
+		if (daoCliente.buscarCliente(id) == null) {
+			throw new IllegalArgumentException("No existe un cliente con id " + id);
+		}
+		return daoCliente.listarSesiones(id);
+	}
+
 }

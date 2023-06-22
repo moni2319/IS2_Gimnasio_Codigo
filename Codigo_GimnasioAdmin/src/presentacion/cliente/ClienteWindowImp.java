@@ -36,6 +36,7 @@ public class ClienteWindowImp extends ClienteWindow {
 		JButton modificarClienteButton = new JButton("Modificar Cliente");
 		JButton mostrarClienteButton = new JButton("Mostrar Cliente");
 		JButton listaClienteButton = new JButton("Lista de Clientes");
+		JButton sesionesClienteButton = new JButton("Sesiones del Cliente");
 
 		// Agregar botones al panel
 		panel.add(altaClienteButton);
@@ -43,6 +44,7 @@ public class ClienteWindowImp extends ClienteWindow {
 		panel.add(apuntarClienteButton);
 		panel.add(modificarClienteButton);
 		panel.add(mostrarClienteButton);
+		panel.add(sesionesClienteButton);
 		panel.add(listaClienteButton);
 
 		// Agregar panel a la ventana
@@ -85,6 +87,13 @@ public class ClienteWindowImp extends ClienteWindow {
 		listaClienteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Controlador.obtenerInstancia().Accion(Eventos.MOSTRAR_LISTA_CLIENTE, null);
+			}
+		});
+		
+		sesionesClienteButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MostrarSesiones mostrarSesiones = new MostrarSesiones();
+				mostrarSesiones.setVisible(true);
 			}
 		});
 
@@ -132,6 +141,15 @@ public class ClienteWindowImp extends ClienteWindow {
 
 			MostrarClienteWindow mostrarWindow = new MostrarClienteWindow(lista);
 			mostrarWindow.setVisible(true);
+
+			break;
+		}
+		case Eventos.MOSTRAR_LISTA_SESION_BIEN: {
+
+			ArrayList<Object[]> lista = (ArrayList<Object[]>) data;
+
+			//MostrarClienteWindow mostrarWindow = new MostrarClienteWindow(lista);
+			//mostrarWindow.setVisible(true);
 
 			break;
 		}

@@ -14,4 +14,6 @@ public interface SACliente {
 	public ArrayList<TransCliente> ListarCliente();
 
 	public int ApuntarCliente(Object[] info);
+
+	public ArrayList<Object[]> ListarSesiones(int id);
 }
