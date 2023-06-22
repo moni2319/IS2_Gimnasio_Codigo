@@ -22,7 +22,7 @@ public class MostrarClienteWindow extends JFrame {
 		modeloTabla = new DefaultTableModel();
 		modeloTabla.addColumn("ID");
 		modeloTabla.addColumn("Nombre");
-		modeloTabla.addColumn("Salario");
+		modeloTabla.addColumn("Telefono");
 
 		tabla = new JTable(modeloTabla);
 
