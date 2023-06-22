@@ -58,7 +58,7 @@ public class ClienteWindowImp extends ClienteWindow {
 		
 		apuntarClienteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ApuntarCliente apuntarCliente = new AltaCliente();
+				ApuntarCliente apuntarCliente = new ApuntarCliente();
 				apuntarCliente.setVisible(true);
 			}
 		});
