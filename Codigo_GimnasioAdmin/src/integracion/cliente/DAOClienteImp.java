@@ -187,7 +187,7 @@ public class DAOClienteImp implements DAOCliente {
 		}
 	}
 	public Object buscarClienteSesion(int idC ,int idS) {
-		String query = "SELECT * FROM niveles WHERE idC = ? AND idC = ?";
+		String query = "SELECT * FROM niveles WHERE idC = ? AND idS = ?";
 		try (PreparedStatement st = connection.prepareStatement(query)) {
 			st.setInt(1, idC);
 			st.setInt(2, idS);

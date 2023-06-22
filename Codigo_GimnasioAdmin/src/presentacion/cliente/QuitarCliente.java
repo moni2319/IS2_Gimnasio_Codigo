@@ -14,7 +14,8 @@ import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
 public class QuitarCliente extends JFrame{
-	private JTextField txtId;
+	private JTextField txtIdC;
+	private JTextField txtIdS;
 
 	public QuitarCliente() {
 		initComponents();
@@ -25,15 +26,19 @@ public class QuitarCliente extends JFrame{
 		setSize(300, 200);
 		setLocationRelativeTo(null);
 
-		JLabel labelId = new JLabel("Id del cliente:");
-		txtId = new JTextField(20);
+		JLabel labelIdC = new JLabel("Id del cliente:");
+		txtIdC = new JTextField(20);
+		JLabel labelIdS = new JLabel("Id de la sesion:");
+		txtIdS = new JTextField(20);
 
 		JButton bajaButton = new JButton("Quitar de Sesion");
 
 		// Crear el panel y agregar los componentes
 		JPanel panel = new JPanel();
-		panel.add(labelId);
-		panel.add(txtId);
+		panel.add(labelIdC);
+		panel.add(txtIdC);
+		panel.add(labelIdS);
+		panel.add(txtIdS);
 		panel.add(bajaButton);
 
 		// Agregar panel a la ventana
@@ -44,22 +49,24 @@ public class QuitarCliente extends JFrame{
 
 			public void actionPerformed(ActionEvent e) {
 
-				if (txtId.getText().isEmpty()) {
-					JOptionPane.showMessageDialog(null, "Por favor, ingrese el id del Cliente.");
+				if (txtIdC.getText().isEmpty()|| txtIdS.getText().isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Por favor, ingrese el los Ids.");
 				} else {
 
 					setVisible(false);
 					// hacer try y catch de numeros
 					try {
-						int id = Integer.parseInt(txtId.getText());
-						Controlador.obtenerInstancia().Accion(Eventos.QUITAR_CLIENTE, id);
+						int idC = Integer.parseInt(txtIdC.getText());
+						int idS = Integer.parseInt(txtIdS.getText());
+						Object[] object = {idC , idS};
+						Controlador.obtenerInstancia().Accion(Eventos.QUITAR_CLIENTE, object);
 
 						setVisible(false);
 					} catch (NumberFormatException error) {
 						JOptionPane.showMessageDialog(null,
-								"Error al ingresar los datos. Asegúrate de que el id sean válido.");
+								"Error al ingresar los datos. Asegúrate de que los ids sean válidos.");
 					} catch (Exception error) {
-						JOptionPane.showMessageDialog(null, "Error al dar de baja el cliente: " + error.getMessage());
+						JOptionPane.showMessageDialog(null, "Error al quitar el cliente: " + error.getMessage());
 					}
 					setVisible(false);
 				}

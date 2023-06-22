@@ -128,6 +128,11 @@ public class ClienteWindowImp extends ClienteWindow {
 			JOptionPane.showMessageDialog(ClienteWindowImp.this, "Cliente: " + id + " dado de baja correctamente");
 			break;
 		}
+		case Eventos.QUITAR_CLIENTE_BIEN: {
+			Object[] object = (Object[]) data;
+			JOptionPane.showMessageDialog(ClienteWindowImp.this, "Cliente: " + object[0] + " se ha quitado correctamente de la sesion");
+			break;
+		}
 		case Eventos.MODIFICAR_CLIENTE_BIEN: {
 			TransCliente cliente = (TransCliente) data;
 			int id = cliente.getId();

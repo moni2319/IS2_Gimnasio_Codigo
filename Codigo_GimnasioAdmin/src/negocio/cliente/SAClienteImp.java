@@ -87,6 +87,9 @@ public class SAClienteImp implements SACliente {
 		if (daoSesion.buscar(s) == null) {
 			throw new IllegalArgumentException("No existe una sesion con id " + s);
 		}
+		if (daoCliente.buscarClienteSesion(c, s) != null) {
+			throw new IllegalArgumentException("Ya está en esa sesion");
+		}
 		boolean exito = daoCliente.apuntarCliente(s, c , nivelEnum);
 		
 		if (!exito) {
@@ -118,6 +121,7 @@ public class SAClienteImp implements SACliente {
 			throw new IllegalArgumentException("No esta en esa sesion");
 		}
 		boolean exito = daoCliente.quitarCliente( idC, idS);
+		
 		if (!exito) {
 			throw new IllegalArgumentException("No se pudo quitar de la sesion");
 		}
