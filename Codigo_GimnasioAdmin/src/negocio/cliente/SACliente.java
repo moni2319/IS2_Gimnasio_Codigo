@@ -16,4 +16,6 @@ public interface SACliente {
 	public int ApuntarCliente(Object[] info);
 
 	public ArrayList<Object[]> ListarSesiones(int id);
+
+	public int QuitarCliente(Object[] info);
 }

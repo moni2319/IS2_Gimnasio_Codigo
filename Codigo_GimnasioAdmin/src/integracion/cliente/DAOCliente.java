@@ -21,4 +21,6 @@ public interface DAOCliente {
 	public ArrayList<Object[]> listarSesiones(int id);
 
 	public Object buscarClienteSesion(int id);
+
+	
 }

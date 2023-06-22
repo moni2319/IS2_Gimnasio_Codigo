@@ -104,4 +104,18 @@ public class SAClienteImp implements SACliente {
 		return daoCliente.listarSesiones(id);
 	}
 
+	
+	public int QuitarCliente(Object[] info) {
+		
+		
+		if (daoCliente.buscarClienteSesion(info[0]) == null) {
+			throw new IllegalArgumentException("No tiene sesiones");
+		}
+		boolean exito = daoCliente.quitarCliente( idC, idS);
+		if (!exito) {
+			throw new IllegalArgumentException("No se pudo dar quitar de la sesion");
+		}
+		return 1;
+	}
+
 }

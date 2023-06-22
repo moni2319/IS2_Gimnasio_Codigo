@@ -32,6 +32,7 @@ public class ClienteWindowImp extends ClienteWindow {
 		// Botones de cliente
 		JButton altaClienteButton = new JButton("Alta Cliente");
 		JButton apuntarClienteButton = new JButton("Apuntar Cliente a Sesion");
+		JButton quitarClienteButton = new JButton("Quitar Cliente de Sesion");
 		JButton bajaClienteButton = new JButton("Baja Cliente");
 		JButton modificarClienteButton = new JButton("Modificar Cliente");
 		JButton mostrarClienteButton = new JButton("Mostrar Cliente");
@@ -42,6 +43,7 @@ public class ClienteWindowImp extends ClienteWindow {
 		panel.add(altaClienteButton);
 		panel.add(bajaClienteButton);
 		panel.add(apuntarClienteButton);
+		panel.add(quitarClienteButton);
 		panel.add(modificarClienteButton);
 		panel.add(mostrarClienteButton);
 		panel.add(sesionesClienteButton);
@@ -62,6 +64,12 @@ public class ClienteWindowImp extends ClienteWindow {
 			public void actionPerformed(ActionEvent e) {
 				ApuntarCliente apuntarCliente = new ApuntarCliente();
 				apuntarCliente.setVisible(true);
+			}
+		});
+		quitarClienteButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				QuitarCliente quitarCliente = new QuitarCliente();
+				quitarCliente.setVisible(true);
 			}
 		});
 

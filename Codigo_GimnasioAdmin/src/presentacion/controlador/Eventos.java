@@ -38,16 +38,17 @@ public class Eventos {
 	public static final int MODIFICAR_CLIENTE = 126;
 	public static final int APUNTAR_CLIENTE = 127;
 	public static final int MOSTRAR_SESIONES_CLIENTE = 128;
+	public static final int QUITAR_CLIENTE = 129;
 
 	// ENTRENAMIENTO
-	public static final int ALTA_ENTRENAMIENTO = 129;
-	public static final int BAJA_ENTRENAMIENTO = 130;
-	public static final int MOSTRAR_ENTRENAMIENTO = 131;
-	public static final int MOSTRAR_LISTA_ENTRENAMIENTO = 132;
-	public static final int MODIFICAR_ENTRENAMIENTO = 133;
+	public static final int ALTA_ENTRENAMIENTO = 130;
+	public static final int BAJA_ENTRENAMIENTO = 131;
+	public static final int MOSTRAR_ENTRENAMIENTO = 132;
+	public static final int MOSTRAR_LISTA_ENTRENAMIENTO = 133;
+	public static final int MODIFICAR_ENTRENAMIENTO = 134;
 
 	// SESION
-	public static final int MOSTRAR_LISTA_SESION = 134;
+	public static final int MOSTRAR_LISTA_SESION = 135;
 
 	// _________________________________________________________________________________________________________
 
@@ -88,16 +89,18 @@ public class Eventos {
 	public static final int MODIFICAR_CLIENTE_BIEN = 526;
 	public static final int APUNTAR_CLIENTE_BIEN = 527;
 	public static final int MOSTRAR_SESIONES_CLIENTE_BIEN = 528;
+	public static final int QUITAR_CLIENTE_BIEN = 529;
 
 	// ENTRENAMIENTO
-	public static final int ALTA_ENTRENAMIENTO_BIEN = 529;
-	public static final int BAJA_ENTRENAMIENTO_BIEN = 530;
-	public static final int MOSTRAR_ENTRENAMIENTO_BIEN = 531;
-	public static final int MOSTRAR_LISTA_ENTRENAMIENTO_BIEN = 532;
-	public static final int MODIFICAR_ENTRENAMIENTO_BIEN = 533;
+	public static final int ALTA_ENTRENAMIENTO_BIEN = 530;
+	public static final int BAJA_ENTRENAMIENTO_BIEN = 531;
+	public static final int MOSTRAR_ENTRENAMIENTO_BIEN = 532;
+	public static final int MOSTRAR_LISTA_ENTRENAMIENTO_BIEN = 533;
+	public static final int MODIFICAR_ENTRENAMIENTO_BIEN = 534;
 
 	// SESION
-	public static final int MOSTRAR_LISTA_SESION_BIEN = 534;
+	public static final int MOSTRAR_LISTA_SESION_BIEN = 535;
+	
 	
 
 }
