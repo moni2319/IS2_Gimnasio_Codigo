@@ -31,6 +31,7 @@ public class ClienteWindowImp extends ClienteWindow {
 
 		// Botones de cliente
 		JButton altaClienteButton = new JButton("Alta Cliente");
+		JButton apuntarClienteButton = new JButton("Apuntar Cliente a Sesion");
 		JButton bajaClienteButton = new JButton("Baja Cliente");
 		JButton modificarClienteButton = new JButton("Modificar Cliente");
 		JButton mostrarClienteButton = new JButton("Mostrar Cliente");
@@ -39,6 +40,7 @@ public class ClienteWindowImp extends ClienteWindow {
 		// Agregar botones al panel
 		panel.add(altaClienteButton);
 		panel.add(bajaClienteButton);
+		panel.add(apuntarClienteButton);
 		panel.add(modificarClienteButton);
 		panel.add(mostrarClienteButton);
 		panel.add(listaClienteButton);
@@ -51,6 +53,13 @@ public class ClienteWindowImp extends ClienteWindow {
 			public void actionPerformed(ActionEvent e) {
 				AltaCliente altaCliente = new AltaCliente();
 				altaCliente.setVisible(true);
+			}
+		});
+		
+		apuntarClienteButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ApuntarCliente apuntarCliente = new AltaCliente();
+				apuntarCliente.setVisible(true);
 			}
 		});
 
