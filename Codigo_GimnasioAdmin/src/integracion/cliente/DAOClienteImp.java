@@ -174,7 +174,30 @@ public class DAOClienteImp implements DAOCliente {
 		try (PreparedStatement st = connection.prepareStatement(query)) {
 			st.setInt(1, id);
 			ResultSet rs = st.executeQuery();
-			return id;
+			Object hay = null;
+			if (rs.next()) {
+
+				hay = rs.getInt("idC");
+			}
+			return hay;
+		} catch (SQLException e) {
+			System.err.print(e.getMessage());
+			e.printStackTrace();
+			return null;
+		}
+	}
+	public Object buscarClienteSesion(int idC ,int idS) {
+		String query = "SELECT * FROM niveles WHERE idC = ? AND idC = ?";
+		try (PreparedStatement st = connection.prepareStatement(query)) {
+			st.setInt(1, idC);
+			st.setInt(2, idS);
+			ResultSet rs = st.executeQuery();
+			Object hay = null;
+			if (rs.next()) {
+
+				hay = rs.getInt("idS");
+			}
+			return hay;
 		} catch (SQLException e) {
 			System.err.print(e.getMessage());
 			e.printStackTrace();

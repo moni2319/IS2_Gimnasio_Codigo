@@ -22,5 +22,7 @@ public interface DAOCliente {
 
 	public Object buscarClienteSesion(int id);
 
-	
+	public Object buscarClienteSesion(int idC ,int idS) ;
+
+	public boolean quitarCliente(int idC ,int idS);
 }

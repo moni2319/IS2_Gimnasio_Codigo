@@ -425,9 +425,9 @@ public class ControladorImp extends Controlador {
 			
 			SACliente cliente = factoria.getInstanciaSACliente();
 			try {
-				int resultado = cliente.QuitarCliente(Object[])info);
+				int resultado = cliente.QuitarCliente((Object[])info);
 				if (resultado > 0) {
-					ClienteWindow.obtenerInstancia().Actualizar(Eventos.QUITAR_CLIENTE_BIEN, id);
+					ClienteWindow.obtenerInstancia().Actualizar(Eventos.QUITAR_CLIENTE_BIEN, info);
 				}
 
 			} catch (IllegalArgumentException e) {
