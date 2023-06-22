@@ -488,11 +488,14 @@ public class ControladorImp extends Controlador {
 			int id = (int) info;
 			SACliente cliente = factoria.getInstanciaSACliente();
 			try {
-
+				
 				ArrayList<Object[]> lista = cliente.ListarSesiones(id);
 				if (lista != null) {
+					
 					ClienteWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_SESIONES_CLIENTE_BIEN, lista);
+					
 				}
+				
 
 			} catch (IllegalArgumentException e) {
 				JOptionPane.showMessageDialog(null, e.getMessage());

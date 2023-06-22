@@ -16,5 +16,7 @@ public interface DAOSesion {
 	public boolean modificarSesion(TransSesion tSesion);
 
 	public ArrayList<TransSesion> listaSesiones();
+
+	public Object buscarClientesSesion(int id);
 	
 }

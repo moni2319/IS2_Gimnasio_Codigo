@@ -2,6 +2,8 @@ package negocio.cliente;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import integracion.cliente.DAOCliente;
 import integracion.factoria.FactoriaDAOImp;
 import integracion.sesion.DAOSesion;
@@ -34,6 +36,9 @@ public class SAClienteImp implements SACliente {
 	public int BajaCliente(int id) {
 		if (daoCliente.buscarCliente(id) == null) {
 			throw new IllegalArgumentException("No existe un cliente con id " + id);
+		}
+		if (daoCliente.buscarClienteSesion(id) != null) {
+			throw new IllegalArgumentException("No puedes darle de baja si tiene sesiones");
 		}
 		boolean exito = daoCliente.bajaCliente(id);
 		if (!exito) {
@@ -95,6 +100,7 @@ public class SAClienteImp implements SACliente {
 		if (daoCliente.buscarCliente(id) == null) {
 			throw new IllegalArgumentException("No existe un cliente con id " + id);
 		}
+		
 		return daoCliente.listarSesiones(id);
 	}
 

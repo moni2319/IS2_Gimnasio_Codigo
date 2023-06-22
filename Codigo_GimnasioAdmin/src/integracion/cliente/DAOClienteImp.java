@@ -150,7 +150,7 @@ public class DAOClienteImp implements DAOCliente {
 	
 	public ArrayList<Object[]> listarSesiones(int id) {
 		ArrayList<Object[]> sesiones = new ArrayList<>();
-		String query = "SELECT idS, nivel FROM cliente WHERE idC = ?";
+		String query = "SELECT idS, nivel FROM niveles WHERE idC = ?";
 		try (PreparedStatement st = connection.prepareStatement(query)) {
 			st.setInt(1, id);
 			ResultSet rs = st.executeQuery();
@@ -166,6 +166,20 @@ public class DAOClienteImp implements DAOCliente {
 			e.printStackTrace();
 		}
 		return sesiones;
+	}
+
+	
+	public Object buscarClienteSesion(int id) {
+		String query = "SELECT * FROM niveles WHERE idC = ?";
+		try (PreparedStatement st = connection.prepareStatement(query)) {
+			st.setInt(1, id);
+			ResultSet rs = st.executeQuery();
+			return id;
+		} catch (SQLException e) {
+			System.err.print(e.getMessage());
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }

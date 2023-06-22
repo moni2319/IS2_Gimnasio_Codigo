@@ -130,4 +130,23 @@ public class DAOSesionImp implements DAOSesion {
 		return sesiones;
 	}
 
+	public Object buscarClientesSesion(int id) {
+		String query = "SELECT * FROM niveles WHERE idS = ?";
+		try (PreparedStatement st = connection.prepareStatement(query)) {
+			st.setInt(1, id);
+			ResultSet rs = st.executeQuery();
+			Object hay = null;
+			if (rs.next()) {
+
+				hay = rs.getInt("idS");
+			}
+			return hay;
+		} catch (SQLException e) {
+			System.err.print(e.getMessage());
+			e.printStackTrace();
+			return null;
+		}
+
+	}
+
 }

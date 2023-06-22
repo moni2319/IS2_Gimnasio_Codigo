@@ -57,7 +57,7 @@ public class ClienteWindowImp extends ClienteWindow {
 				altaCliente.setVisible(true);
 			}
 		});
-		
+
 		apuntarClienteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ApuntarCliente apuntarCliente = new ApuntarCliente();
@@ -89,7 +89,7 @@ public class ClienteWindowImp extends ClienteWindow {
 				Controlador.obtenerInstancia().Accion(Eventos.MOSTRAR_LISTA_CLIENTE, null);
 			}
 		});
-		
+
 		sesionesClienteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MostrarSesiones mostrarSesiones = new MostrarSesiones();
@@ -101,6 +101,7 @@ public class ClienteWindowImp extends ClienteWindow {
 	}
 
 	public void Actualizar(int evento, Object data) {
+		
 		switch (evento) {
 		case Eventos.ALTA_CLIENTE_BIEN: {
 			TransCliente cliente = (TransCliente) data;
@@ -144,12 +145,13 @@ public class ClienteWindowImp extends ClienteWindow {
 
 			break;
 		}
-		case Eventos.MOSTRAR_LISTA_SESION_BIEN: {
+		case Eventos.MOSTRAR_SESIONES_CLIENTE_BIEN: {
+		
 
 			ArrayList<Object[]> lista = (ArrayList<Object[]>) data;
 
-			//MostrarClienteWindow mostrarWindow = new MostrarClienteWindow(lista);
-			//mostrarWindow.setVisible(true);
+			MostrarSesionesWindow sesionesWindow = new MostrarSesionesWindow(lista);
+			sesionesWindow.setVisible(true);
 
 			break;
 		}

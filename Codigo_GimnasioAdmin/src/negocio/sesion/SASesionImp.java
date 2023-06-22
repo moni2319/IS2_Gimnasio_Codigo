@@ -36,6 +36,9 @@ public class SASesionImp implements SASesion {
 		if (daoSesion.buscar(id) == null) {
 			throw new IllegalArgumentException("No existe una sesion con id " + id);
 		}
+		if (daoSesion.buscarClientesSesion(id) != null) {
+			throw new IllegalArgumentException("No puedes darle de baja si tiene clientes");
+		}
 		boolean exito = daoSesion.bajaSesion(id);
 		if (!exito) {
 			throw new IllegalArgumentException("No se pudo quitar en la base de datos la sesion");

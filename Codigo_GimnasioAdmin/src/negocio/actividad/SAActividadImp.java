@@ -44,6 +44,9 @@ public class SAActividadImp implements SAActividad {
 		if (daoActividad.buscar(id) == null) {
 			throw new IllegalArgumentException("No existe una actividad con id " + id);
 		}
+		if (daoSesion.buscarClientesSesion(id) != null) {
+			throw new IllegalArgumentException("No puedes darle de baja si tiene clientes");
+		}
 		boolean exito = daoActividad.bajaActividad(id);
 		if(exito){
 			exito = daoSesion.bajaSesion(id);
