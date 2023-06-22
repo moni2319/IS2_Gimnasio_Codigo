@@ -136,7 +136,8 @@ public class DAOClienteImp implements DAOCliente {
 			st.setInt(2, c);
 			st.setString(3, nivelEnum.toString());
 
-			return st.executeUpdate() > 0;
+			int rowsAffected = st.executeUpdate();
+			return rowsAffected > 0;
 
 		} catch (SQLException e) {
 			System.err.print(e.getMessage());

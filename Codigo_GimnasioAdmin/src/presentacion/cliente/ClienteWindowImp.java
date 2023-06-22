@@ -99,6 +99,12 @@ public class ClienteWindowImp extends ClienteWindow {
 			JOptionPane.showMessageDialog(ClienteWindowImp.this, "Cliente: " + id + " dado de alta correctamente");
 			break;
 		}
+		case Eventos.APUNTAR_CLIENTE_BIEN: {
+			Object[] cliente = (Object[]) data;
+			int id = (int) cliente[1];
+			JOptionPane.showMessageDialog(ClienteWindowImp.this, "Cliente: " + id + " apuntado correctamente");
+			break;
+		}
 		case Eventos.BAJA_CLIENTE_BIEN: {
 			int id = (int) data;
 			JOptionPane.showMessageDialog(ClienteWindowImp.this, "Cliente: " + id + " dado de baja correctamente");

@@ -83,7 +83,11 @@ public class SAClienteImp implements SACliente {
 			throw new IllegalArgumentException("No existe una sesion con id " + s);
 		}
 		boolean exito = daoCliente.apuntarCliente(s, c , nivelEnum);
-		return 0;
+		
+		if (!exito) {
+			throw new IllegalArgumentException("No se pudo apuntar al cliente en la sesion");
+		}
+		return 1;
 	}
 
 }
