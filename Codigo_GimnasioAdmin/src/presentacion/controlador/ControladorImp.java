@@ -136,6 +136,29 @@ public class ControladorImp extends Controlador {
 
 			break;
 		}
+		case Eventos.MOSTRAR_CLIENTES_SESION: {
+			int id = (int) info;
+			SASesion sesion = factoria.getInstanciaSASesion();
+			try {
+				
+				ArrayList<Object[]> lista = sesion.ListarClientes(id);
+				if (lista != null) {
+					
+					SesionWindow.obtenerInstancia().Actualizar(Eventos.MOSTRAR_CLIENTES_SESION_BIEN, lista);
+					
+				}
+				
+
+			} catch (IllegalArgumentException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+
+			}
+
+			break;
+		}
+		
+		
+		
 		// FACTURA
 		case Eventos.ABRIR_FACTURA: {
 			TransFactura tFactura = (TransFactura) info;

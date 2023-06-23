@@ -16,4 +16,6 @@ public interface SASesion {
 
 	public int BajaSesion(int id);
 
+	public ArrayList<Object[]> ListarClientes(int id);
+
 }

@@ -103,7 +103,7 @@ public class SAClienteImp implements SACliente {
 		if (daoCliente.buscarCliente(id) == null) {
 			throw new IllegalArgumentException("No existe un cliente con id " + id);
 		}
-		
+
 		return daoCliente.listarSesiones(id);
 	}
 

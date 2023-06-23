@@ -10,6 +10,7 @@ import presentacion.actividad.AltaActividad;
 import presentacion.actividad.ModificarActividad;
 
 import presentacion.actividad.MostrarActividadWindow;
+import presentacion.cliente.MostrarSesionesWindow;
 import presentacion.controlador.Controlador;
 import presentacion.controlador.Eventos;
 
@@ -39,12 +40,14 @@ public class SesionWindowImp extends SesionWindow {
 		JButton modificarSesionButton = new JButton("Modificar Sesion");
 		JButton mostrarSesionButton = new JButton("Mostrar Sesion");
 		JButton listaSesionButton = new JButton("Lista de Sesiones");
+		JButton mostrarClientesButton = new JButton("Mostrar Clientes de Sesion");
 
 		// Agregar botones al panel
 		panel.add(altaSesionButton);
 		panel.add(bajaSesionButton);
 		panel.add(modificarSesionButton);
 		panel.add(mostrarSesionButton);
+		panel.add(mostrarClientesButton);
 		panel.add(listaSesionButton);
 
 		// Agregar panel a la ventana
@@ -81,6 +84,12 @@ public class SesionWindowImp extends SesionWindow {
 				mostrarSesion.setVisible(true);
 			}
 		});
+		mostrarClientesButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MostrarClientes mostrarClientes = new MostrarClientes();
+				mostrarClientes.setVisible(true);
+			}
+		});
 		listaSesionButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				EleccionMostrar eleccionMostrar = new EleccionMostrar();
@@ -92,6 +101,7 @@ public class SesionWindowImp extends SesionWindow {
 	}
 
 	public void Actualizar(int evento, Object data) {
+		
 		switch (evento) {
 		
 		case Eventos.MOSTRAR_LISTA_SESION_BIEN: {
@@ -100,6 +110,16 @@ public class SesionWindowImp extends SesionWindow {
 
 			MostrarSesionWindow mostrarWindow = new MostrarSesionWindow(lista);
 			mostrarWindow.setVisible(true);
+
+			break;
+		}
+		case Eventos.MOSTRAR_CLIENTES_SESION_BIEN: {
+			
+			
+			ArrayList<Object[]> lista = (ArrayList<Object[]>) data;
+
+			MostrarClientesWindow clientesWindow = new MostrarClientesWindow(lista);
+			clientesWindow.setVisible(true);
 
 			break;
 		}

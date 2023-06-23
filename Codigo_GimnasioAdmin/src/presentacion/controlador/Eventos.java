@@ -49,6 +49,7 @@ public class Eventos {
 
 	// SESION
 	public static final int MOSTRAR_LISTA_SESION = 135;
+	public static final int MOSTRAR_CLIENTES_SESION = 136;
 
 	// _________________________________________________________________________________________________________
 
@@ -100,6 +101,7 @@ public class Eventos {
 
 	// SESION
 	public static final int MOSTRAR_LISTA_SESION_BIEN = 535;
+	public static final int MOSTRAR_CLIENTES_SESION_BIEN = 536;
 	
 	
 

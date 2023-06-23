@@ -7,7 +7,6 @@ import integracion.factoria.FactoriaDAOImp;
 import integracion.monitor.DAOMonitor;
 import integracion.sesion.DAOSesion;
 
-
 public class SASesionImp implements SASesion {
 
 	private DAOSesion daoSesion;
@@ -72,6 +71,12 @@ public class SASesionImp implements SASesion {
 		return 1;
 	}
 
-	
+	public ArrayList<Object[]> ListarClientes(int id) {
+		if (daoSesion.buscar(id) == null) {
+			throw new IllegalArgumentException("No existe una sesion con id " + id);
+		}
+		return daoSesion.listarClientes(id);
+
+	}
 
 }

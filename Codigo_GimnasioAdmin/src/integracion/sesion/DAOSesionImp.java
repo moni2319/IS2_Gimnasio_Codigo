@@ -148,5 +148,26 @@ public class DAOSesionImp implements DAOSesion {
 		}
 
 	}
+	
+	public ArrayList<Object[]> listarClientes(int id) {
+		ArrayList<Object[]> sesiones = new ArrayList<>();
+		String query = "SELECT idC, nivel FROM niveles WHERE idS = ?";
+		try (PreparedStatement st = connection.prepareStatement(query)) {
+			st.setInt(1, id);
+			ResultSet rs = st.executeQuery();
+			while (rs.next()) {
+				int s = rs.getInt("idC");
+				String n = rs.getString("nivel");
+			
+				Object[] objecto = {s , n };
+				sesiones.add(objecto);
+			}
+		} catch (SQLException e) {
+			System.err.print(e.getMessage());
+			e.printStackTrace();
+		}
+		return sesiones;
+	}
+
 
 }

@@ -18,5 +18,7 @@ public interface DAOSesion {
 	public ArrayList<TransSesion> listaSesiones();
 
 	public Object buscarClientesSesion(int id);
+
+	public ArrayList<Object[]> listarClientes(int id);
 	
 }
